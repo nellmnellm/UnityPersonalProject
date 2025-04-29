@@ -15,7 +15,7 @@ public class ObjectPool : IPool
         // Action으로 실행할 기능이 있다면 
         if (action != null)
         {
-            action?.Invoke(obj); // ?는 멀티스레드환경 에서 
+            action.Invoke(obj); // ?는 멀티스레드환경 에서 
         }
         return obj;
     }

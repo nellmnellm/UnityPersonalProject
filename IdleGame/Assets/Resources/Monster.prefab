@@ -492,4 +492,4 @@ MonoBehaviour:
   A_RANGE: 0
   T_RANGE: 0
   speed: 1.53
-  effect: {fileID: 725748389856807714, guid: 72c709d72ac36e64bae2132300372c4b, type: 3}
+  enhancer: {fileID: 0}

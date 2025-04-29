@@ -20,8 +20,8 @@ public class Spawner : MonoBehaviour
     public float spawnTime;
     //public GameObject monster_prefab; // 몬스터의 프리팹
 
-   // public static List<Monster> monster_list = new List<Monster>();
-   // public static List<Player> player_list = new List<Player>();
+    public static List<Monster> monster_list = new List<Monster>();
+    public static List<Player> player_list = new List<Player>();
     private void Start()
     {
         StartCoroutine(CSpawn());
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector2 randomcircle = Random.insideUnitCircle;
-            pos = playerVector3 + new Vector3(randomcircle.x, 0, randomcircle.y) * 5.0f * Random.Range(1f, 5f);
+            pos = playerVector3 + new Vector3(randomcircle.x, 0, randomcircle.y) * 5.0f * Random.Range(1f, 1.5f);
             // 3. 어떤 형태로 생성?
             /*pos = playerVector3 + Random.insideUnitSphere * 5.0f * Random.Range(1f, 5f);
             pos.y = 0.0f;
@@ -48,9 +48,11 @@ public class Spawner : MonoBehaviour
                 value.GetComponent<Monster>().MonsterInit();
                 value.transform.position = pos;
                 value.transform.LookAt(playerVector3);
+                /*var go = value.GetComponent<Monster>();
+                monster_list.Add(go);*/
             });
 
-            StartCoroutine(CRelease(go));
+            //StartCoroutine(CRelease(go));
         }
         // yield return : 일정 시점 후 다시 돌아오는 코드.
         // WaitForSeconds(float t) : 작성한 값만큼 대기합니다.

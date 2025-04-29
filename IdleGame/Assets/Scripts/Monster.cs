@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // 컴포넌트 (Component) -> 유니티 오브젝트가 사용할 기능.
@@ -16,8 +17,11 @@ public class Monster : Unit
     // 
 
     bool isSpawn = false;
-
+    bool isDead = false;
     Vector3 playerVector3 = new Vector3(5, 0, -5);
+
+    public WeaponEnhancer enhancer;
+    
 
     IEnumerator Onspawn()
     {
@@ -45,24 +49,48 @@ public class Monster : Unit
         base.Start(); // Unit의 start 호출.
       /*  StartCoroutine(Onspawn());
         MonsterInit();*/
-        HP = 5.0f;
-        GetDamage(5.0f);
-        
+        HP = 10.0f;
+        //GetDamage(5.0f);
+        if (enhancer == null)
+        {
+            enhancer = FindObjectOfType<WeaponEnhancer>();
+        }
     }
     
+    //public GameObject effect;
 
 
     public void GetDamage(double dmg)
     {
+        dmg += (double)enhancer.weaponLevel;
+        //죽었다면 호출되지 않게
+        if (isDead)
+        {
+            return;
+        }
+
+
+        
+        //HitText 처리
+        Manager.Pool.pooling("Hit").get((value) =>
+        {
+            value.GetComponent<HitText>().Init(transform.position, dmg);
+
+        });
         HP -= dmg;
+
         if (HP <= 0)
         {
             var effect = Manager.Pool.pooling("Effect01").get(
                 (value) => value.transform.position = transform.position);
-
-
-           /* var eff = Resources.Load<GameObject>(effect.name);
-            Instantiate(eff, transform.position, Quaternion.identity);*/
+            
+            Destroy(gameObject);
+            /* var eff = Resources.Load<GameObject>(effect.name);
+             Instantiate(eff, transform.position, Quaternion.identity);*/
+            Manager.Pool.pooling("CoinMove").get(value =>
+            {
+                value.GetComponent<CoinMove>().Init(transform.position);
+            });
         }
             
           
@@ -92,10 +120,15 @@ public class Monster : Unit
             SetAnimator("IsMOVE"); //이동 모드로 변경
         }
 
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GetDamage(1);
+        }
     }
 
     
-
+   
     
     #region
     //굿

@@ -9,6 +9,9 @@ public class WeaponEnhancer : MonoBehaviour
     private Light weaponLight;       // 무기에 붙일 라이트
     private Coroutine enhanceRoutine;
 
+    [Header("LogUI")]
+    public Text logText;
+    private Coroutine currentCoroutine;
 
     public Button enhanceButton;
     private GameObject failEffectPrefab;
@@ -35,10 +38,33 @@ public class WeaponEnhancer : MonoBehaviour
         if (failEffectPrefab == null)
             Debug.LogError("WeaponEnhancer: Effect02 프리팹을 Resources 폴더에서 찾을 수 없습니다!");
 
-        UpdateUI();
+        UpdateEnhanceUI();
     }
 
-    private void UpdateUI()
+    public void ShowMessage(string message, float duration = 5f)
+    {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
+
+        currentCoroutine = StartCoroutine(ShowMessageCoroutine(message, duration));
+    }
+
+    private IEnumerator ShowMessageCoroutine(string message, float duration)
+    {
+        logText.text = message;
+        logText.enabled = true;
+
+        yield return new WaitForSeconds(duration);
+
+        logText.text = "";
+        logText.enabled = false;
+    }
+
+
+
+    private void UpdateEnhanceUI()
     {
         float currentSuccessRate = GetCurrentSuccessRate();
 
@@ -105,15 +131,18 @@ public class WeaponEnhancer : MonoBehaviour
             weaponLight.enabled = true; // 성공: 빛 유지
             weaponLevel++;
             ChangeWeaponLightColor();
-            UpdateUI();
-            Debug.Log("강화 성공!");
+            UpdateEnhanceUI();
+            Debug.Log($"강화 성공! {weaponLevel}");
+            ShowMessage($"강화 성공! {weaponLevel}레벨 무기가 되었습니다.", 5f);
         }
         else
         {
+            weaponLevel = 0;
             weaponLight.enabled = false;
             weaponObject.SetActive(false);
-            UpdateUI();
+            UpdateEnhanceUI();
             Debug.Log("강화 실패... 무기가 사라졌습니다.");
+            ShowMessage("강화 실패...! 무기가 사라졌습니다.", 5f);
             if (enhanceButton != null)
             {
                 enhanceButton.interactable = false; // 버튼 비활성화
@@ -170,8 +199,9 @@ public class WeaponEnhancer : MonoBehaviour
                 enhanceButton.interactable = true; // 버튼 활성화
             }
 
-            UpdateUI();
+            UpdateEnhanceUI();
             Debug.Log("0레벨 무기로 복구되었습니다!");
+            ShowMessage("0레벨 무기로 복구되었습니다!", 5f);
         }
     }
 }

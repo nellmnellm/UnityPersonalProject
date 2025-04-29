@@ -41,8 +41,11 @@ public class Manager : MonoBehaviour
     public static PoolManager Pool { get { return PoolManager; } }
 
 
+
     public GameObject ResourceInstantiate(string path) =>
         Instantiate(Resources.Load<GameObject>(path));
+
+    
 
 
 }

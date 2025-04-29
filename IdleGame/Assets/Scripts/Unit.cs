@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour
     public float A_RANGE; //사거리
     public float T_RANGE; //추격 범위
 
+    [Header("타겟 위치")]
+    public Transform target;
+
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,6 +24,12 @@ public class Unit : MonoBehaviour
 
     protected void SetAnimator(string temp)
     {
+        // bool타입이 아닌 Trigger 타입은 이렇게 처리
+        if (temp == "IsATTACK")
+        {
+            animator.SetTrigger("IsATTACK");
+            return;
+        }
         //기본 파라미터에 대한 reset
         animator.SetBool("IsIDLE", false);
         animator.SetBool("IsMOVE", false);
@@ -28,5 +37,32 @@ public class Unit : MonoBehaviour
         animator.SetBool(temp, true);
     }
 
+    protected void StrikeFirst<T>(T[] targets) where T : Component
+    {
+        var enemys = targets;
+        Transform closet = null;
+        var max = T_RANGE;
+
+        for (int i=0; i<enemys.Length; i++)
+        {
+            var target_distance = Vector3.Distance(
+                transform.position, enemys[i].transform.position);
+            if (target_distance < max)
+            {
+                //가장 가까운 거리
+                closet = enemys[i].transform;
+                //최대 거리는 타겟의 거리로 설정.
+                max = target_distance;
+            }
+            
+
+        }
+        //가장 가까운 값을 타겟으로.
+        target = closet;
+        if (target != null)
+        {
+            transform.LookAt(target);
+        }
+    }
   
 }
