@@ -8,13 +8,9 @@ public class HitText : MonoBehaviour
     
     public Text message; //텍스트
     //텍스트출력 위치 보정값
-    float up = 1f;
+    float up = 0f;
 
-    private void Start()
-    {
-        
-    }
-
+    
     private void Update()
     {
         var pos = new Vector3(target.x, target.y + up, target.z);
@@ -26,7 +22,7 @@ public class HitText : MonoBehaviour
         target = pos;
         message.text = value.ToString();
         //UI를 기본 캠퍼스에 연결
-        transform.parent = B_Canvas.Instance.transform;
+        transform.parent = B_Canvas.Instance.GetLayer(1);
         //
         //Release();
     }

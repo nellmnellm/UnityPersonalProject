@@ -18,9 +18,13 @@ public class Player : Unit
 
     private void Update()
     {
+
+        StrikeFirst(Spawner.monster_list.ToArray()); //리스트를 배열로
+
+
         if (target == null)
         {
-            StrikeFirst(Spawner.monster_list.ToArray()); //리스트를 배열로
+
 
             var targetPos = Vector3.Distance(transform.position, pos);
 
@@ -51,6 +55,7 @@ public class Player : Unit
         else if (targetDistance <= A_RANGE)
         {
             SetAnimator("IsATTACK");
+            
         }
     }
 }

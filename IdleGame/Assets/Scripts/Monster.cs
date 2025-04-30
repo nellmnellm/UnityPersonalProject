@@ -18,7 +18,7 @@ public class Monster : Unit
 
     bool isSpawn = false;
     bool isDead = false;
-    Vector3 playerVector3 = new Vector3(5, 0, -5);
+    
 
     public WeaponEnhancer enhancer;
     
@@ -57,7 +57,7 @@ public class Monster : Unit
         }
     }
     
-    //public GameObject effect;
+    public GameObject effect;
 
 
     public void GetDamage(double dmg)
@@ -66,6 +66,7 @@ public class Monster : Unit
         //죽었다면 호출되지 않게
         if (isDead)
         {
+            
             return;
         }
 
@@ -82,15 +83,29 @@ public class Monster : Unit
         if (HP <= 0)
         {
             var effect = Manager.Pool.pooling("Effect01").get(
-                (value) => value.transform.position = transform.position);
-            
-            Destroy(gameObject);
+                (value) => value.transform.position = new Vector3(transform.position.x,
+                                                                  transform.position.y,
+                                                                  transform.position.z));
+
+            //gameObject.SetActive(false);
             /* var eff = Resources.Load<GameObject>(effect.name);
              Instantiate(eff, transform.position, Quaternion.identity);*/
             Manager.Pool.pooling("CoinMove").get(value =>
             {
                 value.GetComponent<CoinMove>().Init(transform.position);
             });
+
+            for (int i=0; i<4; i++)
+            {
+                Manager.Pool.pooling("ItemObject").get((value) =>
+                {
+                    value.GetComponent<Item_Object>().Init(transform.position);
+                });
+
+
+            }
+            Manager.Pool.pool_dict["Monster"].Release(gameObject);
+            //gameObject.SetActive(false); 
         }
             
           
@@ -98,16 +113,16 @@ public class Monster : Unit
     }
     public void MonsterInit() => StartCoroutine(Onspawn());
 
-
+    
     // 유니티 라이프 싸이클 함수 (생명 주기)
     private void Update()
     {
-        transform.LookAt(playerVector3); //특정 방향을 바라보게 설정하는 기능.
+        transform.LookAt(Vector3.zero); //특정 방향을 바라보게 설정하는 기능.
         if (isSpawn == false)
             return;
   
             //var => 파라미터로는 적을 수 없음. 
-        var distance = Vector3.Distance(transform.position, playerVector3);
+        var distance = Vector3.Distance(transform.position, Vector3.zero);
 
         //기준보다 측정 거리가 작을 경우
         if (distance < 0.6f)
@@ -116,15 +131,15 @@ public class Monster : Unit
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, playerVector3, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, Time.deltaTime * speed);
             SetAnimator("IsMOVE"); //이동 모드로 변경
         }
 
 
-        if (Input.GetKeyDown(KeyCode.A))
+       /* if (Input.GetKeyDown(KeyCode.A))
         {
             GetDamage(1);
-        }
+        }*/
     }
 
     

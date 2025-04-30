@@ -31,8 +31,9 @@ public class CoinMove : MonoBehaviour
         {
             rects[i].anchoredPosition = Vector2.zero;
         }
-        transform.parent = B_Canvas.Instance.transform;
+        transform.parent = B_Canvas.Instance.GetLayer(0);
 
+        //코루틴 작동
         StartCoroutine(Move());
     }
 

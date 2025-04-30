@@ -30,14 +30,14 @@ public class Spawner : MonoBehaviour
 
     IEnumerator CSpawn()
     {
-        Vector3 playerVector3 = new Vector3(5, 0, -5);
+        
         // 1.어디에 생성?
         Vector3 pos;
         // 2. 몇 회 생성?
         for (int i = 0; i < count; i++)
         {
             Vector2 randomcircle = Random.insideUnitCircle;
-            pos = playerVector3 + new Vector3(randomcircle.x, 0, randomcircle.y) * 5.0f * Random.Range(1f, 1.5f);
+            pos = new Vector3(randomcircle.x, 0, randomcircle.y) * 5.0f * Random.Range(1f, 2f);
             // 3. 어떤 형태로 생성?
             /*pos = playerVector3 + Random.insideUnitSphere * 5.0f * Random.Range(1f, 5f);
             pos.y = 0.0f;
@@ -47,7 +47,8 @@ public class Spawner : MonoBehaviour
             {
                 value.GetComponent<Monster>().MonsterInit();
                 value.transform.position = pos;
-                value.transform.LookAt(playerVector3);
+                value.transform.LookAt(Vector3.zero);
+                monster_list.Add(value.GetComponent<Monster>());    
                 /*var go = value.GetComponent<Monster>();
                 monster_list.Add(go);*/
             });

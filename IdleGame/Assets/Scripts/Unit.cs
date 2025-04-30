@@ -15,13 +15,27 @@ public class Unit : MonoBehaviour
 
     [Header("타겟 위치")]
     public Transform target;
-
+    public Transform attack_transform;
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         //코드 내에서 animator를 인식하고 필드나 메서드 사용가능.
     }
 
+    protected virtual void AttackObject()
+    {
+        Debug.Log("이벤트 테스트");
+        Manager.Pool.pooling("Attack").get((value) =>
+        {
+            value.transform.position = attack_transform.position;
+            value.GetComponent<Attack>().Init(target, 1, "Attack01");
+           
+        });
+    }
+           
+
+
+    
     protected void SetAnimator(string temp)
     {
         // bool타입이 아닌 Trigger 타입은 이렇게 처리
@@ -61,7 +75,7 @@ public class Unit : MonoBehaviour
         target = closet;
         if (target != null)
         {
-            transform.LookAt(target);
+            transform.LookAt(target.position);
         }
     }
   

@@ -23,7 +23,7 @@ public class PoolManager : MonoBehaviour
 {
     //딕셔너리 => 키는 값을 접근하기 위한 고유한 값. 값은 실질적인 data(중복가능)
     public Dictionary<string, IPool> pool_dict = new Dictionary<string, IPool>();
-    Transform b_obj;
+    //Transform b_obj;
 
     public IPool pooling(string path)
     {
