@@ -1,2 +1,2 @@
 # UnityPersonalProject
-개인별 프로젝트 진행
+유니티 13기 개인 3D, 2D 프로젝트 
