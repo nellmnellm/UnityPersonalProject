@@ -38,10 +38,17 @@ public class ScoreManager : MonoBehaviour
     //죽음 상태 체크
     [SerializeField] private bool DeadCheck = false;
 
+    [SerializeField] private bool GameStart = false;
+
+    IEnumerator GameStartWait()
+    { 
+        yield return new WaitForSeconds(3f);
+        GameStart = true;
+    }
     
     private void Start()
     {
-        
+        StartCoroutine(GameStartWait());
         //HIGH_SCORE 키가 없다면, 키를 먼저 생성
         if (PlayerPrefs.HasKey("HIGH_SCORE") == false)
         {
@@ -66,6 +73,8 @@ public class ScoreManager : MonoBehaviour
    
     void Update()
     {
+        if (!GameStart)
+            return;
         //죽음 상태일 경우 스코어가 더이상 오르지 않습니다.
         //플레이어와 UI에서 같은 조건으로 처리되고 있을 경우라면
         //static 형태의 데이터로 처리하는 것도 괜찮습니다.
