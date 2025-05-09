@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
     //텍스트 UI
     public TMP_Text scoreText;
     public TMP_Text HighScore;
-
+    public TMP_Text START;
     //죽음 상태 체크
     [SerializeField] private bool DeadCheck = false;
 
@@ -44,6 +44,9 @@ public class ScoreManager : MonoBehaviour
     { 
         yield return new WaitForSeconds(3f);
         GameStart = true;
+        START.text = "START!!";
+        yield return new WaitForSeconds(1f);
+        START.text = "";
     }
     
     private void Start()
@@ -86,7 +89,7 @@ public class ScoreManager : MonoBehaviour
         score += Time.deltaTime * 30;
 
 
-        scoreText.text = ((int)score).ToString();
+        scoreText.text = $"Score\n{((int)score).ToString()}";
 
         //score가 하이스코어 값을 넘었을 경우라면 텍스트 변경
         if (score > PlayerPrefs.GetInt("HIGH_SCORE"))
@@ -94,7 +97,7 @@ public class ScoreManager : MonoBehaviour
             //해당 코드를 사용하면 계속 프립스 값이 설정되기 때문에 연출로 보여주고, Dead에서 설정 1번으로 처리
             //PlayerPrefs.SetInt("HIGH_SCORE", (int)score);
             //HighScore.text = $"High Score : {PlayerPrefs.GetInt("HIGH_SCORE")}"; 
-            HighScore.text = ((int)score).ToString();
+            HighScore.text = $"High\n{((int)score).ToString()}";
             HighScore.color = Color.red;
         }
 

@@ -35,8 +35,8 @@ public class SmallBoatSpawner : MonoBehaviour
             Rigidbody rb = spawnedBoat.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Vector3 targetPos = player.position; //+ offset;
-                playerController.SetSpeed(3);
+                Vector3 targetPos = player.position + new Vector3(0, -0.2f, 0.2f);
+                playerController.SetSpeed(4);
                 rb.MovePosition(Vector3.Lerp(rb.position, targetPos, 4f * Time.deltaTime));
             }
         }
