@@ -18,7 +18,6 @@ public class RideDisplayUI : MonoBehaviour
     void Start()
     {
         string selectedRide = PlayerPrefs.GetString("SelectedRide", "Horse");
-
         // 매칭된 스프라이트 찾기
         Sprite rideSprite = GetSpriteForRide(selectedRide);
         rideDisplayImage.sprite = rideSprite;

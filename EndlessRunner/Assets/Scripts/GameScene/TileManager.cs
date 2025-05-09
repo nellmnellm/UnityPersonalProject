@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,9 @@ public class TileManager : MonoBehaviour
     private float tileLength = 8.0f; //타일의 길이
     private float passZone = 15.0f; //타일 유지 거리
     private int tile_on_screen = 7; //화면에 배치할 타일
-
+   
+    public TMP_Text boatStatusText;
+    public int BoatCount = 0;
     private void Start()
     {
         tiles = new List<GameObject>();
@@ -30,6 +33,7 @@ public class TileManager : MonoBehaviour
 
     private void Update()
     {
+        boatStatusText.text = $"Boat\n{BoatCount}번 이용가능";
         if (player_transform.position.z - passZone > (spawnZ - tile_on_screen * tileLength))
         {
             Spawn();
@@ -37,18 +41,23 @@ public class TileManager : MonoBehaviour
         }
     }
 
-   
-
     private void Spawn() //int prefabIdx = -1)
     {
         int randInt = Random.Range(0, 4);
+        if (randInt == 3)
+        {
+            BoatCount++;
+        }
         var go = Instantiate(tilePrefabs[randInt]); //고정된값 생성
         go.transform.SetParent(transform); //자식오브젝트로
         go.transform.position = Vector3.forward * spawnZ + new Vector3 (0,-0.5f,0);
         spawnZ += tileLength; // 타일 길이 기준 생성위치 증가
         tiles.Add(go); //타일 리스트에 등록
+        
     }
 
+    
+    
     private void Release()
     {
         Destroy(tiles[0]); //타일 제거
