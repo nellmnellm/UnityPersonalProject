@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 6.__
-  m_Shader: {fileID: 4800000, guid: 0781c64b7f2a1604ea6aa7e252080372, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8c17b56f4bf084c47872edcb95237e4a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -19,7 +19,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses:
@@ -123,15 +123,17 @@ Material:
     - _AddLightToonMin: 0.5
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
-    - _AlphaMode: 0
+    - _AlphaMode: 1
     - _AlphaToMask: 0
     - _AmbientToDiffuse: 5
     - _Blend: 0
+    - _BlendMode: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
+    - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -145,7 +147,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.2236068
     - _GlossyReflections: 1
-    - _M_AlphaToMask: 0
+    - _M_AlphaToMask: 1
     - _M_CullMode: 2
     - _M_DebugMode: 0
     - _M_DstBlend: 0
@@ -186,6 +188,7 @@ Material:
     - _UvAnimRotationSpeed: 0
     - _UvAnimScrollXSpeed: 0
     - _UvAnimScrollYSpeed: 0
+    - _VColBlendMode: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
