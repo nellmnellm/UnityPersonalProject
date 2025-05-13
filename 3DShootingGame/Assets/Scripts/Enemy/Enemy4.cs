@@ -23,7 +23,7 @@ public class Enemy4 : Enemy
 
         yield return new WaitForSeconds(delaySeconds);
 
-        var target = GameObject.Find("Player");
+        var target = GameObject.FindWithTag("Player");
         dir = target.transform.position - transform.position;
         dir.Normalize();
         speed = rushSpeed;

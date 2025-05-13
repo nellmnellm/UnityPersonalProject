@@ -16,6 +16,7 @@ public class CharacterCarouselManager : MonoBehaviour
 {
     public Transform[] cameraPositions; // 카메라가 이동할 위치들
     public CharacterInfo[] characters; // 각 위치의 캐릭터 (info 접근용)
+    public GameObject[] playerPrefabs; // 캐릭터 선택에 따른 플레이어 프리팹
     public GameObject[] timelineObjects;// 캐릭터별 애니메이터 타임라인 적용
     public Transform cameraTransform;   // 카메라 참조
 
@@ -99,7 +100,10 @@ public class CharacterCarouselManager : MonoBehaviour
             rightButton.enabled = true;
         }
     }
-           
-    
+
+    public int GetCurrentIndex()
+    {
+        return currentIndex;
+    }
 
 }

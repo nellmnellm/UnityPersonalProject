@@ -12,31 +12,31 @@ public class Enemy : MonoBehaviour
     public int enemyScore;
 
     public GameObject effect;
-    
-    
-    
-    protected void Start()
-    {
-      /*  int randValue = Random.Range(0, 10);
-        if (randValue < 3)
-        {
-            //게임 신에서 player를 검색
-            var target = GameObject.Find("Player");
-            dir = target.transform.position - transform.position;
-            dir.Normalize();
 
-        }
 
-        else if (randValue < 8)
-        {
-            dir = Vector3.down;
-        }
 
-        else
-        {
-            dir = Vector3.down * 3;
-        }*/
-    }
+    /*   protected void Start()
+      {
+         int randValue = Random.Range(0, 10);
+          if (randValue < 3)
+          {
+              //게임 신에서 player를 검색
+              var target = GameObject.Find("Player");
+              dir = target.transform.position - transform.position;
+              dir.Normalize();
+
+          }
+
+          else if (randValue < 8)
+          {
+              dir = Vector3.down;
+          }
+
+          else
+          {
+              dir = Vector3.down * 3;
+          }
+    }*/
 
 
     protected void Update()

@@ -13,7 +13,7 @@ public enum BGM
 
 public enum SFX
 {
-    Bullet, 
+    Bullet, Boom,
 }
 [Serializable]
 public class BGMClip
@@ -21,6 +21,7 @@ public class BGMClip
     public BGM type;
     public AudioClip clip;
 }
+[Serializable]
 public class SFXClip
 {
     public SFX type;

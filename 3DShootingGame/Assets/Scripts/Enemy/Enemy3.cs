@@ -6,7 +6,7 @@ public class Enemy3 : Enemy
     {
         speed = 15;
         HP = 5;
-        var target = GameObject.Find("Player");
+        var target = GameObject.FindWithTag("Player");
         dir = target.transform.position - transform.position;
         dir.Normalize();
         enemyScore = 400;
