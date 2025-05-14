@@ -6,15 +6,16 @@ public class Enemy : MonoBehaviour
 {
     [Header("총알 설정")]
     public GameObject bulletPrefab;
-    public Transform firePoint;
-
-    [Header("적 정보")]
-    public float speed;
-    public Vector3 dir;
-    public int HP;
-    public int enemyScore;
-
+    public Transform firePoint; 
     public GameObject effect;
+
+    //[Header("적 정보")]
+    protected float speed;
+    protected Vector3 dir;
+    protected int HP;
+    protected int enemyScore;
+
+    
 
 
     
@@ -85,16 +86,5 @@ public class Enemy : MonoBehaviour
         
     }
 
-    
-    //충돌 끝
-    protected void OnCollisionExit(Collision collision)
-    {
-        
-    }
-    //충돌 진행 상황.
-    protected void OnCollisionStay(Collision collision)
-    {
-        
-    }
 
 }

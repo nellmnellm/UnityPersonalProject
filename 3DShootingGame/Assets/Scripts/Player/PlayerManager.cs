@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int HP = 5;                     // 플레이어의 목숨 수
+    
+    public int HP = 5;                    // 플레이어의 목숨 수
+    public GameObject heartPrefab;             // 목숨 이미지 프리펩
+    public List<GameObject> hearts = new List<GameObject>(5);
+    public Transform heartContainer;      // 목숨 UI가 들어갈 위치
     public int level = 1;                  // 총알 개수
     public GameObject bulletFactory;       // bullet prefab 할당
     //public int score = 0;
@@ -32,8 +37,32 @@ public class PlayerManager : MonoBehaviour
         return bullet;
     }
 
+    void UpdateHearts()
+    {
+        
+        // 하트 수가 다르면 다시 생성
+        if (hearts.Count != HP)
+        {
+            // 기존 하트 제거
+            foreach (var heart in hearts)
+            {
+                Destroy(heart);
+            }
+            hearts.Clear();
+
+            // 새로운 하트 생성
+            for (int i = 0; i < HP; i++)
+            {
+                GameObject heart = Instantiate(heartPrefab, heartContainer);
+                hearts.Add(heart);
+            }
+        }
+    }
+
     void Start()
     {
+        UpdateHearts();
+
         for (int i = 0; i < initialPoolSize; i++)
         {
             AddBulletToPool();
@@ -115,7 +144,7 @@ public class PlayerManager : MonoBehaviour
     void TakeDamage(int damage)
     {
         HP -= damage;
-
+        UpdateHearts();
         var explosion = Instantiate(effect);
         explosion.transform.position = transform.position;
 

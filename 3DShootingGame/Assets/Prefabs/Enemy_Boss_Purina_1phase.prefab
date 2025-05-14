@@ -4380,7 +4380,7 @@ GameObject:
   - component: {fileID: 4656491283090619721}
   - component: {fileID: 6431038140987339287}
   m_Layer: 9
-  m_Name: Enemy_Boss_Purina
+  m_Name: Enemy_Boss_Purina_1phase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4394,15 +4394,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2655137582003593717}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3924664569164423218}
   - {fileID: 3048073353109256042}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!136 &4656491283090619721
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4422,7 +4422,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.7
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -4440,11 +4440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4135246952179764487, guid: 33c0a74e1b7b9c84b812b39bcc66bbeb, type: 3}
   firePoint: {fileID: 2458093450061942706}
-  speed: 0
-  dir: {x: 0, y: 0, z: 0}
-  HP: 0
-  enemyScore: 0
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  bulletSpawnPointPrefab: {fileID: 6010983091452869014, guid: 6dbe230c55d02d1438f6e2a1839747e9, type: 3}
 --- !u!1 &2663649568484428755
 GameObject:
   m_ObjectHideFlags: 0
