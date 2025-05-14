@@ -2,20 +2,32 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5;
-
-    void Update()
+    public float speed = 5f;
+    
+    
+    
+    private void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
         Vector3 dir = new Vector3(h, v, 0);
 
         // transform.Translate(dir * speed * Time.deltaTime);
 
-        transform.position += dir * speed * Time.deltaTime;
+        
 
-
+        
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            transform.position += dir * 2 * Time.deltaTime;
+           
+        }
+        else
+        {
+            transform.position += dir * speed * Time.deltaTime;
+        }
+        
         // transform.Translate(Vector3 dir);
         // 게임 오브젝트를 이동시키기 위한 용도
         // 게임 오브젝트의 위치를 Vector3 방향으로 이동하게 됨

@@ -313,10 +313,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
-  m_Height: 5
+  m_Radius: 1
+  m_Height: 6
   m_Direction: 0
-  m_Center: {x: 0, y: 1.1720083, z: 0.07636464}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &1665619313623658697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,9 +329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6b9f97b8e913c41a20d02a6f252e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4581984816989659299, guid: cef536418df748147b038841c048063f, type: 3}
+  firePoint: {fileID: 1079756938039733684}
   speed: 0
   dir: {x: 0, y: 0, z: 0}
-  HP: 150
+  HP: 120
   enemyScore: 0
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   rushSpeed: 30

@@ -4,6 +4,9 @@ using UnityEngine.PlayerLoop;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("ÃÑ¾Ë ¼³Á¤")]
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     [Header("Àû Á¤º¸")]
     public float speed;
@@ -14,7 +17,7 @@ public class Enemy : MonoBehaviour
     public GameObject effect;
 
 
-
+    
     /*   protected void Start()
       {
          int randValue = Random.Range(0, 10);
@@ -75,7 +78,8 @@ public class Enemy : MonoBehaviour
                 ScoreManager.instance.Score += enemyScore;
             }
 
-            Destroy(other.gameObject); // ÃÑ¾Ë ÆÄ±«
+            // Destroy(other.gameObject); // ÃÑ¾Ë ÆÄ±«
+            other.gameObject.SetActive(false); //** ÃÑ¾Ë ºñÈ°¼ºÈ­(¿ÀºêÁ§Æ®Ç®)
         }
 
         

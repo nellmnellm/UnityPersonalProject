@@ -9,7 +9,26 @@ public class Enemy3 : Enemy
         var target = GameObject.FindWithTag("Player");
         dir = target.transform.position - transform.position;
         dir.Normalize();
-        enemyScore = 400;
+        enemyScore = 500;
+        InvokeRepeating(nameof(FireBullet), 0f, 0.5f);
 
+    }
+
+    void FireBullet()
+    {
+        var target = GameObject.FindWithTag("Player");
+        if (target != null)
+        {
+            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            bullet.GetComponent<EnemyBullet>().SetDirection(bulletDir);
+            bullet.GetComponent<EnemyBullet>().SetSpeed(20);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CancelInvoke(nameof(FireBullet));
     }
 }
