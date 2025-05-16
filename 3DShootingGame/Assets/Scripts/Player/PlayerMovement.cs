@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField]
+    private float speed = 10f;
     
     
     
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            transform.position += dir * 2 * Time.deltaTime;
+            transform.position += dir * 3 * Time.deltaTime;
            
         }
         else

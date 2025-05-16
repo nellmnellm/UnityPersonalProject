@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     [Header("발사 간격")]
-    [SerializeField] private float fireInterval = 0.2f; //발사 간격
+    [SerializeField] private float fireInterval = 0.14f; //발사 간격
     private float fireCooldownTimer = 0f;
 
     public int HP = 5;                    // 플레이어의 목숨 수

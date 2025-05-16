@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     protected void CreateBullet(GameObject bulletPrefab, Vector3 position, Vector3 rotation, Func<float> speedFunction)
     {
         GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
+
         var bulletComponent = bullet.GetComponent<EnemyBullet>();
         bulletComponent.SetDirection(rotation);
         bulletComponent.SetSpeed(speedFunction);

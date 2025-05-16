@@ -1088,6 +1088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab27007d5df3374eae2b91ac4079d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireInterval: 0.14
   HP: 3
   heartPrefab: {fileID: 5660782481123460690, guid: d0726270331b2224281e3c1b0d6aff53, type: 3}
   hearts: []

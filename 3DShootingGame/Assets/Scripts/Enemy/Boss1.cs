@@ -12,7 +12,7 @@ public class Boss1 : Enemy
     
 
 
-    private Transform[] bulletSpawnPoints;    // Transform 배열로 관리
+    
 
     private void Start()
     {
@@ -77,8 +77,8 @@ public class Boss1 : Enemy
                 int currentI = i; // C# 클로저 문제! 람다함수가 참조만 하다가 마지막에 호출하는데 9만 반영됨. 나중에 더 알아볼것.
                 for (int j = 0; j < 6; j++)
                 {
-                    CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.2f * currentI); 
-                    //CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.2f * i);
+                    CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.4f * currentI); 
+                    //CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.4f * i);
                 }
             }
         }
@@ -90,25 +90,33 @@ public class Boss1 : Enemy
     {
         Vector3[] positions = new Vector3[]
         {
-        new Vector3(-8,  1, 0),
-        new Vector3(-8,  7, 0),
-        new Vector3(-8, -5, 0),
-        new Vector3( 8,  1, 0),
-        new Vector3( 8,  7, 0),
-        new Vector3( 8, -5, 0)
+            new Vector3(-8,  -1, 0),
+            new Vector3(-8,  5, 0),
+            new Vector3(-8, -7, 0),
+        };
+        Vector3[] ReversePositions = new Vector3[]
+        {
+            new Vector3( 8,  -1, 0),
+            new Vector3( 8,  5, 0),
+            new Vector3( 8, -7, 0)
         };
 
-        bulletSpawnPoints = new Transform[positions.Length];
+        
 
         for (int i = 0; i < positions.Length; i++)
         {
+            int currentI = i;
             for (int j = 0; j < 3; j++)
             {
                 // n도씩 퍼지는 3발
                 float angle3 = -angle + (angle * j); // -n, 0, n도
                 
-                CreateBullet(bulletPrefab, firePoint.position + positions[i], Quaternion.Euler(0,0,angle3) * Vector3.right, () => 4f);
+                CreateBullet(bulletPrefab, firePoint.position + positions[i], 
+                    Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
+                CreateBullet(bulletPrefab, firePoint.position + ReversePositions[i], 
+                    Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);
             }
+            
         }
        
 
@@ -120,15 +128,15 @@ public class Boss1 : Enemy
         int count = 0;
         while (true)
         {
-            if (count % 10 == 0)
+            if (count % 4 == 0)
             {
-                CreateBulletSpawnPoints(20f, 2f);
+                CreateBulletSpawnPoints(25f, 2f);
             }
 
             FireBulletPhase2();
             count++;
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.17f);
         }
     }
 
@@ -152,9 +160,9 @@ public class Boss1 : Enemy
         int count = 0;
         while (true)
         {
-            if (count % 10 == 0)
+            if (count % 4 == 0)
             {
-                CreateBulletSpawnPoints(30f, 3f);
+                CreateBulletSpawnPoints(45f, 4f);
             }
             FireBulletPhase3();
             count++;

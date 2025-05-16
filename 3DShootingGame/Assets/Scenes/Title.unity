@@ -8636,6 +8636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab27007d5df3374eae2b91ac4079d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireInterval: 0.2
   HP: 5
   heartPrefab: {fileID: 0}
   hearts: []
@@ -10786,6 +10787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab27007d5df3374eae2b91ac4079d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireInterval: 0.2
   HP: 5
   heartPrefab: {fileID: 0}
   hearts: []
@@ -27892,6 +27894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab27007d5df3374eae2b91ac4079d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireInterval: 0.2
   HP: 10
   heartPrefab: {fileID: 0}
   hearts: []

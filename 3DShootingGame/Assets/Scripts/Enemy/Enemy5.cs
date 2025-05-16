@@ -81,11 +81,13 @@ public class Enemy5 : Enemy
             Vector3 pos1 = center + rotation * offset;
             Vector3 pos2 = center + rotation * offset2;
 
+            Vector3 dir1 = (pos1 - center).normalized;
+            Vector3 dir2 = (pos2 - center).normalized;
+
             GameObject b1 = Instantiate(bulletPrefab, pos1, Quaternion.identity);
             GameObject b2 = Instantiate(bulletPrefab, pos2, Quaternion.identity);
 
-            Vector3 dir1 = (pos1 - center).normalized;
-            Vector3 dir2 = (pos2 - center).normalized;
+           
 
             b1.GetComponent<EnemyBullet>().SetDirection(dir1);
             b1.GetComponent<EnemyBullet>().SetSpeed(() => 8);

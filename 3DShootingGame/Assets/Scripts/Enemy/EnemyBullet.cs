@@ -11,6 +11,9 @@ public class EnemyBullet : MonoBehaviour
     public void SetDirection(Vector3 dir)
     {
         direction = dir.normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
+        //transform.rotation = Quaternion.Euler(direction);
     }
 
     
