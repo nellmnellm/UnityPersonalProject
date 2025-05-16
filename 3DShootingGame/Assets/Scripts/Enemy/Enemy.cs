@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -5,20 +6,17 @@ using UnityEngine.PlayerLoop;
 public class Enemy : MonoBehaviour
 {
     [Header("총알 설정")]
-    public GameObject bulletPrefab;
-    public Transform firePoint; 
-    public GameObject effect;
+    public GameObject bulletPrefab; //총알 프리펩
+    public Transform firePoint;     //총알 나오는곳 (적의 위치)
+    public GameObject effect;       //적 죽는 효과
 
     //[Header("적 정보")]
-    protected float speed;
-    protected Vector3 dir;
-    protected int HP;
-    protected int enemyScore;
-
-    
+    protected float speed;          //적 속도
+    protected Vector3 dir;          //적의 방향 ( 스포너에서 소환되는 경우가 많으므로 감안하고 설정할것)
+    protected int HP;               //적의 HP
+    protected int enemyScore;       //적이 주는 점수
 
 
-    
     /*   protected void Start()
       {
          int randValue = Random.Range(0, 10);
@@ -42,6 +40,13 @@ public class Enemy : MonoBehaviour
           }
     }*/
 
+    protected void CreateBullet(GameObject bulletPrefab, Vector3 position, Vector3 rotation, Func<float> speedFunction)
+    {
+        GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
+        var bulletComponent = bullet.GetComponent<EnemyBullet>();
+        bulletComponent.SetDirection(rotation);
+        bulletComponent.SetSpeed(speedFunction);
+    }
 
     protected void Update()
     {
@@ -63,8 +68,6 @@ public class Enemy : MonoBehaviour
             ScoreManager.instance.Score += enemyScore;
             //부딛히면 죽음
         }
-
-
     }*/
 
     protected void OnTriggerEnter(Collider other)
@@ -78,13 +81,8 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
                 ScoreManager.instance.Score += enemyScore;
             }
-
             // Destroy(other.gameObject); // 총알 파괴
             other.gameObject.SetActive(false); //** 총알 비활성화(오브젝트풀)
         }
-
-        
     }
-
-
 }

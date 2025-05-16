@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class Enemy5 : Enemy
@@ -7,7 +7,7 @@ public class Enemy5 : Enemy
 
     public float rushSpeed = 10f;
     public int starCount = 10;
-    public float starRadius = 15f;
+    public float starRadius = 5f;
     private void Start()
     {
         speed = 5f;
@@ -19,7 +19,7 @@ public class Enemy5 : Enemy
 
     }
 
-    void FireBullet()
+    private void FireBullet()
     {
         FireStarPattern();
     }
@@ -52,13 +52,12 @@ public class Enemy5 : Enemy
             SpawnStarPattern(transform.position, starCount, starRadius, targetDir, bulletPrefab);
         }
     }
-
     public void SpawnStarPattern(Vector3 center, int count, float radius, Vector3 targetDir, GameObject bulletPrefab)
     {
         float smallRadius = radius * 0.382f;
         float middleRadius = radius * 0.691f;
 
-        Quaternion rotation = Quaternion.FromToRotation(Vector3.up, targetDir.normalized); // È¸Àü ¹æÇâ
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.up, targetDir.normalized); // íšŒì „ ë°©í–¥
 
         for (int i = 0; i < count; i++)
         {
@@ -89,7 +88,9 @@ public class Enemy5 : Enemy
             Vector3 dir2 = (pos2 - center).normalized;
 
             b1.GetComponent<EnemyBullet>().SetDirection(dir1);
+            b1.GetComponent<EnemyBullet>().SetSpeed(() => 8);
             b2.GetComponent<EnemyBullet>().SetDirection(dir2);
+            b2.GetComponent<EnemyBullet>().SetSpeed(() => 8);
         }
     }
 }

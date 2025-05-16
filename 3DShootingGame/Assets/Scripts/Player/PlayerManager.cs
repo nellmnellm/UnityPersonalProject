@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    
+    [Header("발사 간격")]
+    [SerializeField] private float fireInterval = 0.2f; //발사 간격
+    private float fireCooldownTimer = 0f;
+
     public int HP = 5;                    // 플레이어의 목숨 수
     public GameObject heartPrefab;             // 목숨 이미지 프리펩
     public List<GameObject> hearts = new List<GameObject>(5);
@@ -71,8 +74,31 @@ public class PlayerManager : MonoBehaviour
         renderers = GetComponentsInChildren<Renderer>();
     }
 
-
     private void Update()
+    {
+        fireCooldownTimer -= Time.deltaTime;
+
+        if (Input.GetButton("Fire1") && fireCooldownTimer <= 0f)
+        {
+            for (int j = 0; j < level; j++)
+            {
+                for (int i = 0; i < initialPoolSize; i++) // 오브젝트 풀
+                {
+                    var bullet = bulletObjectPool[i];
+
+                    if (!bullet.activeSelf)
+                    {
+                        bullet.SetActive(true);
+                        bullet.transform.position = firePosition[j].transform.position;
+                        break;
+                    }
+                }
+            }
+
+            fireCooldownTimer = fireInterval; // 쿨타임 초기화
+        }
+    }
+   /* private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -95,7 +121,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
         
-       /* if (Input.GetButtonDown("Fire1"))
+       *//* if (Input.GetButtonDown("Fire1"))
         {
             
             for (int i=0; i<level; i++)
@@ -105,8 +131,8 @@ public class PlayerManager : MonoBehaviour
 
             }
            
-        }*/
-    }
+        }*//*
+    }*/
 
 
   /*  private void OnCollisionEnter(Collision collision)

@@ -1,9 +1,8 @@
+using System;
 using UnityEngine;
 
 public class Enemy1 : Enemy
 {
-    
-
     private void Start()
     {
         speed = 5;
@@ -13,17 +12,15 @@ public class Enemy1 : Enemy
         InvokeRepeating(nameof(FireBullet), 0f, 0.5f);
     }
 
-
-    void FireBullet()
+    private void FireBullet()
     {
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
 
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<EnemyBullet>().SetDirection(bulletDir);
-            bullet.GetComponent<EnemyBullet>().SetSpeed(15);
+            CreateBullet(bulletPrefab, firePoint.position, bulletDir, () => 15);
+            
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,10 +12,10 @@ public class Enemy2 : Enemy
         enemyScore = 200;
         InvokeRepeating(nameof(FireBullet), 0f, 1f);
     }
-
-    void FireBullet()
+    
+    private void FireBullet()
     {
-        StartCoroutine(Littledelay(0.1f));
+        StartCoroutine(Littledelay(0.05f));
     }
 
     IEnumerator Littledelay(float sec)
@@ -23,25 +24,19 @@ public class Enemy2 : Enemy
         if (target != null)
         {
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-            Vector3 bulletDir5do = Quaternion.Euler(0, 0, 5f) * bulletDir;
-            Vector3 bulletDirm5do = Quaternion.Euler(0, 0, -5f) * bulletDir;
-            GameObject bullet1 = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet1.GetComponent<EnemyBullet>().SetDirection(bulletDir);
-            bullet1.GetComponent<EnemyBullet>().SetSpeed(15);
+            
+            CreateBullet(bulletPrefab, firePoint.position, bulletDir, ()=>15);
             yield return new WaitForSeconds(sec);
-            GameObject bullet2 = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet2.GetComponent<EnemyBullet>().SetDirection(bulletDir5do);
-            bullet2.GetComponent<EnemyBullet>().SetSpeed(10);
-            GameObject bullet3 = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet3.GetComponent<EnemyBullet>().SetDirection(bulletDirm5do);
-            bullet3.GetComponent<EnemyBullet>().SetSpeed(10);
-
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, 5f) * bulletDir, () => 11);
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, -5f) * bulletDir, () => 11);
+            yield return new WaitForSeconds(sec);
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, 10f) * bulletDir, () => 7);
+            CreateBullet(bulletPrefab, firePoint.position, bulletDir, () => 7);
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, -10f) * bulletDir, () => 7);
         }
     }
     private void OnDestroy()
     {
         CancelInvoke(nameof(FireBullet));
     }
-
-
 }

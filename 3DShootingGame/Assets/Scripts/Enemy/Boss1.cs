@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Boss1 : Enemy
 {
     private int phase = 1;
     private Coroutine phaseRoutine;
+    [Header("2, 3phase 총알")]
+    public GameObject bulletPrefab2; // 파랑. 원래꺼는 빨강 설정
+    
 
-    public GameObject bulletSpawnPointPrefab;
+
     private Transform[] bulletSpawnPoints;    // Transform 배열로 관리
 
     private void Start()
@@ -16,13 +21,11 @@ public class Boss1 : Enemy
         
         enemyScore = 10000;
 
-        CreateBulletSpawnPoints(); // 작동 안됨. 추후 고려
-
         StartCoroutine(AfterStop(1f));
         StartPhase(phase); // 첫 페이즈 시작
     }
 
-    void StartPhase(int newPhase)
+    private void StartPhase(int newPhase)
     {
         // 이전 패턴 종료
         if (phaseRoutine != null) StopCoroutine(phaseRoutine);
@@ -32,7 +35,7 @@ public class Boss1 : Enemy
         switch (phase)
         {
             case 1:
-                HP = 100;
+                HP = 150;
                 phaseRoutine = StartCoroutine(Phase1Pattern());
                 break;
 
@@ -53,7 +56,7 @@ public class Boss1 : Enemy
     }
 
     // === Phase 1 ===
-    IEnumerator Phase1Pattern()
+    private IEnumerator Phase1Pattern()
     {
         while (true)
         {
@@ -62,7 +65,7 @@ public class Boss1 : Enemy
         }
     }
 
-    void FireBullet1phase()
+    private void FireBullet1phase()
     {
         var target = GameObject.FindWithTag("Player");
         if (target != null)
@@ -71,12 +74,11 @@ public class Boss1 : Enemy
 
             for (int i = 5; i < 10; i++)
             {
-                for (int j = 0; j < 4; j++)
+                int currentI = i; // C# 클로저 문제! 람다함수가 참조만 하다가 마지막에 호출하는데 9만 반영됨. 나중에 더 알아볼것.
+                for (int j = 0; j < 6; j++)
                 {
-                    Vector3 TanbulletDir = Quaternion.Euler(0, 0, j * 90) * bulletDir;
-                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-                    bullet.GetComponent<EnemyBullet>().SetDirection(TanbulletDir);
-                    bullet.GetComponent<EnemyBullet>().SetSpeed(2.5f * i);
+                    CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.2f * currentI); 
+                    //CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.2f * i);
                 }
             }
         }
@@ -84,7 +86,7 @@ public class Boss1 : Enemy
 
     // === Phase 2 ===
 
-    private void CreateBulletSpawnPoints()
+    private void CreateBulletSpawnPoints(float angle, float speed)
     {
         Vector3[] positions = new Vector3[]
         {
@@ -100,23 +102,37 @@ public class Boss1 : Enemy
 
         for (int i = 0; i < positions.Length; i++)
         {
-            GameObject point = Instantiate(bulletSpawnPointPrefab, transform); // 보스 하위에 생성
-            point.transform.localPosition = positions[i]; // 보스를 기준으로 한 상대 위치
-            bulletSpawnPoints[i] = point.transform;
+            for (int j = 0; j < 3; j++)
+            {
+                // n도씩 퍼지는 3발
+                float angle3 = -angle + (angle * j); // -n, 0, n도
+                
+                CreateBullet(bulletPrefab, firePoint.position + positions[i], Quaternion.Euler(0,0,angle3) * Vector3.right, () => 4f);
+            }
         }
+       
+
     }
 
 
-    IEnumerator Phase2Pattern()
+    private IEnumerator Phase2Pattern()
     {
+        int count = 0;
         while (true)
         {
+            if (count % 10 == 0)
+            {
+                CreateBulletSpawnPoints(20f, 2f);
+            }
+
             FireBulletPhase2();
+            count++;
+
             yield return new WaitForSeconds(0.2f);
         }
     }
 
-    void FireBulletPhase2()
+    private void FireBulletPhase2()
     {
         // 보스 주변 원형 발사 예시
         int bulletCount = 18;
@@ -126,62 +142,37 @@ public class Boss1 : Enemy
             float angle = i * (360f / bulletCount);
             Vector3 dir = Quaternion.Euler(0, 0, angle + angle2) * Vector3.down;
 
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<EnemyBullet>().SetDirection(dir);
-            bullet.GetComponent<EnemyBullet>().SetSpeed(6f);
-        }
-
-        foreach (var spawn in bulletSpawnPoints)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                // 10도씩 퍼지는 3발
-                float angle = -10f + (10f * i); // -10, 0, 10도
-                Vector3 dir = Quaternion.Euler(0, 0, angle) * spawn.transform.up;
-
-                GameObject bullet = Instantiate(bulletPrefab, spawn.transform.position, Quaternion.identity);
-                bullet.GetComponent<EnemyBullet>().SetDirection(dir);
-                bullet.GetComponent<EnemyBullet>().SetSpeed(2.0f); // 느리게
-            }
+            CreateBullet(bulletPrefab2, firePoint.position, dir, () => 8);
         }
     }
-
+    
     // === Phase 3 ===
-    IEnumerator Phase3Pattern()
+    private IEnumerator Phase3Pattern()
     {
+        int count = 0;
         while (true)
         {
+            if (count % 10 == 0)
+            {
+                CreateBulletSpawnPoints(30f, 3f);
+            }
             FireBulletPhase3();
-            yield return new WaitForSeconds(0.1f);
+            count++;
+
+            yield return new WaitForSeconds(0.15f);
         }
     }
 
-    void FireBulletPhase3()
+    private void FireBulletPhase3()
     {
         // 혼합 패턴: 랜덤 각도 + 빠른 속도
         for (int i = 0; i < 15; i++)
         {
             float angle = Random.Range(0f, 360f);
-            Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.down;
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<EnemyBullet>().SetDirection(dir);
-            bullet.GetComponent<EnemyBullet>().SetSpeed(8f);
+            CreateBullet(bulletPrefab2, firePoint.position, Quaternion.Euler(0, 0, angle) * Vector3.down, () => 8f);
         }
 
-        foreach (var spawn in bulletSpawnPoints)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                // 20도씩 퍼지는 3발
-                float angle = -20f + (20f * i); // -20, 0, 20도
-                Vector3 dir = Quaternion.Euler(0, 0, angle) * spawn.transform.up;
-
-                GameObject bullet = Instantiate(bulletPrefab, spawn.transform.position, Quaternion.identity);
-                bullet.GetComponent<EnemyBullet>().SetDirection(dir);
-                bullet.GetComponent<EnemyBullet>().SetSpeed(4.0f); // 느리게
-            }
-        }
+        
     }
 
     // === 페이즈 체력 처리 ===
@@ -211,7 +202,7 @@ public class Boss1 : Enemy
         }
     }
 
-    IEnumerator AfterStop(float delaySeconds)
+    private IEnumerator AfterStop(float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds);
         speed = 0.0f;

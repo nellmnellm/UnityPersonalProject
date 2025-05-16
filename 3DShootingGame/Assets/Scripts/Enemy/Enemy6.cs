@@ -11,27 +11,24 @@ public class Enemy6 : Enemy
         dir = Vector3.down;
         HP = 12;
         enemyScore = 800;
-        InvokeRepeating(nameof(FireBullet), 0f, 0.1f);
+        InvokeRepeating(nameof(FireBullet), 0f, 0.13f);
         StartCoroutine(RushAfterDelay(3f));
 
     }
 
-    void FireBullet()
+    private void FireBullet()
     {
         float ran = Random.Range(0f, 2f);
 
         var target = GameObject.FindWithTag("Player");
-        Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
+       
         if (target != null)
         {
+            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
             for (int i = 0; i < 18; i++)
             {
-                
-                Vector3 TanbulletDir = Quaternion.Euler(0, 0, (20 * i) + (int)ran * 10) * bulletDir;
-
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-                bullet.GetComponent<EnemyBullet>().SetDirection(TanbulletDir);
-                bullet.GetComponent<EnemyBullet>().SetSpeed(10);
+                CreateBullet(bulletPrefab, firePoint.position, 
+                Quaternion.Euler(0, 0, (20 * i) + (int)ran * 10) * bulletDir, () => 10);
             }
 
         }

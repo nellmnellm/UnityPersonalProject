@@ -4438,10 +4438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ef47dac52d5e45bf268a38aa9a56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4135246952179764487, guid: 33c0a74e1b7b9c84b812b39bcc66bbeb, type: 3}
+  bulletPrefab: {fileID: 4840315530690053264, guid: e998720cd9e61bd45bbf300d58710cd7, type: 3}
   firePoint: {fileID: 2458093450061942706}
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-  bulletSpawnPointPrefab: {fileID: 6010983091452869014, guid: 6dbe230c55d02d1438f6e2a1839747e9, type: 3}
+  bulletPrefab2: {fileID: 7493598509062371845, guid: 9dfff7c7aef8bac4b9b1e6dd604f5789, type: 3}
 --- !u!1 &2663649568484428755
 GameObject:
   m_ObjectHideFlags: 0

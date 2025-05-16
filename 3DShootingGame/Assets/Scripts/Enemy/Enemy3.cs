@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy3 : Enemy
@@ -10,20 +11,22 @@ public class Enemy3 : Enemy
         dir = target.transform.position - transform.position;
         dir.Normalize();
         enemyScore = 500;
-        InvokeRepeating(nameof(FireBullet), 0f, 0.5f);
+        InvokeRepeating(nameof(FireBullet), 0f, 0.6f);
 
     }
-
-    void FireBullet()
+    
+    private void FireBullet()
     {
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
+            
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
 
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<EnemyBullet>().SetDirection(bulletDir);
-            bullet.GetComponent<EnemyBullet>().SetSpeed(20);
+            CreateBullet(bulletPrefab, firePoint.position, bulletDir, () => 15);
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, 30f) * bulletDir, () => 15);
+            CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, -30f) * bulletDir, () => 15);
+            
         }
     }
 
