@@ -10,8 +10,8 @@ public class Enemy4 : Enemy
     {
         speed = 5f;
         dir = Vector3.down;
-        HP = 120;
-        enemyScore = 2000;
+        HP = 180;
+        enemyScore = 5000;
         InvokeRepeating(nameof(FireBullet), 0f, 0.2f);
         StartCoroutine(RushAfterDelay(9f));
 
@@ -26,8 +26,12 @@ public class Enemy4 : Enemy
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
             for (int i=0; i<30; i++)
             {
-                CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, (12 * i)) * bulletDir, () => 6);
-            }        }
+                int CurrentI = i;
+                SetBullet(bulletObjectPool, firePoint.position, () => Quaternion.Euler(0, 0, (12 * CurrentI)) * bulletDir, () => 6);
+            
+                //CreateBullet(bulletPrefab, firePoint.position, () => Quaternion.Euler(0, 0, (12 * CurrentI)) * bulletDir, () => 6);
+            }        
+        }
     }
 
     private void OnDestroy()

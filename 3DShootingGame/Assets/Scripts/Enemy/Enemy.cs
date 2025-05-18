@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -9,6 +10,10 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab; //총알 프리펩
     public Transform firePoint;     //총알 나오는곳 (적의 위치)
     public GameObject effect;       //적 죽는 효과
+    [Header("오브젝트 풀")]
+    public int initialPoolSize = 100;    //** 총알의 개수
+    protected List<GameObject> bulletObjectPool = new List<GameObject>(); //** 오브젝트 풀
+    
 
     //[Header("적 정보")]
     protected float speed;          //적 속도
@@ -40,15 +45,67 @@ public class Enemy : MonoBehaviour
           }
     }*/
 
-    protected void CreateBullet(GameObject bulletPrefab, Vector3 position, Vector3 rotation, Func<float> speedFunction)
+    protected virtual GameObject AddBulletToPool(GameObject bulletPrefab, List<GameObject>bulletPool)
+    {
+        var bullet = Instantiate(bulletPrefab);
+        bullet.SetActive(false);
+        bulletPool.Add(bullet);
+        return bullet;
+    }
+
+    protected void SetBullet(List<GameObject> bulletObjectPool, Vector3 position, Func<Vector3> directionFunction, Func<float> speedFunction)
+    {
+        bool bulletFound = false;
+        for (int i = 0; i < initialPoolSize; i++) // 오브젝트 풀
+        {
+            var bullet = bulletObjectPool[i];
+
+            if (!bullet.activeSelf)
+            {
+                bullet.transform.position = position;
+                bullet.transform.rotation = Quaternion.identity;
+                bullet.SetActive(true);
+                var bulletComponent = bullet.GetComponent<EnemyBullet>();
+                bulletComponent.SetDirection(directionFunction);
+                bulletComponent.SetSpeed(speedFunction);
+                bulletFound = true;
+                break;
+            }
+            //정해진 오브젝트풀 갯수를 넘을경우. => 성능 안나옴!!!!!절대 안일어나게 개수 잘 설정
+            /*GameObject newBullet = Instantiate(bulletPrefab, position, Quaternion.identity);
+            newBullet.SetActive(true);
+            var newBulletComponent = newBullet.GetComponent<EnemyBullet>();
+            newBulletComponent.SetDirection(directionFunction);
+            newBulletComponent.SetSpeed(speedFunction); 
+            bulletObjectPool.Add(newBullet); // 풀에 추가
+            순식간에 프레임드랍이 너무 심해서 빼버림. 총알 수는 증가 가능하지만 성능 이슈*/
+            
+        }
+        if (!bulletFound)
+        {
+            Debug.LogWarning($"[SetBullet] 사용 가능한 총알이 없습니다! 풀 크기: {bulletObjectPool.Count}");
+        }
+
+    }
+
+
+    protected void CreateBullet(GameObject bulletPrefab, Vector3 position, Func<Vector3> directionFunction, Func<float> speedFunction)
     {
         GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
 
         var bulletComponent = bullet.GetComponent<EnemyBullet>();
-        bulletComponent.SetDirection(rotation);
+        bulletComponent.SetDirection(directionFunction);
         bulletComponent.SetSpeed(speedFunction);
+
     }
 
+    protected virtual void Awake()
+    {
+        for (int i = 0; i < initialPoolSize; i++)
+        {
+            AddBulletToPool(bulletPrefab, bulletObjectPool);
+        }
+    }
     protected void Update()
     {
         transform.position += dir * speed * Time.deltaTime;
@@ -82,8 +139,17 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
                 ScoreManager.instance.Score += enemyScore;
             }
-            // Destroy(other.gameObject); // 총알 파괴
             other.gameObject.SetActive(false); //** 총알 비활성화(오브젝트풀)
+        }
+        else if (other.CompareTag("Bomb"))
+        {
+            HP -= 50;
+            if (HP <= 0)
+            {
+                var explosion = Instantiate(effect, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                ScoreManager.instance.Score += enemyScore;
+            }
         }
     }
 }

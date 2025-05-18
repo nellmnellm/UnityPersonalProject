@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.40557134, g: 0.5335086, b: 0.9245283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -948,8 +948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
-  m_SizeDelta: {x: 300, y: 150}
+  m_AnchoredPosition: {x: 0, y: 250}
+  m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357765339
 MonoBehaviour:
@@ -998,8 +998,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 504a0cd2d489f7e4eb7b2b378d296683, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.95169085, g: 0.5613208, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3100,7 +3100,7 @@ GameObject:
   - component: {fileID: 1824477280}
   - component: {fileID: 1824477279}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: CharaSelectBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3208,7 +3208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 43}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839652392
@@ -3231,8 +3231,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "LCtrl    -    \uCD1D\uC54C \uBC1C\uC0AC\n\nLShift   -    \uC774\uB3D9\uC18D\uB3C4
-    \uAC10\uC18C\n\n\uC0C1\uD558\uC88C\uC6B0  -  \uC774\uB3D9 "
+  m_text: "Z                -    \uCD1D\uC54C \uBC1C\uC0AC\n\nX                -   
+    \uD3ED\uD0C4 \uBC1C\uC0AC\n\nLShift    -    \uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C\n\n\uC0C1\uD558\uC88C\uC6B0 
+    -    \uC774\uB3D9 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58cdb2cd4d1f41842b77f7c06d51fca2, type: 2}
   m_sharedMaterial: {fileID: 7078747050253188818, guid: 58cdb2cd4d1f41842b77f7c06d51fca2, type: 2}
@@ -3241,8 +3242,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3702,7 +3703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7830189, g: 0.4986205, b: 0.4986205, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8637,12 +8638,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 0.2
+  bulletPrefab: {fileID: 0}
   HP: 5
-  heartPrefab: {fileID: 0}
+  heartImagePrefab: {fileID: 0}
   hearts: []
   heartContainer: {fileID: 0}
   level: 2
-  bulletFactory: {fileID: 4581984816989659299, guid: 7b6398d3ce0b8434c86ea28405a57acf, type: 3}
+  bombCount: 2
+  bombImagePrefab: {fileID: 0}
+  bombs: []
+  bombContainer: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  effectDuration: 2
+  bombCooltime: 5
+  mainCam: {fileID: 0}
+  cutsceneCam: {fileID: 0}
+  cutsceneTime: 1
   effect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
   invincibleDuration: 2
   firePosition:
@@ -10788,12 +10799,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 0.2
+  bulletPrefab: {fileID: 0}
   HP: 5
-  heartPrefab: {fileID: 0}
+  heartImagePrefab: {fileID: 0}
   hearts: []
   heartContainer: {fileID: 0}
   level: 2
-  bulletFactory: {fileID: 4581984816989659299, guid: 7b6398d3ce0b8434c86ea28405a57acf, type: 3}
+  bombCount: 2
+  bombImagePrefab: {fileID: 0}
+  bombs: []
+  bombContainer: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  effectDuration: 2
+  bombCooltime: 5
+  mainCam: {fileID: 0}
+  cutsceneCam: {fileID: 0}
+  cutsceneTime: 1
   effect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
   invincibleDuration: 2
   firePosition:
@@ -19418,7 +19439,7 @@ Animator:
   m_GameObject: {fileID: 919132148866991274}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0236008d79dbc9344982b2a844fe1ec4, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4539c3bf70c730244a2e35b643a2b65b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a1327af5f88a0b42bdfd25df2d1bbce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25590,7 +25611,7 @@ Animator:
   m_GameObject: {fileID: 1887735495203744383}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 811b2f53680193541a47d02fe4bfc709, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4539c3bf70c730244a2e35b643a2b65b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a1327af5f88a0b42bdfd25df2d1bbce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -27895,12 +27916,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 0.2
+  bulletPrefab: {fileID: 0}
   HP: 10
-  heartPrefab: {fileID: 0}
+  heartImagePrefab: {fileID: 0}
   hearts: []
   heartContainer: {fileID: 0}
   level: 2
-  bulletFactory: {fileID: 4581984816989659299, guid: 7b6398d3ce0b8434c86ea28405a57acf, type: 3}
+  bombCount: 2
+  bombImagePrefab: {fileID: 0}
+  bombs: []
+  bombContainer: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  effectDuration: 2
+  bombCooltime: 5
+  mainCam: {fileID: 0}
+  cutsceneCam: {fileID: 0}
+  cutsceneTime: 1
   effect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
   invincibleDuration: 2
   firePosition:
@@ -27921,7 +27952,7 @@ Animator:
   m_GameObject: {fileID: 2125134109344295868}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0bcbc5d604417d34bb39a6992f09617a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4539c3bf70c730244a2e35b643a2b65b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a1327af5f88a0b42bdfd25df2d1bbce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

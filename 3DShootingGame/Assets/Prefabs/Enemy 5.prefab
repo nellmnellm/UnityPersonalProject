@@ -128,11 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4135246952179764487, guid: 33c0a74e1b7b9c84b812b39bcc66bbeb, type: 3}
   firePoint: {fileID: 400000}
-  speed: 0
-  dir: {x: 0, y: 0, z: 0}
-  HP: 70
-  enemyScore: 0
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  initialPoolSize: 100
   rushSpeed: 10
   starCount: 10
   starRadius: 4

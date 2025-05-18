@@ -12,8 +12,8 @@ public class Enemy5 : Enemy
     {
         speed = 5f;
         dir = Vector3.down;
-        HP = 70;
-        enemyScore = 1500;
+        HP = 90;
+        enemyScore = 2500;
         InvokeRepeating(nameof(FireBullet), 0f, 0.4f);
         StartCoroutine(RushAfterDelay(5f));
 
@@ -89,9 +89,9 @@ public class Enemy5 : Enemy
 
            
 
-            b1.GetComponent<EnemyBullet>().SetDirection(dir1);
+            b1.GetComponent<EnemyBullet>().SetDirection(()=>dir1);
             b1.GetComponent<EnemyBullet>().SetSpeed(() => 8);
-            b2.GetComponent<EnemyBullet>().SetDirection(dir2);
+            b2.GetComponent<EnemyBullet>().SetDirection(()=>dir2);
             b2.GetComponent<EnemyBullet>().SetSpeed(() => 8);
         }
     }

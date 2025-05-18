@@ -9,8 +9,8 @@ public class Enemy6 : Enemy
     {
         speed = 5f;
         dir = Vector3.down;
-        HP = 12;
-        enemyScore = 800;
+        HP = 25;
+        enemyScore = 2400;
         InvokeRepeating(nameof(FireBullet), 0f, 0.13f);
         StartCoroutine(RushAfterDelay(3f));
 
@@ -27,8 +27,12 @@ public class Enemy6 : Enemy
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
             for (int i = 0; i < 18; i++)
             {
+                int currentI = i;
+                //SetBullet(bulletObjectPool, firePoint.position,
+                //() => Quaternion.Euler(0, 0, (20 * currentI) + (int)ran * 10) * bulletDir, () => 10);
+                //버그 존재! 오브젝트 풀 사용하면 총알이 의도한 모양대로 나오지 않음
                 CreateBullet(bulletPrefab, firePoint.position, 
-                Quaternion.Euler(0, 0, (20 * i) + (int)ran * 10) * bulletDir, () => 10);
+                () => Quaternion.Euler(0, 0, (20 * currentI) + (int)ran * 10) * bulletDir, () => 10);
             }
 
         }

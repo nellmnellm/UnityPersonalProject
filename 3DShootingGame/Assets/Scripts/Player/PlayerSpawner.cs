@@ -4,6 +4,7 @@ public class PlayerSpawner : MonoBehaviour
 {
     GameObject mo;
     public Transform HeartContainer;
+    public Transform BombContainer;
     private void Start()
     {
         if (PlayerSelectionManager.selectedPlayerPrefab != null)
@@ -18,6 +19,7 @@ public class PlayerSpawner : MonoBehaviour
 
         PlayerManager playerManager = mo.GetComponent<PlayerManager>();
         playerManager.heartContainer = HeartContainer;
+        playerManager.bombContainer = BombContainer;
         
     }
 }

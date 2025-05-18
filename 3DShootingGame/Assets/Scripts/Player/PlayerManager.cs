@@ -6,17 +6,37 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("발사 간격")]
+    [Header("총알 관리, 발사 간격")]
     [SerializeField] private float fireInterval = 0.14f; //발사 간격
     private float fireCooldownTimer = 0f;
+    public GameObject bulletPrefab;       // bullet prefab 할당
 
+    [Header("목숨 관리")]
     public int HP = 5;                    // 플레이어의 목숨 수
-    public GameObject heartPrefab;             // 목숨 이미지 프리펩
+    public GameObject heartImagePrefab;             // 목숨 이미지 프리펩
     public List<GameObject> hearts = new List<GameObject>(5);
     public Transform heartContainer;      // 목숨 UI가 들어갈 위치
-    public int level = 1;                  // 총알 개수
-    public GameObject bulletFactory;       // bullet prefab 할당
-    //public int score = 0;
+
+    [Header("레벨 관리")]
+    public int level = 1;                  // 총알 개수 (아직 구현 안된 부분 => 3 고정)
+
+    [Header("폭탄 관리")]
+    
+    public int bombCount = 2;
+    public GameObject bombImagePrefab;
+    public List<GameObject> bombs = new List<GameObject>(2);
+    public Transform bombContainer;
+    
+    public GameObject bombPrefab;
+    public float effectDuration = 2.0f;
+    public float bombCooltime = 5f;
+    private float lastBombTime = -999f;
+
+    [Header("폭탄 컷씬 관리")]
+    public Camera mainCam;
+    public Camera cutsceneCam;
+    private Animator playerAnimator;
+    public float cutsceneTime = 1.0f;
 
     [Header("피격시 무적 조절")]
     public GameObject effect;              // 피격시 이펙트
@@ -34,12 +54,30 @@ public class PlayerManager : MonoBehaviour
 
     private GameObject AddBulletToPool()
     {
-        var bullet = Instantiate(bulletFactory);
+        var bullet = Instantiate(bulletPrefab);
         bullet.SetActive(false);
         bulletObjectPool.Add(bullet);
         return bullet;
     }
+    void UpdateBombs()
+    {
+        if (bombs.Count != bombCount)
+        {
+            // 기존 하트 제거
+            foreach (var bomb in bombs)
+            {
+                Destroy(bomb);
+            }
+            bombs.Clear();
 
+            // 새로운 하트 생성
+            for (int i = 0; i < bombCount; i++)
+            {
+                GameObject bomb = Instantiate(bombImagePrefab, bombContainer);
+                bombs.Add(bomb);
+            }
+        }
+    }
     void UpdateHearts()
     {
         
@@ -56,7 +94,7 @@ public class PlayerManager : MonoBehaviour
             // 새로운 하트 생성
             for (int i = 0; i < HP; i++)
             {
-                GameObject heart = Instantiate(heartPrefab, heartContainer);
+                GameObject heart = Instantiate(heartImagePrefab, heartContainer);
                 hearts.Add(heart);
             }
         }
@@ -64,8 +102,12 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        UpdateHearts();
+        mainCam = Camera.main;
+        cutsceneCam.enabled = false;
+        playerAnimator = GetComponent<Animator>();
 
+        UpdateHearts();
+        UpdateBombs();
         for (int i = 0; i < initialPoolSize; i++)
         {
             AddBulletToPool();
@@ -97,60 +139,120 @@ public class PlayerManager : MonoBehaviour
 
             fireCooldownTimer = fireInterval; // 쿨타임 초기화
         }
+
+        if (Input.GetKeyDown(KeyCode.X) && bombCount > 0)
+        {
+            if (Time.time - lastBombTime < bombCooltime)
+            {
+                StartCoroutine(ShakeCamera());
+                return;
+            }
+            UseBomb();
+            bombCount--;
+            UpdateBombs();
+            lastBombTime = Time.time;
+        }
     }
-   /* private void Update()
+
+    public void UseBomb()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            for (int j=0; j<level; j++)
-            {
-                for (int i = 0; i < initialPoolSize; i++)              //** 오브젝트풀
-                {
-                    var bullet = bulletObjectPool[i];
+        StartCoroutine(BombCutsceneRoutine());
+    }
 
-                    if (bullet.activeSelf == false)
-                    {
-                        bullet.SetActive(true);
-
-                        bullet.transform.position = firePosition[j].transform.position;
-
-                        break;
-
-                    }
-                }
-            }
-        }
-        
-       *//* if (Input.GetButtonDown("Fire1"))
-        {
-            
-            for (int i=0; i<level; i++)
-            {
-                var bullet = Instantiate(bulletFactory);
-                bullet.transform.position = firePosition[i].transform.position;
-
-            }
-           
-        }*//*
-    }*/
-
-
-  /*  private void OnCollisionEnter(Collision collision)
+    IEnumerator BombCutsceneRoutine()
     {
-        if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
+        // 컷씬 카메라 활성화
+        mainCam.enabled = false;
+        cutsceneCam.enabled = true;
+
+        transform.position += new Vector3(0, 0, 2);
+        // 애니메이션 트리거
+        playerAnimator.SetTrigger("Punch");
+
+        // 컷씬 유지
+        yield return new WaitForSecondsRealtime(cutsceneTime);
+
+        // 카메라 복귀
+        cutsceneCam.enabled = false;
+        mainCam.enabled = true;
+        StartCoroutine(InvincibilityCoroutine());
+        // 폭탄 효과 시작
+        GameObject bomb = Instantiate(bombPrefab, new Vector3(0, -1f, -0.1f), Quaternion.identity);
+        bomb.SetActive(true);
+        transform.position += new Vector3(0, 0, -2);
+    }
+    IEnumerator ShakeCamera(float duration = 0.2f, float magnitude = 0.1f)
+    {
+        Vector3 originalPos = mainCam.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
         {
-            TakeDamage(1);
+            float offsetX = Random.Range(-1f, 1f) * magnitude;
+            float offsetY = Random.Range(-1f, 1f) * magnitude;
+
+            mainCam.transform.localPosition = originalPos + new Vector3(offsetX, offsetY, 0f);
+
+            elapsed += Time.deltaTime;
+            yield return null;
         }
 
-        else if (collision.gameObject.CompareTag("Item"))
-        {
-            if (level < 5)
-                level++;
-            //else
-                //score += 100;
-        }
-    }*/
+        mainCam.transform.localPosition = originalPos;
+    }
+    #region 
+    /* private void Update()
+     {
+         if (Input.GetButtonDown("Fire1"))
+         {
+             for (int j=0; j<level; j++)
+             {
+                 for (int i = 0; i < initialPoolSize; i++)              //** 오브젝트풀
+                 {
+                     var bullet = bulletObjectPool[i];
 
+                     if (bullet.activeSelf == false)
+                     {
+                         bullet.SetActive(true);
+
+                         bullet.transform.position = firePosition[j].transform.position;
+
+                         break;
+
+                     }
+                 }
+             }
+         }
+
+        *//* if (Input.GetButtonDown("Fire1"))
+         {
+
+             for (int i=0; i<level; i++)
+             {
+                 var bullet = Instantiate(bulletFactory);
+                 bullet.transform.position = firePosition[i].transform.position;
+
+             }
+
+         }*//*
+     }*/
+
+
+    /*  private void OnCollisionEnter(Collision collision)
+      {
+          if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
+          {
+              TakeDamage(1);
+          }
+
+          else if (collision.gameObject.CompareTag("Item"))
+          {
+              if (level < 5)
+                  level++;
+              //else
+                  //score += 100;
+          }
+      }*/
+    #endregion
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.CompareTag("Enemy") && !isInvincible)
@@ -171,6 +273,8 @@ public class PlayerManager : MonoBehaviour
     {
         HP -= damage;
         UpdateHearts();
+        bombCount = 2;
+        UpdateBombs();
         var explosion = Instantiate(effect);
         explosion.transform.position = transform.position;
 

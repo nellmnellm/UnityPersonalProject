@@ -11,7 +11,8 @@ public class ScoreManager : MonoBehaviour
     public int Score
     {
         get 
-        { 
+        {
+            currentScoreUI.text = $"Score\n{currentScore}";
             return currentScore; 
         }
         set 
