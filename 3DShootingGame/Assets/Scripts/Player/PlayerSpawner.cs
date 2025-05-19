@@ -1,13 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
     public Transform HeartContainer;
     public Transform BombContainer;
-    public Vector3 spawnPosition = new Vector3(-5f, 0f, 0f);
+    public Vector3 spawnPosition = new Vector3(0f, -5f, 0f);
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null;
         GameObject mo;
 
         if (PlayerManager.Instance == null)
@@ -20,7 +22,7 @@ public class PlayerSpawner : MonoBehaviour
             else
             {
                 Debug.LogWarning("선택된 플레이어가 없습니다!");
-                return;
+                yield break;
             }
         }
         else
@@ -28,16 +30,19 @@ public class PlayerSpawner : MonoBehaviour
             // 2스테이지: 기존 인스턴스 재사용
             mo = PlayerManager.Instance.gameObject;
             mo.transform.position = spawnPosition;
+            for (int i=0; i<100; i++)
+            {
+                PlayerManager.Instance.AddBulletToPool();
+            }
+           
         }
 
-        PlayerManager playerManager = mo.GetComponent<PlayerManager>();
 
         // UI 컨테이너 연결
-        playerManager.heartContainer = HeartContainer;
-        playerManager.bombContainer = BombContainer;
-
+        PlayerManager.Instance.SetUIContainers(HeartContainer, BombContainer);
         // UI 재생성
-        playerManager.UpdateHearts();
-        playerManager.UpdateBombs();
+        PlayerManager.Instance.UpdateHearts();
+        PlayerManager.Instance.UpdateBombs();
+        
     }
 }

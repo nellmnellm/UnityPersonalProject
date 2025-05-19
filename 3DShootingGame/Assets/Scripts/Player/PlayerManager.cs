@@ -42,14 +42,8 @@ public class PlayerManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 씬 전환 후 필요한 오브젝트 재참조
-        heartContainer = GameObject.Find("HeartContainer")?.transform;
-        bombContainer = GameObject.Find("BombContainer")?.transform;
         mainCam = Camera.main;
         playerAnimator = GetComponent<Animator>();
-
-
-        
     }
 
     #endregion
@@ -88,7 +82,9 @@ public class PlayerManager : MonoBehaviour
 
     [Header("피격시 무적 조절")]
     public GameObject effect;              // 피격시 이펙트
-    public float invincibleDuration = 2f;  // 피격시 무적 시간
+    // public float invincibleDuration = 2f;  // 피격시 무적 시간
+    // => 같은 IEnumerator를 재활용해서 5초 무적 부여하기 위해 코루틴 내부 파라미터로 선언. 
+    
     private bool isInvincible = false;     // 반짝이는 효과 적용 여부
     private Renderer[] renderers;          // 반짝이는 효과 적용을 위한 renderer 집합(구조의 하위구조)
     
@@ -99,8 +95,19 @@ public class PlayerManager : MonoBehaviour
     public int initialPoolSize = 100;    //** 총알의 개수
     public List<GameObject> bulletObjectPool = new List<GameObject>(); //** 오브젝트 풀
 
+    public void ClearBulletPool()
+    {
+        foreach (var bullet in bulletObjectPool)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet); // 실 메모리에서 제거
+            }
+        }
+        bulletObjectPool.Clear();
+    }
 
-    private GameObject AddBulletToPool()
+    public GameObject AddBulletToPool()
     {
         var bullet = Instantiate(bulletPrefab);
         bullet.SetActive(false);
@@ -147,6 +154,14 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    //씬 이동시 사용
+    public void SetUIContainers(Transform newHeartContainer, Transform newBombContainer)
+    {
+        heartContainer = newHeartContainer;
+        bombContainer = newBombContainer;
+        UpdateHearts();
+        UpdateBombs();
+    }
 
     void Start()
     {
@@ -168,7 +183,7 @@ public class PlayerManager : MonoBehaviour
     {
         fireCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && fireCooldownTimer <= 0f)
+        if (Input.GetButton("Fire1") && fireCooldownTimer <= 0f && bulletObjectPool.Count > 0)
         {
             for (int j = 0; j < level; j++)
             {
@@ -213,7 +228,7 @@ public class PlayerManager : MonoBehaviour
         mainCam.enabled = false;
         cutsceneCam.enabled = true;
 
-        transform.position += new Vector3(0, 0, 2);
+        transform.position = new Vector3(0, -50, 0);
         // 애니메이션 트리거
         playerAnimator.SetTrigger("Punch");
 
@@ -223,11 +238,12 @@ public class PlayerManager : MonoBehaviour
         // 카메라 복귀
         cutsceneCam.enabled = false;
         mainCam.enabled = true;
-        StartCoroutine(InvincibilityCoroutine());
+        transform.position = new Vector3(0, -5, 0);
+        StartCoroutine(InvincibilityCoroutine(2f));
         // 폭탄 효과 시작
         GameObject bomb = Instantiate(bombPrefab, new Vector3(0, -1f, -0.1f), Quaternion.identity);
         bomb.SetActive(true);
-        transform.position += new Vector3(0, 0, -2);
+        
     }
     IEnumerator ShakeCamera(float duration = 0.2f, float magnitude = 0.1f)
     {
@@ -320,16 +336,29 @@ public class PlayerManager : MonoBehaviour
     void TakeDamage(int damage)
     {
         HP -= damage;
+        bombCount = 0;
         UpdateHearts();
-        bombCount = 2;
-        UpdateBombs();
+        
         var explosion = Instantiate(effect);
         explosion.transform.position = transform.position;
+        StartCoroutine(RespawnAfterDelay(1f));
 
-        StartCoroutine(InvincibilityCoroutine());
+        bombCount = 2;
+        UpdateBombs();
+
+        StartCoroutine(InvincibilityCoroutine(5f));
+    }
+    IEnumerator RespawnAfterDelay(float delay)
+    {
+        // 렌더링 & 충돌 꺼서 안 보이게 함
+        transform.position = new Vector3(0f, -50f, 0f);
+        yield return new WaitForSeconds(delay);
+
+        transform.position = new Vector3(0f, -5f, 0f);
+
     }
 
-    IEnumerator InvincibilityCoroutine()
+    IEnumerator InvincibilityCoroutine(float invincibleDuration)
     {
         isInvincible = true;
 

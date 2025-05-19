@@ -20,6 +20,7 @@ public class Boss1 : Enemy
     private Animator animator;
     private bool isDead = false;
 
+    
     //hp UI 관련
     private int maxHP = 0; 
     public float HPNormalized => (float)HP / maxHP;
@@ -322,10 +323,12 @@ public class Boss1 : Enemy
         }
         else
         {
-            ScoreManager.instance.Score += enemyScore;
+            ScoreManager.Instance.Score += enemyScore;
             var explosion = Instantiate(effect, transform.position, Quaternion.identity);
             // 여기서 Destroy 안 하고 애니메이션 실행
             animator.SetTrigger("Die");
+
+            PlayerManager.Instance.ClearBulletPool();
 
             // 스토리 연출 호출
             StartCoroutine(WaitAndShowStory(3f));

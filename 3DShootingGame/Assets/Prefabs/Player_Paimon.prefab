@@ -1106,8 +1106,7 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   cutsceneCam: {fileID: 7400969234586035599}
   cutsceneTime: 1
-  effect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
-  invincibleDuration: 2
+  effect: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
   firePosition:
   - {fileID: 464857728168360603}
   - {fileID: 6235424755769200815}
@@ -5640,7 +5639,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4346298528958813991}
   - component: {fileID: 7400969234586035599}
-  - component: {fileID: 4055449234696879127}
   - component: {fileID: 6120917975996038516}
   m_Layer: 7
   m_Name: Camera
@@ -5715,14 +5713,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4055449234696879127
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7625065317144418750}
-  m_Enabled: 1
 --- !u!114 &6120917975996038516
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -137,7 +137,7 @@ public class Enemy : MonoBehaviour
             {
                 var explosion = Instantiate(effect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
-                ScoreManager.instance.Score += enemyScore;
+                ScoreManager.Instance.Score += enemyScore;
             }
             other.gameObject.SetActive(false); //** 총알 비활성화(오브젝트풀)
         }
@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour
             {
                 var explosion = Instantiate(effect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
-                ScoreManager.instance.Score += enemyScore;
+                ScoreManager.Instance.Score += enemyScore;
             }
         }
     }
