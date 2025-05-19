@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UniVRM10;
 using Random = UnityEngine.Random;
 
@@ -16,6 +18,7 @@ public class Boss1 : Enemy
     protected List<GameObject> bulletObjectPool2 = new List<GameObject>(); //** 오브젝트 풀
 
     private Animator animator;
+    private bool isDead = false;
 
     //hp UI 관련
     private int maxHP = 0; 
@@ -33,6 +36,7 @@ public class Boss1 : Enemy
     
     private void Start()
     {
+        
         animator = GetComponent<Animator>();
         speed = 5;
         dir = Vector3.down;
@@ -281,52 +285,67 @@ public class Boss1 : Enemy
     // === 페이즈 체력 처리 ===
     protected new void OnTriggerEnter(Collider other)
     {
+        if (isDead) return; // 이미 죽었으면 처리 안 함
+
         if (other.CompareTag("Bullet"))
         {
             HP--;
 
             if (HP <= 0)
             {
-                if (phase < 3)
-                {
-                    StartPhase(phase + 1); // 다음 페이즈로
-                }
-                else
-                {
-                    var explosion = Instantiate(effect, transform.position, Quaternion.identity);
-                    Destroy(gameObject);
-                    Debug.Log("보스 처치!");
-                }
-
-                ScoreManager.instance.Score += enemyScore;
+                HandleDeath();
             }
 
-            other.gameObject.SetActive(false); // 총알 비활성화
+            other.gameObject.SetActive(false);
         }
-
         else if (other.CompareTag("Bomb"))
         {
             HP -= 50;
+
             if (HP <= 0)
             {
-                if (phase < 3)
-                {
-                    StartPhase(phase + 1);
-                }
-                else
-                {
-                    var explosion = Instantiate(effect, transform.position, Quaternion.identity);
-                    Destroy(gameObject);
-                    Debug.Log("보스 처치!");
-                }
-                ScoreManager.instance.Score += enemyScore;
+                HandleDeath();
             }
         }
     }
 
+    private void HandleDeath()
+    {
+        if (isDead) return;
+
+        isDead = true;
+
+        if (phase < 3)
+        {
+            StartPhase(phase + 1);
+            isDead = false; // 다음 페이즈 시작 후 다시 죽을 수 있음
+        }
+        else
+        {
+            ScoreManager.instance.Score += enemyScore;
+            var explosion = Instantiate(effect, transform.position, Quaternion.identity);
+            // 여기서 Destroy 안 하고 애니메이션 실행
+            animator.SetTrigger("Die");
+
+            // 스토리 연출 호출
+            StartCoroutine(WaitAndShowStory(3f));
+        }
+    }
+
+    IEnumerator WaitAndShowStory(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        StoryUIManager.Instance.ShowStory(); // 싱글톤 or 다른 방식
+    }
+
+   
+    
+    
     private IEnumerator AfterStop(float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds);
         speed = 0.0f;
     }
+
+    
 }

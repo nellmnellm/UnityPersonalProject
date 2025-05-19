@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
     public float timeBetweenAttacks = 1f;
     public int attackDamage = 10;
 
-    Animator animator;
+    //Animator animator;
 
     GameObject player;                    //플레이어 추적
     PlayerHealth playerHealth;                  //플레이어 체력
@@ -42,19 +42,18 @@ public class EnemyAttack : MonoBehaviour
 
     private IEnumerator AttackDelay(float delaytime)
     {
-        animator.SetBool("Attack", true);
+        //animator.SetBool("Attack", true);
         yield return new WaitForSeconds(delaytime);
-        animator.SetBool("Attack", false);
+        //animator.SetBool("Attack", false);
     }
     private void Attack()
     {
-        
         timer = 0;
         if (playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage(attackDamage);
         }
-        animator.SetBool("Attack", true);
+        //animator.SetBool("Attack", true);
     }
     private void OnTriggerEnter(Collider other)
     {

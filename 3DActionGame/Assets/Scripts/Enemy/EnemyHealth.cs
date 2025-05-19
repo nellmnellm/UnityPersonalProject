@@ -9,11 +9,11 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
 
     public float flashSpeed = 5.0f;
-    public Color flashColor = new Color(1f, 0f, 0f, 0.1f);
+    public Color flashColor = new Color(1f, 0f, 0f, 0.4f);
     public float sinkSpeed = 1.0f;
 
-    bool isDead, isSinking, damaged;
-
+    bool isSinking, isDead;
+    public bool damaged;
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -23,27 +23,30 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
+        //데미지 처리에 따라 슬라임의 색을 변경하는 코드
         if (damaged)
         {
-            //transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutlineColor", flashColor);
-            transform.GetChild(0).GetComponent<Renderer>().material.color = flashColor;
+            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", flashColor);
+            Debug.Log("체크");
+
         }
         else
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
-            /*transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutlineColor"
-                                                                            , Color.Lerp(transform.GetChild(0).
-                                                                            GetComponent<Renderer>().material.GetColor("_OutlineColor"),
-                                                                            Color.black, flashSpeed * Time.deltaTime)
-                                                                            );*/
+            transform.GetChild(0).GetComponent<Renderer>().
+            material.SetColor("_Color",
+            Color.Lerp(transform.GetChild(0).
+            GetComponent<Renderer>().
+            material.GetColor("_Color"), Color.white, flashSpeed * Time.deltaTime));
+
         }
         damaged = false;
 
-        if(isSinking)
+        if (isSinking)
         {
-            transform.Translate(Vector3.down * sinkSpeed * Time.deltaTime);
+            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
+
     public void TakeDamage(int amount)
     {
         damaged = true;
@@ -63,7 +66,7 @@ public class EnemyHealth : MonoBehaviour
             TakeDamage(damage);
             
             //플레이어로부터 멀어질 방향.
-            Vector3 diff = playerPosition - transform.position.normalized;
+            Vector3 diff = (playerPosition - transform.position).normalized;
             GetComponent<Rigidbody>().AddForce(diff * 50f * pushBack, ForceMode.Impulse);
             //ForceMode.Impulse : 순간적인 힘 (점프 대시 밀림 등)을 구현
             //ForceMode.Force : 지속적인 힘을 구현 할 때 사용(오브젝트 밀기. 엔진 추진, 바람효과 등)
@@ -76,6 +79,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Death()
     {
+        StageController.Instance.AddPoint(10);
         isDead = true;
         transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
         StartSinking();
@@ -86,5 +90,6 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
+        Destroy(gameObject, 2.0f);
     }
 }

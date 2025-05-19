@@ -11,7 +11,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Animator animator;
-
+    PlayerAttack playerAttack;
     //공격 , 스킬, 대시에 관한 시간
     float lastAttackTime, lastSkillTime, lastDashTime;
     public bool attacking = false;
@@ -36,12 +36,13 @@ public class PlayerMovement : MonoBehaviour
     //연타 공격에 대한 코루틴 설계
     private IEnumerator Attack()
     {
-        if(Time.time - lastAttackTime > 0.5f)
+        if(Time.time - lastAttackTime > 0.6f)
         {
             lastAttackTime = Time.time;
             while(attacking)
             {
                 animator.SetTrigger("Attack");
+                playerAttack.NormalAttack();
                 //애니메이터의 파라미터 중에서 SetTrigger는
                 //설정하는 것으로 조건을 바로 만족하게 됩니다.
                 //수행 끝나면 끝
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         attacking = true;
         animator.SetBool("Combo", true);
+       
         StartCoroutine(Attack());
     }
     public void OnAttackUp()
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if(Time.time - lastSkillTime > 0.5f)
         {
             animator.SetBool("Skill", true);
+            playerAttack.SkillAttack();
             lastSkillTime = Time.time;
         }
     }
@@ -76,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DashHolding()
     {
+       
         dashing = true;
         yield return new WaitForSeconds(0.7f);
         OnDashToggle();
@@ -88,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Dash", true);
             StartCoroutine(DashHolding());
+            
         }
         else
         {
@@ -103,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame

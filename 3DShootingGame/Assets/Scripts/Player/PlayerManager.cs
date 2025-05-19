@@ -1,11 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    #region singleton
+    public static PlayerManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // 중복 방지
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬 전환 후 필요한 오브젝트 재참조
+        heartContainer = GameObject.Find("HeartContainer")?.transform;
+        bombContainer = GameObject.Find("BombContainer")?.transform;
+        mainCam = Camera.main;
+        playerAnimator = GetComponent<Animator>();
+
+
+        
+    }
+
+    #endregion
+
     [Header("총알 관리, 발사 간격")]
     [SerializeField] private float fireInterval = 0.14f; //발사 간격
     private float fireCooldownTimer = 0f;
@@ -59,7 +107,7 @@ public class PlayerManager : MonoBehaviour
         bulletObjectPool.Add(bullet);
         return bullet;
     }
-    void UpdateBombs()
+    public void UpdateBombs()
     {
         if (bombs.Count != bombCount)
         {
@@ -78,7 +126,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    void UpdateHearts()
+    public void UpdateHearts()
     {
         
         // 하트 수가 다르면 다시 생성

@@ -15,6 +15,13 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
+        // 만일 게임하다가 돌아왔을때 playerManager 제거
+       
+        if (PlayerManager.Instance != null)
+        {
+            Destroy(PlayerManager.Instance.gameObject);
+        }
+
         // 버튼 이벤트 할당
         button1.onClick.AddListener(OnClickShowCharacterSelect);
         button2.onClick.AddListener(OnClickToggleInfoPopup);

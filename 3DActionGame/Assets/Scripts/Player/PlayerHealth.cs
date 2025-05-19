@@ -9,11 +9,14 @@ public class PlayerHealth : MonoBehaviour
     public Image damageImage;               //데미지 입을때 이미지
     public AudioClip deathClip;             //플레이어 죽을시 소리
 
+    public float flashSpeed = 5.0f;
+    public Color flashColor = new Color(255f, 0f, 0f, 100f); //변경될 색
+
     Animator animator;                          //애니메이터
     AudioSource playerAudio;                //오디오 소스
     PlayerMovement playerMovement;          //플레이어 움직임
     bool isDead = false;                            //죽음 확인용 변수
-
+    bool damaged;                          //데미지 확인용
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -22,9 +25,26 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth = startHealth;
     }
+
+    private void Update()
+    {
+        if (damaged)
+        {
+            damageImage.color = flashColor;
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
+        damaged = false;
+    }
+
+
+
     //플레이어가 데미지 받으면 호출할 함수
     public void TakeDamage(int amount)
     {
+        damaged = true;
         currentHealth -= amount;
         healthSlider.value = currentHealth;
 
@@ -41,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+        StageController.Instance.FinishGame();
         isDead = true;
 
         animator.SetTrigger("Die");
