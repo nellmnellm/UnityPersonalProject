@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UniVRM10;
 using Random = UnityEngine.Random;
 
-public class Boss1 : Enemy, IBoss
+public class Boss2 : Enemy, IBoss
 {
     private int phase = 1;
     private Coroutine phaseRoutine;
@@ -20,9 +20,9 @@ public class Boss1 : Enemy, IBoss
     private Animator animator;
     private bool isDead = false;
 
-    
+
     //hp UI 관련
-    private int maxHP = 0; 
+    private int maxHP = 0;
     public float HPNormalized => (float)HP / maxHP;
     public Sprite hpBarSprite;
     public Sprite HPBarSprite => hpBarSprite;
@@ -33,16 +33,16 @@ public class Boss1 : Enemy, IBoss
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);
         }
-    
+
     }
-    
+
     private void Start()
     {
-        
+
         animator = GetComponent<Animator>();
         speed = 5;
         dir = Vector3.down;
-        
+
         enemyScore = 10000;
 
         var UI = GameObject.Find("BossHP");
@@ -51,7 +51,7 @@ public class Boss1 : Enemy, IBoss
             var barUI = UI.GetComponent<BossHPBar>();
             barUI.SetBoss(this);
         }
-        
+
         StartCoroutine(AfterStop(1f));
         StartPhase(phase); // 첫 페이즈 시작
 
@@ -62,7 +62,7 @@ public class Boss1 : Enemy, IBoss
     {
         // 이전 패턴 종료
         if (phaseRoutine != null) StopCoroutine(phaseRoutine);
-       
+
         phase = newPhase;
 
         switch (phase)
@@ -117,11 +117,11 @@ public class Boss1 : Enemy, IBoss
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
-            
+
 
             for (int i = 5; i < 10; i++)
             {
-                
+
                 for (int j = 0; j < 6; j++)
                 {
                     Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
@@ -133,8 +133,8 @@ public class Boss1 : Enemy, IBoss
                 }
             }
 
-            
-            
+
+
         }
     }
 
@@ -199,7 +199,7 @@ public class Boss1 : Enemy, IBoss
             new Vector3( 8, -8, 0)
         };
 
-        
+
 
         for (int i = 0; i < positions.Length; i++)
         {
@@ -213,14 +213,14 @@ public class Boss1 : Enemy, IBoss
                     () => Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
                 SetBullet(bulletObjectPool, firePoint.position + ReversePositions[i],
                     () => Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);
-               /* CreateBullet(bulletPrefab, firePoint.position + positions[i], 
-                    () => Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
-                CreateBullet(bulletPrefab, firePoint.position + ReversePositions[i],
-                    () => Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);*/
+                /* CreateBullet(bulletPrefab, firePoint.position + positions[i], 
+                     () => Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
+                 CreateBullet(bulletPrefab, firePoint.position + ReversePositions[i],
+                     () => Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);*/
             }
-            
+
         }
-       
+
 
     }
 
@@ -254,7 +254,7 @@ public class Boss1 : Enemy, IBoss
             //CreateBullet(bulletPrefab2, firePoint.position, () => dir, () => 8);
         }
     }
-    
+
     // === Phase 3 ===
     private IEnumerator Phase3Pattern()
     {
@@ -281,7 +281,7 @@ public class Boss1 : Enemy, IBoss
             //CreateBullet(bulletPrefab2, firePoint.position, () => Quaternion.Euler(0, 0, angle) * Vector3.down, () => 8f);
         }
 
-        
+
     }
 
     // === 페이즈 체력 처리 ===
@@ -332,6 +332,7 @@ public class Boss1 : Enemy, IBoss
             PlayerManager.Instance.ClearBulletPool();
             ClearBulletPool();
             // 스토리 연출 호출
+            
             StartCoroutine(WaitAndShowStory(3f));
         }
     }
@@ -367,5 +368,5 @@ public class Boss1 : Enemy, IBoss
         speed = 0.0f;
     }
 
-    
+
 }

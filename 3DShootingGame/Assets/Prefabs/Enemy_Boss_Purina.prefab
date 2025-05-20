@@ -4381,7 +4381,7 @@ GameObject:
   - component: {fileID: 6431038140987339287}
   - component: {fileID: 2123647292817629328}
   m_Layer: 9
-  m_Name: Enemy_Boss_Purina_1phase
+  m_Name: Enemy_Boss_Purina
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4445,6 +4445,7 @@ MonoBehaviour:
   initialPoolSize: 800
   bulletPrefab2: {fileID: 7493598509062371845, guid: 9dfff7c7aef8bac4b9b1e6dd604f5789, type: 3}
   initialPoolSize2: 800
+  hpBarSprite: {fileID: 21300000, guid: 9aa2c2079cd1c8e4c82b7490d7b2ed71, type: 3}
 --- !u!95 &2123647292817629328
 Animator:
   serializedVersion: 7

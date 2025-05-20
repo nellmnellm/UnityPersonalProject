@@ -1,25 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+public interface IBoss
+{
+    float HPNormalized { get; }
+    Sprite HPBarSprite { get; }
+}
 public class BossHPBar : MonoBehaviour
 {
     public Slider hpSlider; // Slider 컴포넌트 참조
     public Image Image;
-    private Boss1 boss;
+    private IBoss boss;
 
-    public void SetBoss(Boss1 bossTarget)
+    public void SetBoss(IBoss bossTarget)
     {
         boss = bossTarget;
-        hpSlider.gameObject.SetActive(true);
-        Image.gameObject.SetActive(true);
+
+        if (boss != null)
+        {
+            hpSlider.gameObject.SetActive(true);
+            Image.gameObject.SetActive(true);
+            Image.sprite = boss.HPBarSprite;
+        }
+        else
+        {
+            hpSlider.gameObject.SetActive(false);
+            Image.gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (boss == null || !boss.isActiveAndEnabled)
+        if (boss == null || (boss is MonoBehaviour mb && mb == null))
         {
-            hpSlider.gameObject.SetActive(false); 
-            Image.gameObject.SetActive(false);
+            SetBoss(null); 
             return;
         }
 

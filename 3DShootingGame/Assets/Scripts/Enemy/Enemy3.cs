@@ -5,7 +5,7 @@ public class Enemy3 : Enemy
 {
     private void Start()
     {
-        speed = 15;
+        speed = 12;
         HP = 7;
         var target = GameObject.FindWithTag("Player");
         dir = target.transform.position - transform.position;
@@ -21,7 +21,7 @@ public class Enemy3 : Enemy
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
-            float TimeSpeed = 15 - (Time.time - startTime) * 3;
+            float TimeSpeed = 15 - (Time.time - startTime) * 2;
             Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
 
             SetBullet(bulletObjectPool, firePoint.position,

@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
         {
             var bullet = bulletObjectPool[i];
 
+            if (bullet == null || bullet.Equals(null)) continue;
             if (!bullet.activeSelf)
             {
                 bullet.transform.position = position;

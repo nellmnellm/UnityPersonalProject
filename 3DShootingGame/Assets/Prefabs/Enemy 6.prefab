@@ -129,7 +129,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8723583276080008960, guid: 29526461c6c62a04f9b02f9a212675b2, type: 3}
   firePoint: {fileID: 400000}
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-  initialPoolSize: 100
+  initialPoolSize: 1
   rushSpeed: 10
 --- !u!1 &100002
 GameObject:
