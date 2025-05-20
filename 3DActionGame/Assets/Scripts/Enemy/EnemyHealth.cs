@@ -83,6 +83,12 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
         StartSinking();
+
+        DialogControllerQuest quest = FindObjectOfType<DialogControllerQuest>();
+        if (quest != null)
+        {
+            quest.questSuccess = true;
+        }
     }
 
     private void StartSinking()

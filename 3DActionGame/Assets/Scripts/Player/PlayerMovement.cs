@@ -123,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
                 back = -1f;
 
             animator.SetFloat("Speed", new Vector2(h,v).magnitude);
+            //animator.SetFloat("Direction", back * (Mathf.Atan2(h, v) * Mathf.Rad2Deg));
             //magnitude == 벡터의 길이,크기
 
             Rigidbody rbody = GetComponent<Rigidbody>();

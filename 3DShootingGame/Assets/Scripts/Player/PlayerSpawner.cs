@@ -24,6 +24,7 @@ public class PlayerSpawner : MonoBehaviour
                 Debug.LogWarning("선택된 플레이어가 없습니다!");
                 yield break;
             }
+            PlayerManager.Instance.SetUIContainers(HeartContainer, BombContainer);
         }
         else
         {
@@ -34,15 +35,13 @@ public class PlayerSpawner : MonoBehaviour
             {
                 PlayerManager.Instance.AddBulletToPool();
             }
-           
+            
         }
-
-
         // UI 컨테이너 연결
-        PlayerManager.Instance.SetUIContainers(HeartContainer, BombContainer);
+
         // UI 재생성
+
         PlayerManager.Instance.UpdateHearts();
         PlayerManager.Instance.UpdateBombs();
-        
     }
 }

@@ -6,6 +6,8 @@ public class DialogController : MonoBehaviour
 {
     public Transform window;
 
+    public DialogData DialogData { get; protected set; }
+
     public bool Visible
     {
         get
@@ -45,7 +47,7 @@ public class DialogController : MonoBehaviour
         Visible = true;
         if (callback != null)
         {
-            callback();
+            callback?.Invoke();
         }
         yield break;
     }
@@ -55,7 +57,7 @@ public class DialogController : MonoBehaviour
         Visible = false;
         if (callback != null)
         {
-            callback();
+            callback?.Invoke();
         }
         yield break;
     }

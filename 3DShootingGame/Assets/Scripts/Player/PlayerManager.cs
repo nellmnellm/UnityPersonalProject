@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -79,7 +80,6 @@ public class PlayerManager : MonoBehaviour
     public Camera cutsceneCam;
     private Animator playerAnimator;
     public float cutsceneTime = 1.0f;
-
     [Header("피격시 무적 조절")]
     public GameObject effect;              // 피격시 이펙트
     // public float invincibleDuration = 2f;  // 피격시 무적 시간
@@ -95,6 +95,15 @@ public class PlayerManager : MonoBehaviour
     public int initialPoolSize = 100;    //** 총알의 개수
     public List<GameObject> bulletObjectPool = new List<GameObject>(); //** 오브젝트 풀
 
+    
+    public GameObject AddBulletToPool()
+    {
+        var bullet = Instantiate(bulletPrefab);
+        bullet.SetActive(false);
+        bulletObjectPool.Add(bullet);
+        return bullet;
+    }
+
     public void ClearBulletPool()
     {
         foreach (var bullet in bulletObjectPool)
@@ -107,13 +116,6 @@ public class PlayerManager : MonoBehaviour
         bulletObjectPool.Clear();
     }
 
-    public GameObject AddBulletToPool()
-    {
-        var bullet = Instantiate(bulletPrefab);
-        bullet.SetActive(false);
-        bulletObjectPool.Add(bullet);
-        return bullet;
-    }
     public void UpdateBombs()
     {
         if (bombs.Count != bombCount)
@@ -224,6 +226,7 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator BombCutsceneRoutine()
     {
+        
         // 컷씬 카메라 활성화
         mainCam.enabled = false;
         cutsceneCam.enabled = true;
@@ -335,25 +338,27 @@ public class PlayerManager : MonoBehaviour
     }
     void TakeDamage(int damage)
     {
+        
         HP -= damage;
         bombCount = 0;
         UpdateHearts();
-        
         var explosion = Instantiate(effect);
         explosion.transform.position = transform.position;
         StartCoroutine(RespawnAfterDelay(1f));
 
-        bombCount = 2;
-        UpdateBombs();
+        
 
         StartCoroutine(InvincibilityCoroutine(5f));
+        
     }
     IEnumerator RespawnAfterDelay(float delay)
     {
         // 렌더링 & 충돌 꺼서 안 보이게 함
         transform.position = new Vector3(0f, -50f, 0f);
         yield return new WaitForSeconds(delay);
-
+        
+        bombCount = 2;
+        UpdateBombs();
         transform.position = new Vector3(0f, -5f, 0f);
 
     }

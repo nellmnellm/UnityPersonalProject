@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-public class DialogData : MonoBehaviour
+public class DialogData
 {
     public DialogType Type { get; set; }
 

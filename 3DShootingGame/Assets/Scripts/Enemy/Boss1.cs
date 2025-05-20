@@ -329,7 +329,7 @@ public class Boss1 : Enemy
             animator.SetTrigger("Die");
 
             PlayerManager.Instance.ClearBulletPool();
-
+            ClearBulletPool();
             // 스토리 연출 호출
             StartCoroutine(WaitAndShowStory(3f));
         }
@@ -341,9 +341,25 @@ public class Boss1 : Enemy
         StoryUIManager.Instance.ShowStory(); // 싱글톤 or 다른 방식
     }
 
-   
-    
-    
+    public void ClearBulletPool()
+    {
+        foreach (var bullet in bulletObjectPool)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet); // 실 메모리에서 제거
+            }
+        }
+        foreach (var bullet in bulletObjectPool2)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet); // 실 메모리에서 제거
+            }
+        }
+    }
+
+
     private IEnumerator AfterStop(float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds);

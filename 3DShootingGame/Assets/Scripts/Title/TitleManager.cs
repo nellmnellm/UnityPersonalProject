@@ -22,6 +22,15 @@ public class TitleManager : MonoBehaviour
             Destroy(PlayerManager.Instance.gameObject);
         }
 
+        if (SoundManager.Instance != null)
+        {
+            Destroy(SoundManager.Instance.gameObject);
+        }
+        if (ScoreManager.Instance != null)
+        {
+            Destroy(ScoreManager.Instance.gameObject);
+        }
+
         // 버튼 이벤트 할당
         button1.onClick.AddListener(OnClickShowCharacterSelect);
         button2.onClick.AddListener(OnClickToggleInfoPopup);

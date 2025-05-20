@@ -10,12 +10,12 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;             //플레이어 죽을시 소리
 
     public float flashSpeed = 5.0f;
-    public Color flashColor = new Color(255f, 0f, 0f, 100f); //변경될 색
+    public Color flashColor = new Color(1f, 0f, 0f, 0.1f); //변경될 색
 
     Animator animator;                          //애니메이터
     AudioSource playerAudio;                //오디오 소스
     PlayerMovement playerMovement;          //플레이어 움직임
-    bool isDead = false;                            //죽음 확인용 변수
+    bool isDead;                            //죽음 확인용 변수
     bool damaged;                          //데미지 확인용
     private void Awake()
     {
