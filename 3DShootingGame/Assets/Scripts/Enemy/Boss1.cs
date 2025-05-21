@@ -29,6 +29,7 @@ public class Boss1 : Enemy, IBoss
     protected override void Awake()
     {
         base.Awake();
+        StoryUIManager.Instance.ShowStory(StoryType.Intro);
         for (int i = 0; i < initialPoolSize2; i++)
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);
@@ -339,7 +340,7 @@ public class Boss1 : Enemy, IBoss
     IEnumerator WaitAndShowStory(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        StoryUIManager.Instance.ShowStory(); // ½Ì±ÛÅæ or ´Ù¸¥ ¹æ½Ä
+        StoryUIManager.Instance.ShowStory(StoryType.Outro); // ½Ì±ÛÅæ or ´Ù¸¥ ¹æ½Ä
     }
 
     public void ClearBulletPool()

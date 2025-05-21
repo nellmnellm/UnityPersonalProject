@@ -32,6 +32,7 @@ public class Boss3 : Enemy, IBoss
     protected override void Awake()
     {
         base.Awake();
+        StoryUIManager.Instance.ShowStory(StoryType.Intro);
         for (int i = 0; i < initialPoolSize2; i++)
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);

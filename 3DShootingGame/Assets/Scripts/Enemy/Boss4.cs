@@ -21,6 +21,7 @@ public class Boss4 : Enemy, IBoss
     protected List<GameObject> bulletObjectPool3 = new List<GameObject>();
     private Animator animator;
     private bool isDead = false;
+    private GameObject ClearText;
 
 
     //hp UI 관련
@@ -31,6 +32,7 @@ public class Boss4 : Enemy, IBoss
     protected override void Awake()
     {
         base.Awake();
+        StoryUIManager.Instance.ShowStory(StoryType.Intro);
         for (int i = 0; i < initialPoolSize2; i++)
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);
@@ -423,7 +425,7 @@ public class Boss4 : Enemy, IBoss
             PlayerManager.Instance.ClearBulletPool();
             ClearBulletPool();
             // 스토리 연출 호출
-            
+            ClearText.SetActive(true);
             StartCoroutine(WaitAndShowStory(3f));
         }
     }
@@ -431,7 +433,7 @@ public class Boss4 : Enemy, IBoss
     IEnumerator WaitAndShowStory(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        StoryUIManager.Instance.ShowStory(); // 싱글톤 or 다른 방식
+        StoryUIManager.Instance.ShowStory(StoryType.Outro); // 싱글톤 or 다른 방식
     }
 
     public void ClearBulletPool()
