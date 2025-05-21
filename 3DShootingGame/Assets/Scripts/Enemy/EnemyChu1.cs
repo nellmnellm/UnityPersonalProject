@@ -11,12 +11,13 @@ public class EnemyChu1 : Enemy
         dir = Vector3.down;
         HP = 6;
         enemyScore = 500;
-        InvokeRepeating(nameof(FireBullet), 0f, 0.09f);
+        InvokeRepeating(nameof(FireBullet), 0f, 0.12f);
         StartCoroutine(bulletStop(6.2f));
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         float startTime = Time.time;
         var target = GameObject.FindWithTag("Player");
         if (target != null)
@@ -34,15 +35,5 @@ public class EnemyChu1 : Enemy
                   () => (Time.time - startTime) * 8);
       */
         }
-    }
-    IEnumerator bulletStop(float delaySeconds)
-    {
-        yield return new WaitForSeconds(delaySeconds);
-        CancelInvoke(nameof(FireBullet));
-
-    }
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
     }
 }

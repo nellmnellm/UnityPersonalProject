@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UniVRM10;
 using Random = UnityEngine.Random;
 
-public class Boss2 : Enemy, IBoss
+public class Boss4 : Enemy, IBoss
 {
     private int phase = 1;
     private Coroutine phaseRoutine;
@@ -46,7 +46,7 @@ public class Boss2 : Enemy, IBoss
         speed = 5;
         dir = Vector3.down;
 
-        enemyScore = 30000;
+        enemyScore = 50000;
 
         var UI = GameObject.Find("BossHP");
         if (UI != null)
@@ -299,58 +299,6 @@ public class Boss2 : Enemy, IBoss
 
     }
 
-    /*private IEnumerator FireLineDelayed()
-    {
-        Vector3 center = transform.position; // 보스의 위치
-        int bulletCount = 12;
-        var target = GameObject.FindWithTag("Player");
-        List<GameObject> bullets = new List<GameObject>();
-        if (target != null)
-        { 
-            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-            float rad = Mathf.Atan2(bulletDir.y, bulletDir.x);
-            for (int i = 0; i < bulletCount; i++)
-            {
-                int CurrentI = i;
-                Vector3 offset = new Vector3(Mathf.Cos(rad) * CurrentI, Mathf.Sin(rad) * CurrentI, 0f); // 반지름 15
-
-                Vector3 spawnPos = center + 1.1f * offset;
-
-                GameObject bullet = Instantiate(bulletPrefab3, spawnPos, Quaternion.identity);
-                var bulletComp = bullet.GetComponent<EnemyBullet>();
-
-                bulletComp.SetDirection(() => bulletDir);
-                bulletComp.SetSpeed(() => 0f); // 초기속도 0
-
-                bullets.Add(bullet);
-                yield return new WaitForSeconds(0.1f);
-            }
-
-        }
-            
-
-        //  경계에 총알 생성 (원형)
-        
-
-        // 1초 대기
-        yield return new WaitForSeconds(0.2f);
-
-        // 점점 빨라지는 속도 적용
-        float startTime = Time.time;
-        
-        foreach (var bullet in bullets)
-        {
-            Vector3 newBulletDir = (target.transform.position - bullet.transform.position).normalized;
-            var bulletComp = bullet.GetComponent<EnemyBullet>();
-
-            if (bulletComp != null)
-            {
-                bulletComp.SetDirection( ()=> newBulletDir);
-                bulletComp.SetSpeed(() => 15);
-            }
-        }
-    }
-*/
     private IEnumerator FireLineDelayed()
     {
         Vector3 center = transform.position;
@@ -424,6 +372,8 @@ public class Boss2 : Enemy, IBoss
         Debug.LogWarning("[SpawnBulletFromPool] 사용 가능한 총알이 없습니다!");
         return null;
     }
+
+
 
     // === 페이즈 체력 처리 ===
     protected new void OnTriggerEnter(Collider other)

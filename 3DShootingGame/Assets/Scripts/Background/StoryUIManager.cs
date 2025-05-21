@@ -35,8 +35,24 @@ public class StoryUIManager : MonoBehaviour
 
         if (currentIndex >= storySprites.Length)
         {
-            // 마지막 이미지였으면 씬 전환
-            SceneManager.LoadScene("Stage 2");
+            // 마지막 이미지였으면 현재 씬 이름 확인 후 다음 씬 결정
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            switch (currentScene)
+            {
+                case "Stage 1":
+                    SceneManager.LoadScene("Stage 2");
+                    break;
+                case "Stage 2":
+                    SceneManager.LoadScene("Stage 3");
+                    break;
+                case "Stage 3":
+                    SceneManager.LoadScene("Title"); // 예: 엔딩 후 타이틀
+                    break;
+                default:
+                    Debug.LogWarning("Unknown scene name: " + currentScene);
+                    break;
+            }
         }
         else
         {

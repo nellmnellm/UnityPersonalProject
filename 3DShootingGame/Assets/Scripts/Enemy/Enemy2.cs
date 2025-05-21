@@ -11,10 +11,12 @@ public class Enemy2 : Enemy
         HP = 7;
         enemyScore = 200;
         InvokeRepeating(nameof(FireBullet), 0f, 1f);
+        StartCoroutine(bulletStop(4f));
     }
-    
-    private void FireBullet()
+
+    protected override void FireBullet()
     {
+        base.FireBullet();
         StartCoroutine(Littledelay(0.05f));
     }
 
@@ -68,9 +70,5 @@ public class Enemy2 : Enemy
                 () => Quaternion.Euler(0, 0, -10f) * bulletDir, 
                 () => 8 - 1 * (Time.time - startTime));*/
         }
-    }
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
     }
 }

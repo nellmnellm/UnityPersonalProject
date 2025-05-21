@@ -16,19 +16,15 @@ public class Enemy5 : Enemy
         enemyScore = 2500;
         InvokeRepeating(nameof(FireBullet), 0f, 0.4f);
         StartCoroutine(RushAfterDelay(5f));
-
+        StartCoroutine(bulletStop(6f));
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         FireStarPattern();
     }
-
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
-    }
-
+   
     IEnumerator RushAfterDelay(float delaySeconds)
     {
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -44,7 +45,12 @@ public class Enemy : MonoBehaviour
               dir = Vector3.down * 3;
           }
     }*/
-
+    /// <summary>
+    ///  총알 오브젝트풀 설정 
+    /// </summary>
+    /// <param name="bulletPrefab"></param>
+    /// <param name="bulletPool"></param>
+    /// <returns></returns>
     protected virtual GameObject AddBulletToPool(GameObject bulletPrefab, List<GameObject>bulletPool)
     {
         var bullet = Instantiate(bulletPrefab);
@@ -52,7 +58,32 @@ public class Enemy : MonoBehaviour
         bulletPool.Add(bullet);
         return bullet;
     }
+   
+    /// <summary>
+    /// 기본 총알 발사 로직
+    /// </summary>
+    protected virtual void FireBullet()
+    {
 
+    }
+    /// <summary>
+    /// 몇초 후 기본 총알 발사 로직을 멈출 것인지 
+    /// </summary>
+    /// <param name="delaySeconds"></param>
+    /// <returns></returns>
+    protected virtual IEnumerator bulletStop(float delaySeconds)
+    {
+        yield return new WaitForSeconds(delaySeconds);
+        CancelInvoke(nameof(FireBullet));
+
+    }
+    /// <summary>
+    /// 총알 설정할때 이용할 메서드 
+    /// </summary>
+    /// <param name="bulletObjectPool"></param>
+    /// <param name="position"></param>
+    /// <param name="directionFunction"></param>
+    /// <param name="speedFunction"></param>
     protected void SetBullet(List<GameObject> bulletObjectPool, Vector3 position, Func<Vector3> directionFunction, Func<float> speedFunction)
     {
         bool bulletFound = false;
@@ -89,7 +120,13 @@ public class Enemy : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// 총알 개개인을 구현할때 (오브젝트 풀이 아닌 다른 총알)
+    /// </summary>
+    /// <param name="bulletPrefab"></param>
+    /// <param name="position"></param>
+    /// <param name="directionFunction"></param>
+    /// <param name="speedFunction"></param>
     protected void CreateBullet(GameObject bulletPrefab, Vector3 position, Func<Vector3> directionFunction, Func<float> speedFunction)
     {
         GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
@@ -152,5 +189,10 @@ public class Enemy : MonoBehaviour
                 ScoreManager.Instance.Score += enemyScore;
             }
         }
+    }
+
+    protected void OnDestroy()
+    {
+        CancelInvoke(nameof(FireBullet));
     }
 }

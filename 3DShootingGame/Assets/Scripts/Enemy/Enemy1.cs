@@ -10,10 +10,12 @@ public class Enemy1 : Enemy
         HP = 7;
         enemyScore = 100;
         InvokeRepeating(nameof(FireBullet), 0f, 0.5f);
+        StartCoroutine(bulletStop(5f));
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         float startTime = Time.time;
 
         var target = GameObject.FindWithTag("Player");
@@ -33,8 +35,5 @@ public class Enemy1 : Enemy
         }
     }
 
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
-    }
+    
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy7 : Enemy
@@ -11,10 +12,12 @@ public class Enemy7 : Enemy
         HP = 60;
         enemyScore = 2000;
         InvokeRepeating(nameof(FireBullet), 0f, 0.02f);
+        StartCoroutine(bulletStop(8f));
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         float startTime = Time.time;
 
         SetBullet(bulletObjectPool, firePoint.position,
@@ -27,9 +30,5 @@ public class Enemy7 : Enemy
 */
         
     }
-
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
-    }
+    
 }

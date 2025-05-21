@@ -11,13 +11,15 @@ public class Enemy6 : Enemy
         dir = Vector3.down;
         HP = 25;
         enemyScore = 2400;
-        InvokeRepeating(nameof(FireBullet), 0f, 0.13f);
+        InvokeRepeating(nameof(FireBullet), 0f, 0.14f);
         StartCoroutine(RushAfterDelay(3f));
+        StartCoroutine(bulletStop(5f));
 
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         float ran = Random.Range(0f, 2f);
 
         var target = GameObject.FindWithTag("Player");
@@ -36,11 +38,6 @@ public class Enemy6 : Enemy
             }
 
         }
-    }
-
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
     }
 
     IEnumerator RushAfterDelay(float delaySeconds)

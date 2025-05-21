@@ -14,11 +14,14 @@ public class Enemy4 : Enemy
         enemyScore = 5000;
         InvokeRepeating(nameof(FireBullet), 0f, 0.2f);
         StartCoroutine(RushAfterDelay(9f));
+        StartCoroutine(bulletStop(7f));
+
 
     }
-    
-    private void FireBullet()
+
+    protected override void FireBullet()
     {
+        base.FireBullet();
         var target = GameObject.FindWithTag("Player");
         
         if (target != null)
@@ -34,10 +37,6 @@ public class Enemy4 : Enemy
         }
     }
 
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
-    }
 
     IEnumerator RushAfterDelay(float delaySeconds)
     {

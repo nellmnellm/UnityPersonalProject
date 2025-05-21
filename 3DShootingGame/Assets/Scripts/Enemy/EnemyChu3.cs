@@ -8,16 +8,17 @@ public class EnemyChu3 : Enemy
     float radius = 7;
     private void Start()
     {
-        speed = 3.5f;
+        speed = 3f;
         dir = Vector3.down;
-        HP = 50;
+        HP = 40;
         enemyScore = 2500;
-        InvokeRepeating(nameof(FireBullet), 0f, 1.1f);
+        InvokeRepeating(nameof(FireBullet), 0f, 1.3f);
         StartCoroutine(bulletStop(5));
     }
 
-    private void FireBullet()
+    protected override void FireBullet()
     {
+        base.FireBullet();
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
@@ -34,19 +35,5 @@ public class EnemyChu3 : Enemy
                     () => 12);
             }
         }
-
-       
-
-       
-    }
-    IEnumerator bulletStop(float delaySeconds)
-    {
-        yield return new WaitForSeconds(delaySeconds);
-        CancelInvoke(nameof(FireBullet));
-
-    }
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
     }
 }

@@ -43,7 +43,7 @@ public class Boss1 : Enemy, IBoss
         speed = 5;
         dir = Vector3.down;
         
-        enemyScore = 10000;
+        enemyScore = 30000;
 
         var UI = GameObject.Find("BossHP");
         if (UI != null)
@@ -68,21 +68,21 @@ public class Boss1 : Enemy, IBoss
         switch (phase)
         {
             case 1:
-                HP = 180;
-                maxHP = 180;
+                HP = 150;
+                maxHP = 150;
                 phaseRoutine = StartCoroutine(Phase1Pattern());
                 break;
 
             case 2:
-                HP = 300;
-                maxHP = 300;
+                HP = 250;
+                maxHP = 250;
                 animator.SetInteger("Phase", 2);
                 phaseRoutine = StartCoroutine(Phase2Pattern());
                 break;
 
             case 3:
-                HP = 400;
-                maxHP = 400;
+                HP = 300;
+                maxHP = 300;
                 animator.SetInteger("Phase", 3);
                 phaseRoutine = StartCoroutine(Phase3Pattern());
                 break;
@@ -108,7 +108,7 @@ public class Boss1 : Enemy, IBoss
 
             count++;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.12f);
         }
     }
 
@@ -230,13 +230,13 @@ public class Boss1 : Enemy, IBoss
         int count = 0;
         while (true)
         {
-            if (count % 3 == 0)
+            if (count % 2 == 0)
             {
                 CreateBulletSpawnPoints(21f, 2f);
             }
             count++;
             FireBulletPhase2();
-            yield return new WaitForSeconds(0.17f);
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
@@ -261,13 +261,13 @@ public class Boss1 : Enemy, IBoss
         int count = 0;
         while (true)
         {
-            if (count % 3 == 0)
+            if (count % 2 == 0)
             {
                 CreateBulletSpawnPoints(45f, 4f);
             }
             count++;
             FireBulletPhase3();
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.20f);
         }
     }
 

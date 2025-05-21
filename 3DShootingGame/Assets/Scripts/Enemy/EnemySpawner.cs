@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    float currentTime; // 현재 시간
+    public float currentTime; // 현재 시간
 
     public float step = 0.5f; // 시간 간격
 
@@ -38,5 +38,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         transform.position += MovingVector * Time.deltaTime;
     }
+
+    
 
 }

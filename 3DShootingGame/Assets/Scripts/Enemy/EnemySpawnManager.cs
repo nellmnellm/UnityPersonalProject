@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class SpawnerSlot
@@ -33,5 +35,24 @@ public class EnemySpawnManager : MonoBehaviour
             bool shouldBeActive = gameTime >= slot.startTime && gameTime < slot.endTime;
             slot.spawner.isActive = shouldBeActive;
         }
+    }
+
+    public IEnumerator ForceActivateSpawner(EnemySpawner targetSpawner)
+    {
+        foreach (var slot in spawnerSlots)
+        {
+            if (slot.spawner == targetSpawner)
+            {
+                slot.spawner.isActive = true;
+                yield return new WaitForSeconds(0.7f);
+            }
+        }
+    }
+
+    
+   public void ForcedSpawner(EnemySpawner spawner)
+    {
+        // 한 프레임 안에 스폰되도록 step 직전으로 설정
+        spawner.currentTime = spawner.step - 5f;
     }
 }

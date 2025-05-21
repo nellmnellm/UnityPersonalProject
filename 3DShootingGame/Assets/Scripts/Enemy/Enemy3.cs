@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy3 : Enemy
@@ -12,11 +13,13 @@ public class Enemy3 : Enemy
         dir.Normalize();
         enemyScore = 500;
         InvokeRepeating(nameof(FireBullet), 0f, 0.6f);
+        StartCoroutine(bulletStop(3.2f));
 
     }
-    
-    private void FireBullet()
+
+    protected override void FireBullet()
     {
+        base.FireBullet();
         float startTime = Time.time;
         var target = GameObject.FindWithTag("Player");
         if (target != null)
@@ -47,9 +50,6 @@ public class Enemy3 : Enemy
             
         }
     }
-
-    private void OnDestroy()
-    {
-        CancelInvoke(nameof(FireBullet));
-    }
+   
+    
 }
