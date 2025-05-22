@@ -56,12 +56,9 @@ public class Boss2 : Enemy, IBoss
             barUI.SetBoss(this);
         }
 
+        StartPhase(phase);
         StartCoroutine(AfterStop(1f));
-        StartPhase(phase); // 첫 페이즈 시작
-
-
     }
-
     private void StartPhase(int newPhase)
     {
         // 이전 패턴 종료

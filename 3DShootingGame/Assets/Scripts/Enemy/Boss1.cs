@@ -52,13 +52,9 @@ public class Boss1 : Enemy, IBoss
             var barUI = UI.GetComponent<BossHPBar>();
             barUI.SetBoss(this);
         }
-        
+        StartPhase(phase);
         StartCoroutine(AfterStop(1f));
-        StartPhase(phase); // 첫 페이즈 시작
-
-
     }
-
     private void StartPhase(int newPhase)
     {
         // 이전 패턴 종료

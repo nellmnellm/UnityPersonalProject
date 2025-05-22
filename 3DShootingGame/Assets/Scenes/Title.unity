@@ -3248,7 +3248,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Z                -    \uCD1D\uC54C \uBC1C\uC0AC\nX                -   
-    \uD3ED\uD0C4 \uBC1C\uC0AC\nSpace         - \uC2A4\uD1A0\uB9AC \u25B6\nLShift   
+    \uD3ED\uD0C4 \uBC1C\uC0AC\nSpace    -     \uC2A4\uD1A0\uB9AC \u25B6\nLShift   
     -    \uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C\n\uC0C1\uD558\uC88C\uC6B0  -    \uC774\uB3D9 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58cdb2cd4d1f41842b77f7c06d51fca2, type: 2}

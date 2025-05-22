@@ -21,7 +21,7 @@ public class Boss4 : Enemy, IBoss
     protected List<GameObject> bulletObjectPool3 = new List<GameObject>();
     private Animator animator;
     private bool isDead = false;
-    private GameObject ClearText;
+    public GameObject ClearText;
 
 
     //hp UI 관련
@@ -56,13 +56,10 @@ public class Boss4 : Enemy, IBoss
             var barUI = UI.GetComponent<BossHPBar>();
             barUI.SetBoss(this);
         }
-
+        
+        StartPhase(phase); // 여기서 안전하게 페이즈 시작
         StartCoroutine(AfterStop(1f));
-        StartPhase(phase); // 첫 페이즈 시작
-
-
     }
-
     private void StartPhase(int newPhase)
     {
         // 이전 패턴 종료
