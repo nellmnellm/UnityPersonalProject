@@ -10,15 +10,14 @@ using Random = UnityEngine.Random;
 
 public class Boss2 : Enemy, IBoss
 {
+    
     private int phase = 1;
     private Coroutine phaseRoutine;
     [Header("다른 프리펩 총알")]
     public GameObject bulletPrefab2; // 파랑. 원래꺼는 빨강 설정
-    public GameObject bulletPrefab3;
     public int initialPoolSize2 = 800;    //** 총알의 개수
-    public int initialPoolSize3 = 800;
     protected List<GameObject> bulletObjectPool2 = new List<GameObject>(); //** 오브젝트 풀
-    protected List<GameObject> bulletObjectPool3 = new List<GameObject>();
+
     private Animator animator;
     private bool isDead = false;
 
@@ -35,7 +34,6 @@ public class Boss2 : Enemy, IBoss
         for (int i = 0; i < initialPoolSize2; i++)
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);
-            AddBulletToPool(bulletPrefab3, bulletObjectPool3);
         }
 
     }
@@ -55,7 +53,6 @@ public class Boss2 : Enemy, IBoss
             var barUI = UI.GetComponent<BossHPBar>();
             barUI.SetBoss(this);
         }
-
         StartPhase(phase);
         StartCoroutine(AfterStop(1f));
     }
@@ -69,8 +66,8 @@ public class Boss2 : Enemy, IBoss
         switch (phase)
         {
             case 1:
-                HP = 200;
-                maxHP = 200;
+                HP = 150;
+                maxHP = 150;
                 phaseRoutine = StartCoroutine(Phase1Pattern());
                 break;
 
@@ -97,19 +94,20 @@ public class Boss2 : Enemy, IBoss
     // === Phase 1 ===
     private IEnumerator Phase1Pattern()
     {
+        yield return new WaitForSeconds(1f);
         int count = 0;
         while (true)
         {
             FireBullet1phase();
 
-            if (count % 5 == 0)
+            if (count % 25 == 0)
             {
-                StartCoroutine(FireStarDelayed());
+                StartCoroutine(FireRadialDelayed());
             }
 
             count++;
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.12f);
         }
     }
 
@@ -118,92 +116,108 @@ public class Boss2 : Enemy, IBoss
         var target = GameObject.FindWithTag("Player");
         if (target != null)
         {
-                Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-                SetBullet(bulletObjectPool, firePoint.position, () => bulletDir, () => 15);
-                SetBullet(bulletObjectPool, firePoint.position, () => Quaternion.Euler(0, 0, 120) * bulletDir, () => 15);
-                SetBullet(bulletObjectPool, firePoint.position, () => Quaternion.Euler(0, 0, 240) * bulletDir, () => 15);
+
+
+            for (int i = 5; i < 10; i++)
+            {
+
+                for (int j = 0; j < 6; j++)
+                {
+                    Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
+                    int currentI = i; // C# 클로저 문제! 람다함수가 참조만 하다가 마지막에 호출하는데 9만 반영됨. 나중에 더 알아볼것.
+                    int currentJ = j;
+                    SetBullet(bulletObjectPool, firePoint.position, () => Quaternion.Euler(0, 0, currentJ * 60) * bulletDir, () => 2.4f * currentI);
+                    //CreateBullet(bulletPrefab, firePoint.position, () => Quaternion.Euler(0, 0, currentJ * 60) * bulletDir, () => 2.4f * currentI); 
+                    //CreateBullet(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, j * 60) * bulletDir, () => 2.4f * i);
+                }
+            }
+
+
+
         }
     }
 
-    private IEnumerator FireStarDelayed()
+    private IEnumerator FireRadialDelayed()
     {
-        float randomX = Random.Range(-5f, 5f);
-        float randomY = Random.Range(5f, 10f);
-        float randomAngle = Random.Range(0f, 72f);
-        float spacing = 1f;
-        Vector3 center = new Vector3(randomX, randomY, 0); // 탄의 처음 소환 위치
-        float startTime = Time.time;
+        Vector3 center = transform.position; // 보스의 위치
+        int bulletCount = 16;
+
+        List<GameObject> bullets = new List<GameObject>();
+
         //  경계에 총알 생성 (원형)
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < bulletCount; i++)
         {
-            for (int j=0; j<4; j++)
-            {
-                float rad = (randomAngle + (72 * i)) * Mathf.Deg2Rad;
-                Vector3 offset = new Vector3(Mathf.Cos(rad) * spacing, Mathf.Sin(rad) * spacing, 0f); // 반지름 15
-                int CurrentJ = j;
-                Vector3 spawnPos = center + offset * (CurrentJ + 1);
-                Vector3 targetDir = (center - spawnPos).normalized;
+            float angle = i * (360f / bulletCount);
+            float rad = angle * Mathf.Deg2Rad;
+            Vector3 offset = new Vector3(Mathf.Cos(rad) * 4f, Mathf.Sin(rad) * 4f, 0f); // 반지름 15
 
-                SetBullet(bulletObjectPool2, spawnPos,
-                    () => Quaternion.Euler(0, 0, 10 * (Time.time - startTime) * (Time.time - startTime)) * -targetDir,
-                    () => 7 * (Time.time - startTime));
-            }
-            
+            Vector3 spawnPos = center + offset;
+            Vector3 targetDir = (center - spawnPos).normalized;
+
+            GameObject bullet = Instantiate(bulletPrefab2, spawnPos, Quaternion.identity);
+            var bulletComp = bullet.GetComponent<EnemyBullet>();
+
+            bulletComp.SetDirection(() => targetDir);
+            bulletComp.SetSpeed(() => 0f); // 초기속도 0
+
+            bullets.Add(bullet);
         }
-        
+
+        // 1초 대기
         yield return new WaitForSeconds(1f);
-        float startTime2 = Time.time;
-        for (int i = 0; i < 5; i++)
+
+        // 점점 빨라지는 속도 적용
+        float startTime = Time.time;
+
+        foreach (var bullet in bullets)
         {
-            for (int j = 0; j < 4; j++)
+            var bulletComp = bullet.GetComponent<EnemyBullet>();
+
+            if (bulletComp != null)
             {
-                float rad = (randomAngle + (72 * i)) * Mathf.Deg2Rad;
-                Vector3 offset = new Vector3(Mathf.Cos(rad) * spacing, Mathf.Sin(rad) * spacing, 0f); // 반지름 15
-                int CurrentJ = j;
-                Vector3 spawnPos = center + offset * (CurrentJ + 1);
-                Vector3 targetDir = (center - spawnPos).normalized;
-
-                SetBullet(bulletObjectPool2, spawnPos,
-                    () => Quaternion.Euler(0, 0, 10 * (Time.time - startTime) * (Time.time - startTime)) * -targetDir,
-                    () => 7 * (Time.time - startTime2));
+                bulletComp.SetSpeed(() => (Time.time - startTime) * 10f);
             }
-
         }
-        
     }
 
 
     // === Phase 2 ===
 
-    private void CreateBulletSpawnPoints(float speed)
+    private void CreateBulletSpawnPoints(float angle, float speed)
     {
         Vector3[] positions = new Vector3[]
         {
-            new Vector3(-8, 11, 0),
-            new Vector3(-8,  -1, 0),
-            new Vector3(-8,  5, 0),
-            new Vector3(-8, -7, 0),
-            new Vector3(-8, -13, 0),
+            new Vector3(-8,  -2, 0),
+            new Vector3(-8,  4, 0),
+            new Vector3(-8, -8, 0),
         };
         Vector3[] ReversePositions = new Vector3[]
         {
-            new Vector3(8, 8, 0),
-            new Vector3( 8,  -4, 0),
-            new Vector3( 8,  2, 0),
-            new Vector3( 8, -10, 0),
-            new Vector3( 8, -16, 0)
+            new Vector3( 8,  -2, 0),
+            new Vector3( 8,  4, 0),
+            new Vector3( 8, -8, 0)
         };
 
-        
+
 
         for (int i = 0; i < positions.Length; i++)
         {
-            float startTime = Time.time;
-            int currentI = i; // -n, 0, n도
-            SetBullet(bulletObjectPool2, firePoint.position + positions[i],
-                () => Quaternion.Euler(0, 0, (Time.time - startTime) * -10) * Vector3.right, () => speed);
-            SetBullet(bulletObjectPool2, firePoint.position + ReversePositions[i],
-                () => Quaternion.Euler(0, 0, (Time.time - startTime) * -10) * Vector3.left, () => speed);
+            int currentI = i;
+            for (int j = 0; j < 3; j++)
+            {
+                //int currentJ = j;
+                // n도씩 퍼지는 3발
+                float angle3 = -angle + (angle * j); // -n, 0, n도
+                SetBullet(bulletObjectPool, firePoint.position + positions[i],
+                    () => Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
+                SetBullet(bulletObjectPool, firePoint.position + ReversePositions[i],
+                    () => Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);
+                /* CreateBullet(bulletPrefab, firePoint.position + positions[i], 
+                     () => Quaternion.Euler(0, 0, angle3) * Vector3.right, () => speed);
+                 CreateBullet(bulletPrefab, firePoint.position + ReversePositions[i],
+                     () => Quaternion.Euler(0, 0, angle3) * Vector3.left, () => speed);*/
+            }
+
         }
 
 
@@ -212,215 +226,63 @@ public class Boss2 : Enemy, IBoss
 
     private IEnumerator Phase2Pattern()
     {
+        yield return new WaitForSeconds(2f);
         int count = 0;
         while (true)
         {
-            if (count < 11)
-            { 
-                CreateBulletSpawnPoints(3f);
+            if (count % 2 == 0)
+            {
+                CreateBulletSpawnPoints(21f, 2f);
             }
             count++;
-            if (count >= 40)
-                count = 0;
-            if (count % 8 == 0)
-            {
-                FireBulletPhase2();
-            }
-            yield return new WaitForSeconds(0.1f);
+            FireBulletPhase2();
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
     private void FireBulletPhase2()
     {
-        var target = GameObject.FindWithTag("Player");
-        if (target != null)
+        // 보스 주변 원형 발사 예시
+        int bulletCount = 18;
+        float angle2 = Random.Range(0f, 360f);
+        for (int i = 0; i < bulletCount; i++)
         {
-            float startTime = Time.time;
-            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-            for (int i = 3; i < 12; i++)
-            {
-                int CurrentI = i;
-                float angle = 360f / 12 * i;
-                Vector3 offset = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0) * 2; //5는 반경
-                Vector3 bulletPos = firePoint.position + offset;
 
-                SetBullet(bulletObjectPool, bulletPos,
-                    () => Quaternion.Euler(0, 0, 5) * bulletDir,
-                    () => 12);
-            }
+            float angle = i * (360f / bulletCount);
+            Vector3 dir = Quaternion.Euler(0, 0, angle + angle2) * Vector3.down;
+            SetBullet(bulletObjectPool2, firePoint.position, () => dir, () => 8);
+            //CreateBullet(bulletPrefab2, firePoint.position, () => dir, () => 8);
         }
     }
 
     // === Phase 3 ===
     private IEnumerator Phase3Pattern()
     {
+        yield return new WaitForSeconds(1f);
         int count = 0;
         while (true)
         {
-            if (count == 17)
+            if (count % 2 == 0)
             {
-                StartCoroutine(FireLineDelayed());
-            }
-            
-            if (count % 3 == 0)
-            {
-                FireBulletPhase3();
+                CreateBulletSpawnPoints(45f, 4f);
             }
             count++;
-            if (count == 18)
-            {
-                count = 0;
-            }
-            yield return new WaitForSeconds(0.15f);
+            FireBulletPhase3();
+            yield return new WaitForSeconds(0.20f);
         }
     }
 
     private void FireBulletPhase3()
     {
         // 혼합 패턴: 랜덤 각도 + 빠른 속도
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 12; i++)
         {
-            int CurrentI = i;
             float angle = Random.Range(0f, 360f);
-            SetBullet(bulletObjectPool, firePoint.position, 
-                () => Quaternion.Euler(0, 0, angle) * Vector3.down, 
-                () => 8f);
-            SetBullet(bulletObjectPool2, firePoint.position,
-                () => Quaternion.Euler(0, 0, angle + 120) * Vector3.down,
-                () => 10f);
-            SetBullet(bulletObjectPool3, firePoint.position,
-                () => Quaternion.Euler(0, 0, angle + 240) * Vector3.down,
-                () => 12f);
-
+            SetBullet(bulletObjectPool2, firePoint.position, () => Quaternion.Euler(0, 0, angle) * Vector3.down, () => 8f);
+            //CreateBullet(bulletPrefab2, firePoint.position, () => Quaternion.Euler(0, 0, angle) * Vector3.down, () => 8f);
         }
 
 
-    }
-
-    /*private IEnumerator FireLineDelayed()
-    {
-        Vector3 center = transform.position; // 보스의 위치
-        int bulletCount = 12;
-        var target = GameObject.FindWithTag("Player");
-        List<GameObject> bullets = new List<GameObject>();
-        if (target != null)
-        { 
-            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-            float rad = Mathf.Atan2(bulletDir.y, bulletDir.x);
-            for (int i = 0; i < bulletCount; i++)
-            {
-                int CurrentI = i;
-                Vector3 offset = new Vector3(Mathf.Cos(rad) * CurrentI, Mathf.Sin(rad) * CurrentI, 0f); // 반지름 15
-
-                Vector3 spawnPos = center + 1.1f * offset;
-
-                GameObject bullet = Instantiate(bulletPrefab3, spawnPos, Quaternion.identity);
-                var bulletComp = bullet.GetComponent<EnemyBullet>();
-
-                bulletComp.SetDirection(() => bulletDir);
-                bulletComp.SetSpeed(() => 0f); // 초기속도 0
-
-                bullets.Add(bullet);
-                yield return new WaitForSeconds(0.1f);
-            }
-
-        }
-            
-
-        //  경계에 총알 생성 (원형)
-        
-
-        // 1초 대기
-        yield return new WaitForSeconds(0.2f);
-
-        // 점점 빨라지는 속도 적용
-        float startTime = Time.time;
-        
-        foreach (var bullet in bullets)
-        {
-            Vector3 newBulletDir = (target.transform.position - bullet.transform.position).normalized;
-            var bulletComp = bullet.GetComponent<EnemyBullet>();
-
-            if (bulletComp != null)
-            {
-                bulletComp.SetDirection( ()=> newBulletDir);
-                bulletComp.SetSpeed(() => 15);
-            }
-        }
-    }
-*/
-    private IEnumerator FireLineDelayed()
-    {
-        Vector3 center = transform.position;
-        int bulletCount = 12;
-        var target = GameObject.FindWithTag("Player");
-        List<EnemyBullet> bullets = new List<EnemyBullet>();
-
-        if (target != null)
-        {
-            Vector3 bulletDir = (target.transform.position - firePoint.position).normalized;
-            float rad = Mathf.Atan2(bulletDir.y, bulletDir.x);
-
-            for (int i = 0; i < bulletCount; i++)
-            {
-                Vector3 offset = new Vector3(Mathf.Cos(rad) * i, Mathf.Sin(rad) * i, 0f);
-                Vector3 spawnPos = center + 1.1f * offset;
-
-                EnemyBullet bulletComp = SpawnBulletFromPool(
-                    bulletObjectPool3,
-                    spawnPos,
-                    () => bulletDir,
-                    () => 0f
-                );
-
-                if (bulletComp != null)
-                    bullets.Add(bulletComp);
-
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
-
-        yield return new WaitForSeconds(0.2f);
-
-        // 점점 빨라지는 속도 적용
-        var newBulletDir = (target.transform.position - firePoint.position).normalized;
-
-        foreach (var bulletComp in bullets)
-        {
-            if (bulletComp != null)
-            {
-                Vector3 individualDir = (target.transform.position - bulletComp.transform.position).normalized;
-                bulletComp.SetDirection(() => individualDir);
-                bulletComp.SetSpeed(() => 15f);
-            }
-        }
-    }
-
-    private EnemyBullet SpawnBulletFromPool(
-    List<GameObject> bulletPool,
-    Vector3 position,
-    Func<Vector3> dirFunc,
-    Func<float> speedFunc)
-    {
-        for (int i = 0; i < bulletPool.Count; i++)
-        {
-            var bullet = bulletPool[i];
-
-            if (bullet == null || bullet.activeSelf) continue;
-
-            bullet.transform.position = position;
-            bullet.transform.rotation = Quaternion.identity;
-            bullet.SetActive(true);
-
-            var bulletComponent = bullet.GetComponent<EnemyBullet>();
-            bulletComponent.SetDirection(dirFunc);
-            bulletComponent.SetSpeed(speedFunc);
-
-            return bulletComponent;
-        }
-
-        Debug.LogWarning("[SpawnBulletFromPool] 사용 가능한 총알이 없습니다!");
-        return null;
     }
 
     // === 페이즈 체력 처리 ===
@@ -471,7 +333,6 @@ public class Boss2 : Enemy, IBoss
             PlayerManager.Instance.ClearBulletPool();
             ClearBulletPool();
             // 스토리 연출 호출
-            
             StartCoroutine(WaitAndShowStory(3f));
         }
     }
@@ -498,15 +359,6 @@ public class Boss2 : Enemy, IBoss
                 Destroy(bullet); // 실 메모리에서 제거
             }
         }
-        foreach (var bullet in bulletObjectPool3)
-        {
-            if (bullet != null)
-            {
-                Destroy(bullet); // 실 메모리에서 제거
-            }
-
-        }
-
     }
 
 

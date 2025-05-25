@@ -6636,13 +6636,13 @@ MonoBehaviour:
   spawnerSlots:
   - spawner: {fileID: 834449625}
     startTime: 2
-    endTime: 9
+    endTime: 8
   - spawner: {fileID: 482810889}
-    startTime: 2
-    endTime: 9
+    startTime: 6
+    endTime: 12
   - spawner: {fileID: 2097723752}
-    startTime: 13
-    endTime: 20
+    startTime: 9
+    endTime: 16
   - spawner: {fileID: 384899310}
     startTime: 13
     endTime: 20

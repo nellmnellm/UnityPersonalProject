@@ -4444,7 +4444,9 @@ MonoBehaviour:
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   initialPoolSize: 800
   bulletPrefab2: {fileID: 7493598509062371845, guid: 9dfff7c7aef8bac4b9b1e6dd604f5789, type: 3}
+  bulletPrefab3: {fileID: 4114248363015274155, guid: e901a65d15c749e49bce6f042233bfb5, type: 3}
   initialPoolSize2: 800
+  initialPoolSize3: 800
   hpBarSprite: {fileID: 21300000, guid: 9aa2c2079cd1c8e4c82b7490d7b2ed71, type: 3}
 --- !u!95 &2123647292817629328
 Animator:

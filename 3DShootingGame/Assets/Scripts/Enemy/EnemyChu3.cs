@@ -10,7 +10,7 @@ public class EnemyChu3 : Enemy
     {
         speed = 3f;
         dir = Vector3.down;
-        HP = 40;
+        HP = 48;
         enemyScore = 2500;
         InvokeRepeating(nameof(FireBullet), 0f, 1.3f);
         StartCoroutine(bulletStop(5));

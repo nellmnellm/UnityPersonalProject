@@ -137,6 +137,20 @@ public class Enemy : MonoBehaviour
 
     }
 
+    //3 Stage 보스 이동용 메서드
+    protected IEnumerator MoveBossToPosition(Vector3 target, float duration)
+    {
+        Vector3 start = transform.position;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(start, target, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = target;
+    }
+
     protected virtual void Awake()
     {
         for (int i = 0; i < initialPoolSize; i++)

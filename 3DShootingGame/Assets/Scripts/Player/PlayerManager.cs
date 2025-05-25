@@ -165,7 +165,7 @@ public class PlayerManager : MonoBehaviour
         UpdateBombs();
     }
 
-    void Start()
+    private void Start()
     {
         mainCam = Camera.main;
         cutsceneCam.enabled = false;
