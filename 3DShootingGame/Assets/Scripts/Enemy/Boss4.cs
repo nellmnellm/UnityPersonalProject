@@ -33,7 +33,6 @@ public class Boss4 : Enemy, IBoss
     protected override void Awake()
     {
         base.Awake();
-        StoryUIManager.Instance.ShowStory(StoryType.Intro);
         for (int i = 0; i < initialPoolSize2; i++)
         {
             AddBulletToPool(bulletPrefab2, bulletObjectPool2);
@@ -324,7 +323,7 @@ public class Boss4 : Enemy, IBoss
             PlayerManager.Instance.ClearBulletPool();
             ClearBulletPool();
             // 스토리 연출 호출
-            MoveBossToPositionAndClearText(new Vector3(0, 4, 0), 1f);
+            StartCoroutine(MoveBossToPositionAndClearText(new Vector3(0, 4, 0), 1f));
             StartCoroutine(WaitAndShowStory(3f));
         }
     }

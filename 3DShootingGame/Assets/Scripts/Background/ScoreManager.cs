@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class ScoreManager : MonoBehaviour
             Instance = null;
         }
     }*/
+
+    public GameObject gameOverPanel; //게임오버 패널
+
     public TMP_Text currentScoreUI;
     public TMP_Text highScoreUI;
     public int currentScore = 0;
@@ -62,6 +66,29 @@ public class ScoreManager : MonoBehaviour
         {
             highScoreUI.text = $"Best\n{highScore}";
         }
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+
     }
-    
+
+    public void ShowGameOverPanel()
+    {
+        Time.timeScale = 0f;
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+    }
+
+    public void HideGameOverPanel()
+    {
+        Time.timeScale = 1f;
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+    }
+
+    public void ReturnToTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Title");
+    }
+
 }

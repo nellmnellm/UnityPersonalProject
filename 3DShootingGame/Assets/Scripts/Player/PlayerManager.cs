@@ -87,7 +87,7 @@ public class PlayerManager : MonoBehaviour
     
     private bool isInvincible = false;     // 반짝이는 효과 적용 여부
     private Renderer[] renderers;          // 반짝이는 효과 적용을 위한 renderer 집합(구조의 하위구조)
-    
+                  // -> 무적시간 등을 위해. 인스펙터에서 직접
 
     public GameObject[] firePosition;      //
 
@@ -185,7 +185,8 @@ public class PlayerManager : MonoBehaviour
     {
         fireCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && fireCooldownTimer <= 0f && bulletObjectPool.Count > 0)
+        if (Input.GetButton("Fire1") && fireCooldownTimer <= 0f && bulletObjectPool.Count > 0
+            && GetComponent<Collider>().enabled == true)
         {
             for (int j = 0; j < level; j++)
             {
@@ -226,12 +227,12 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator BombCutsceneRoutine()
     {
-        
+        var collider = GetComponent<Collider>();
         // 컷씬 카메라 활성화
         mainCam.enabled = false;
         cutsceneCam.enabled = true;
-
-        transform.position = new Vector3(0, -50, 0);
+        collider.enabled = false;
+        //transform.position = new Vector3(0, -50, 0);
         // 애니메이션 트리거
         playerAnimator.SetTrigger("Punch");
 
@@ -241,7 +242,8 @@ public class PlayerManager : MonoBehaviour
         // 카메라 복귀
         cutsceneCam.enabled = false;
         mainCam.enabled = true;
-        transform.position = new Vector3(0, -5, 0);
+        collider.enabled = true;
+        //transform.position = new Vector3(0, -5, 0);
         StartCoroutine(InvincibilityCoroutine(2f));
         // 폭탄 효과 시작
         GameObject bomb = Instantiate(bombPrefab, new Vector3(0, -1f, -0.1f), Quaternion.identity);
@@ -344,34 +346,58 @@ public class PlayerManager : MonoBehaviour
         UpdateHearts();
         var explosion = Instantiate(effect);
         explosion.transform.position = transform.position;
-        StartCoroutine(RespawnAfterDelay(1f));
+        if (HP <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            StartCoroutine(RespawnAfterDelay(1f));
+        }
 
-        
 
-        StartCoroutine(InvincibilityCoroutine(5f));
-        
     }
+
+    void GameOver()
+    {
+        ScoreManager.Instance.ShowGameOverPanel();
+    }
+   
+
     IEnumerator RespawnAfterDelay(float delay)
     {
+        var collider = GetComponent<Collider>();
         // 렌더링 & 충돌 꺼서 안 보이게 함
-        transform.position = new Vector3(0f, -50f, 0f);
+        collider.enabled = false;
+        foreach (Renderer rend in renderers)
+        {
+            if (rend != null)
+                rend.enabled = false;
+        }
+        //transform.position = new Vector3(0f, -50f, 0f);
         yield return new WaitForSeconds(delay);
-        
+        foreach (Renderer rend in renderers)
+        {
+            if (rend != null)
+                rend.enabled = true;
+        }
         bombCount = 2;
         UpdateBombs();
+        collider.enabled = true;
         transform.position = new Vector3(0f, -5f, 0f);
-
+        StartCoroutine(InvincibilityCoroutine(4f));
     }
 
     IEnumerator InvincibilityCoroutine(float invincibleDuration)
     {
-        isInvincible = true;
+        
 
         float blinkInterval = 0.2f;
         float elapsed = 0f;
 
         while (elapsed < invincibleDuration)
         {
+            isInvincible = true;
             SetRenderersVisible(false);
             yield return new WaitForSeconds(blinkInterval);
             SetRenderersVisible(true);

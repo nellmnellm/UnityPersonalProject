@@ -6,12 +6,13 @@ using UnityEngine;
 public class PlayerStat
 {
     public float speed;
-    public int count_of_harvest;
 }
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerStat stat;
     Animator animator;
+
+    private Vector2 last = Vector2.down;
 
     private void Start()
     {
@@ -27,17 +28,20 @@ public class PlayerMovement : MonoBehaviour
 
                 animator.SetFloat("Horizontal", direction.x);
                 animator.SetFloat("Vertical", direction.y);
-
+                last = direction.normalized;
             }
             else
             {
                 animator.SetBool("IsMove", false);
+                animator.SetFloat("Horizontal", last.x);
+                animator.SetFloat("Vertical", last.y);
             }
+
 
 
         }
 
-}
+    }
     void Update()
     {
         var h = Input.GetAxisRaw("Horizontal");

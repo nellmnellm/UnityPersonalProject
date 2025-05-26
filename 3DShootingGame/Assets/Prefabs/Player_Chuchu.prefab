@@ -3815,6 +3815,7 @@ MonoBehaviour:
   cutsceneCam: {fileID: 313185213492094721}
   cutsceneTime: 1
   effect: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
+  collider: {fileID: 7223593685590908132}
   firePosition:
   - {fileID: 1632139178711454016}
   - {fileID: 4305388604520023097}

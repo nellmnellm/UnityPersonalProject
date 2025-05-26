@@ -4,47 +4,45 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed = 10f;
-    
-    
-    
-    private void Update()
+
+
+
+    void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 dir = new Vector3(h, v, 0);
 
-        // transform.Translate(dir * speed * Time.deltaTime);
+        // 기본 이동 속도 설정
+        float moveSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                          ? 3f : speed;
 
-        
+        // 이동
+        transform.position += dir * moveSpeed * Time.deltaTime;
 
-        
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            transform.position += dir * 3 * Time.deltaTime;
-           
-        }
-        else
-        {
-            transform.position += dir * speed * Time.deltaTime;
-        }
-        
-        // transform.Translate(Vector3 dir);
-        // 게임 오브젝트를 이동시키기 위한 용도
-        // 게임 오브젝트의 위치를 Vector3 방향으로 이동하게 됨
-        // (물리 엔진과 관련된 연산을 수행하지는 않고 단순한 이동 기능으로 구현)
-        // --> 기본적인 움직임
-
-        // transform.position을 통해 계산해둔 위치로 오브젝트의 position을 바꿀 수 있음
-        // --> 주로 포탈 같은 형태의 움직임 구현 시 효과적
-        // position을 직접 움직일 오브젝트에는 rigidbody를 쓰지 않는게 좋음
-        // (콜라이더들이 rigidbody의 상대적인 위치를 재계산해야하는 경우가 발생함)
-
-        // Rigidbody 는 게임 오브젝트에 물리 엔진을 적용해서 충돌, 힘, 중력 등의
-        // 믈리적인 상호작용을 가능하게 해주는 컴포넌트
-
-        // Rigidbody.AddForce(Vector3 dir, ForceMode mode);
-        // 물리적인 연산을 통해 움직임을 구현하고, 힘을 주는 설정을 따라 지속적으로 처리할지
-        // 순간적인 힘을 가할지를 처리할 수 있음
+        // 위치 제한 적용
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -9f, 9f);
+        pos.y = Mathf.Clamp(pos.y, -15f, 12f);
+        transform.position = pos;
     }
+    // transform.Translate(Vector3 dir);
+    // 게임 오브젝트를 이동시키기 위한 용도
+    // 게임 오브젝트의 위치를 Vector3 방향으로 이동하게 됨
+    // (물리 엔진과 관련된 연산을 수행하지는 않고 단순한 이동 기능으로 구현)
+    // --> 기본적인 움직임
+
+    // transform.position을 통해 계산해둔 위치로 오브젝트의 position을 바꿀 수 있음
+    // --> 주로 포탈 같은 형태의 움직임 구현 시 효과적
+    // position을 직접 움직일 오브젝트에는 rigidbody를 쓰지 않는게 좋음
+    // (콜라이더들이 rigidbody의 상대적인 위치를 재계산해야하는 경우가 발생함)
+
+    // Rigidbody 는 게임 오브젝트에 물리 엔진을 적용해서 충돌, 힘, 중력 등의
+    // 믈리적인 상호작용을 가능하게 해주는 컴포넌트
+
+    // Rigidbody.AddForce(Vector3 dir, ForceMode mode);
+    // 물리적인 연산을 통해 움직임을 구현하고, 힘을 주는 설정을 따라 지속적으로 처리할지
+    // 순간적인 힘을 가할지를 처리할 수 있음
+
 }
