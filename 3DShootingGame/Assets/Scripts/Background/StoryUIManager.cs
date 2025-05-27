@@ -82,6 +82,12 @@ public class StoryUIManager : MonoBehaviour
             }
             else
             {
+                if (PlayerPrefs.GetInt("IS_PRACTICE", 0) == 1)
+                {
+                    SceneManager.LoadScene("Title");
+                    return;
+                }
+
                 string currentScene = SceneManager.GetActiveScene().name;
 
                 switch (currentScene)

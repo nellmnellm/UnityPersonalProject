@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UniVRM10;
 using Random = UnityEngine.Random;
 
 public class Boss2 : Enemy, IBoss

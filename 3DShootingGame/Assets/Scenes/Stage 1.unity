@@ -1789,6 +1789,7 @@ MonoBehaviour:
   HeartContainer: {fileID: 2104012550}
   BombContainer: {fileID: 1489662894}
   spawnPosition: {x: 0, y: -5, z: 0}
+  basePrefab: {fileID: 1887735493646184215, guid: 9096c237bb740534697da121b73bf96c, type: 3}
 --- !u!4 &307237949
 Transform:
   m_ObjectHideFlags: 0

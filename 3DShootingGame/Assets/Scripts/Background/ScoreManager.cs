@@ -18,14 +18,6 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    /*private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
-    }*/
-
     public GameObject gameOverPanel; //게임오버 패널
 
     public TMP_Text currentScoreUI;

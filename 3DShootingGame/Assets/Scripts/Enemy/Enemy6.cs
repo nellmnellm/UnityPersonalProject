@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
 public class Enemy6 : Enemy
 {
     public float rushSpeed = 10f;

@@ -2,9 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine.PlayerLoop;
-
 public class StageNameUI : MonoBehaviour
 {
     public float speed = 200f;

@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -59,7 +56,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject heartImagePrefab;             // 목숨 이미지 프리펩
     public List<GameObject> hearts = new List<GameObject>(5);
     public Transform heartContainer;      // 목숨 UI가 들어갈 위치
-
+    
     [Header("레벨 관리")]
     public int level = 1;                  // 총알 개수 (아직 구현 안된 부분 => 3 고정)
 
@@ -147,13 +144,21 @@ public class PlayerManager : MonoBehaviour
                 Destroy(heart);
             }
             hearts.Clear();
-
-            // 새로운 하트 생성
-            for (int i = 0; i < HP; i++)
+            if (HP >= 6)
             {
-                GameObject heart = Instantiate(heartImagePrefab, heartContainer);
-                hearts.Add(heart);
+                return;
             }
+            else
+            {
+                // 새로운 하트 생성
+                for (int i = 0; i < HP; i++)
+                {
+                    GameObject heart = Instantiate(heartImagePrefab, heartContainer);
+                    hearts.Add(heart);
+                }
+            }
+                
+                
         }
     }
     //씬 이동시 사용
