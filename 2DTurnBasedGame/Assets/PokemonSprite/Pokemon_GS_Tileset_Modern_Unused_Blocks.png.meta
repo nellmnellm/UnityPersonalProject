@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: 1280afd126bf0e44bb54712c794fba34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3917053330327265967
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_0
+  - first:
+      213: 892709813855661369
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_1
+  - first:
+      213: -1957649787904123961
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_2
+  - first:
+      213: 7121944699127831619
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_3
+  - first:
+      213: 7065027517567391084
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_4
+  - first:
+      213: -8418429792575462029
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_5
+  - first:
+      213: 8637288418758253108
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_6
+  - first:
+      213: -1935781207662335279
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_7
+  - first:
+      213: -5172963789170872462
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_8
+  - first:
+      213: -7301864128670235035
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_9
+  - first:
+      213: -7057259629686773606
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_10
+  - first:
+      213: 1263495000808693230
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_11
+  - first:
+      213: -6956962359450020472
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_12
+  - first:
+      213: -7961171933938086708
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_13
+  - first:
+      213: -2088695269799278624
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_14
+  - first:
+      213: -7117491554930181621
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_15
+  - first:
+      213: -3087962671568436724
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_16
+  - first:
+      213: 5159870921498266894
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_17
+  - first:
+      213: 3001008274160246826
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_18
+  - first:
+      213: -3123788179744986446
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_19
+  - first:
+      213: -7802205764879606187
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_20
+  - first:
+      213: 5915078317011616137
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_21
+  - first:
+      213: -4446125444812750025
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_22
+  - first:
+      213: -166767468090401243
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_23
+  - first:
+      213: -2036045877540275600
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_24
+  - first:
+      213: -6763041149941564701
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_25
+  - first:
+      213: -1738698077067612891
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_26
+  - first:
+      213: 8989565033143851850
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_27
+  - first:
+      213: -2936922685166834341
+    second: Pokemon_GS_Tileset_Modern_Unused_Blocks_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2ea60204b2c5630800000000000000
+      internalID: 3917053330327265967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d2f5e88da836c00800000000000000
+      internalID: 892709813855661369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 164
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb1b55d3e705d4e0800000000000000
+      internalID: -1957649787904123961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 131
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c9d7d58fa36d260800000000000000
+      internalID: 7121944699127831619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 164
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65d6f858150c0260800000000000000
+      internalID: 7065027517567391084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 131
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37569f6d4babb2b80800000000000000
+      internalID: -8418429792575462029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 164
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a5ea6fd00ddd770800000000000000
+      internalID: 8637288418758253108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 131
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dae8627f39b225e0800000000000000
+      internalID: -1935781207662335279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_8
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 164
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fe28e57d0f538b0800000000000000
+      internalID: -5172963789170872462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_9
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 131
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 566817c03419aaa90800000000000000
+      internalID: -7301864128670235035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98a0dcf1c39f0e90800000000000000
+      internalID: -7057259629686773606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed1faa4206d88110800000000000000
+      internalID: 1263495000808693230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 98
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885d739f797e37f90800000000000000
+      internalID: -6956962359450020472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 65
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc8fc16e4c348190800000000000000
+      internalID: -7961171933938086708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 98
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7439fe7b67303e0800000000000000
+      internalID: -2088695269799278624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_15
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 65
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a3b801427993d90800000000000000
+      internalID: -7117491554930181621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_16
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 98
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c024f799f4a5525d0800000000000000
+      internalID: -3087962671568436724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_17
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 65
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d85c2d34b8b9740800000000000000
+      internalID: 5159870921498266894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_18
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 98
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2064551029b5a920800000000000000
+      internalID: 3001008274160246826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_19
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 65
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba6cb8733316a4d0800000000000000
+      internalID: -3123788179744986446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e98d7d13ff8b390800000000000000
+      internalID: -7802205764879606187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981c710d364961250800000000000000
+      internalID: 5915078317011616137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7334c1be6703c42c0800000000000000
+      internalID: -4446125444812750025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_23
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e51601fd58fadf0800000000000000
+      internalID: -166767468090401243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_24
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 32
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a30d2df038eb3e0800000000000000
+      internalID: -2036045877540275600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea326008e9d422a0800000000000000
+      internalID: -6763041149941564701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_26
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 32
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52deab89f47eed7e0800000000000000
+      internalID: -1738698077067612891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_27
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bdfc5d4c951cc70800000000000000
+      internalID: 8989565033143851850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokemon_GS_Tileset_Modern_Unused_Blocks_28
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 32
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d28d9d064fd37d0800000000000000
+      internalID: -2936922685166834341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

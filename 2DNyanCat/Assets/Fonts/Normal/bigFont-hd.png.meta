@@ -1,0 +1,2530 @@
+fileFormatVersion: 2
+guid: 8383349acf65d0b47a882577c8d44ade
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2127861240874590067
+    second: bigFont-hd_0
+  - first:
+      213: 5318985335306007109
+    second: bigFont-hd_1
+  - first:
+      213: -4094692354166984965
+    second: bigFont-hd_2
+  - first:
+      213: -7845037086898286261
+    second: bigFont-hd_3
+  - first:
+      213: 2945949830681671732
+    second: bigFont-hd_4
+  - first:
+      213: 34527634653588817
+    second: bigFont-hd_5
+  - first:
+      213: -6744417917281439161
+    second: bigFont-hd_6
+  - first:
+      213: 7708916516009790509
+    second: bigFont-hd_7
+  - first:
+      213: -1820672669613675001
+    second: bigFont-hd_8
+  - first:
+      213: 6496771657984869579
+    second: bigFont-hd_9
+  - first:
+      213: -2182123080220133843
+    second: bigFont-hd_10
+  - first:
+      213: 6333793942001879802
+    second: bigFont-hd_11
+  - first:
+      213: 6058031938222078921
+    second: bigFont-hd_12
+  - first:
+      213: 5545159663298767697
+    second: bigFont-hd_13
+  - first:
+      213: -394648642328228429
+    second: bigFont-hd_14
+  - first:
+      213: -4950070664637439885
+    second: bigFont-hd_15
+  - first:
+      213: -7212598544896693215
+    second: bigFont-hd_16
+  - first:
+      213: 3323872310088491917
+    second: bigFont-hd_17
+  - first:
+      213: -6470093423817971566
+    second: bigFont-hd_18
+  - first:
+      213: -8814091673337573765
+    second: bigFont-hd_19
+  - first:
+      213: 4707341750408499476
+    second: bigFont-hd_20
+  - first:
+      213: 1318701704753253850
+    second: bigFont-hd_21
+  - first:
+      213: 8247667925650716106
+    second: bigFont-hd_22
+  - first:
+      213: -4389314795350168482
+    second: bigFont-hd_23
+  - first:
+      213: -6663947242648801803
+    second: bigFont-hd_24
+  - first:
+      213: 1004445498234172789
+    second: bigFont-hd_25
+  - first:
+      213: -8143529578186455067
+    second: bigFont-hd_26
+  - first:
+      213: 7847267450042700133
+    second: bigFont-hd_27
+  - first:
+      213: 6677263050824489559
+    second: bigFont-hd_28
+  - first:
+      213: 7580917224684107655
+    second: bigFont-hd_29
+  - first:
+      213: -7346368622325366576
+    second: bigFont-hd_30
+  - first:
+      213: 2099333062713375652
+    second: bigFont-hd_31
+  - first:
+      213: 4825663798762268466
+    second: bigFont-hd_32
+  - first:
+      213: 3692531933981515427
+    second: bigFont-hd_33
+  - first:
+      213: 7230191300654006471
+    second: bigFont-hd_34
+  - first:
+      213: 9003249698575797570
+    second: bigFont-hd_35
+  - first:
+      213: 5685424845828903973
+    second: bigFont-hd_36
+  - first:
+      213: 8630111758677246375
+    second: bigFont-hd_37
+  - first:
+      213: -193149476063099378
+    second: bigFont-hd_38
+  - first:
+      213: 1861784240857772530
+    second: bigFont-hd_39
+  - first:
+      213: 693641094076418708
+    second: bigFont-hd_40
+  - first:
+      213: -5656374577490047242
+    second: bigFont-hd_41
+  - first:
+      213: 4630109281074673033
+    second: bigFont-hd_42
+  - first:
+      213: -2688979578345067657
+    second: bigFont-hd_43
+  - first:
+      213: -6843031456970791705
+    second: bigFont-hd_44
+  - first:
+      213: 6482592809886000058
+    second: bigFont-hd_45
+  - first:
+      213: 8106135814122778945
+    second: bigFont-hd_46
+  - first:
+      213: -5036270451877923287
+    second: bigFont-hd_47
+  - first:
+      213: -8982210548197332489
+    second: bigFont-hd_48
+  - first:
+      213: -2332308608249966551
+    second: bigFont-hd_49
+  - first:
+      213: 8455517952524733295
+    second: bigFont-hd_50
+  - first:
+      213: 7076935505222837975
+    second: bigFont-hd_51
+  - first:
+      213: 7694602451508856003
+    second: bigFont-hd_52
+  - first:
+      213: 1625145742105600794
+    second: bigFont-hd_53
+  - first:
+      213: -7856188008102037765
+    second: bigFont-hd_54
+  - first:
+      213: -779898383621101165
+    second: bigFont-hd_55
+  - first:
+      213: -2960959729039334023
+    second: bigFont-hd_56
+  - first:
+      213: 8512294194911870173
+    second: bigFont-hd_57
+  - first:
+      213: -3431702229599807134
+    second: bigFont-hd_58
+  - first:
+      213: 3051378298092383893
+    second: bigFont-hd_59
+  - first:
+      213: -8570377199520688641
+    second: bigFont-hd_60
+  - first:
+      213: -1623134774639808464
+    second: bigFont-hd_61
+  - first:
+      213: -4741650852823894965
+    second: bigFont-hd_62
+  - first:
+      213: 4117469516020464839
+    second: bigFont-hd_63
+  - first:
+      213: -523597018102931053
+    second: bigFont-hd_64
+  - first:
+      213: 4920061195070427607
+    second: bigFont-hd_65
+  - first:
+      213: -6668469970092349363
+    second: bigFont-hd_66
+  - first:
+      213: -5747714319627336305
+    second: bigFont-hd_67
+  - first:
+      213: 5426573859229132987
+    second: bigFont-hd_68
+  - first:
+      213: 6327176814415750248
+    second: bigFont-hd_69
+  - first:
+      213: 7026611672526341745
+    second: bigFont-hd_70
+  - first:
+      213: -3981599496852417074
+    second: bigFont-hd_71
+  - first:
+      213: -3490288209077909561
+    second: bigFont-hd_72
+  - first:
+      213: 1892218258136410089
+    second: bigFont-hd_73
+  - first:
+      213: -138863818758980030
+    second: bigFont-hd_74
+  - first:
+      213: 7099207613553795157
+    second: bigFont-hd_75
+  - first:
+      213: 247068379274095112
+    second: bigFont-hd_76
+  - first:
+      213: 5780887562612111701
+    second: bigFont-hd_77
+  - first:
+      213: -4961969132922587477
+    second: bigFont-hd_78
+  - first:
+      213: -5556287933253459379
+    second: bigFont-hd_79
+  - first:
+      213: -8605797576970515128
+    second: bigFont-hd_80
+  - first:
+      213: 6271546752523480141
+    second: bigFont-hd_81
+  - first:
+      213: -6287096160267211745
+    second: bigFont-hd_82
+  - first:
+      213: -7789854130711795957
+    second: bigFont-hd_83
+  - first:
+      213: -2644785777333232677
+    second: bigFont-hd_84
+  - first:
+      213: 910339362363129671
+    second: bigFont-hd_85
+  - first:
+      213: -2939419498931524427
+    second: bigFont-hd_86
+  - first:
+      213: -6405983726492006403
+    second: bigFont-hd_87
+  - first:
+      213: -2694194286420541304
+    second: bigFont-hd_88
+  - first:
+      213: 4627253182389723150
+    second: bigFont-hd_89
+  - first:
+      213: 736126925090962003
+    second: bigFont-hd_90
+  - first:
+      213: -8382560741145589701
+    second: bigFont-hd_91
+  - first:
+      213: -7463558028908741529
+    second: bigFont-hd_92
+  - first:
+      213: -5191383986364565100
+    second: bigFont-hd_93
+  - first:
+      213: -5393229249442378669
+    second: bigFont-hd_94
+  - first:
+      213: -939610747803172011
+    second: bigFont-hd_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bigFont-hd_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 444
+        width: 28
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80295ea9715872e0800000000000000
+      internalID: -2127861240874590067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 443
+        width: 28
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5423d643bf4d0d940800000000000000
+      internalID: 5318985335306007109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 445
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe6e5d9ffabc27c0800000000000000
+      internalID: -4094692354166984965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 445
+        width: 29
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4199a19554d02390800000000000000
+      internalID: -7845037086898286261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 445
+        width: 27
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43837ef33cd12e820800000000000000
+      internalID: 2945949830681671732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 445
+        width: 27
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d267663baaa7000800000000000000
+      internalID: 34527634653588817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_6
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 447
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742f8af33a30762a0800000000000000
+      internalID: -6744417917281439161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_7
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 447
+        width: 20
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2cc7eb4ab29bfa60800000000000000
+      internalID: 7708916516009790509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 447
+        width: 59
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e2a637adbabb6e0800000000000000
+      internalID: -1820672669613675001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_9
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 454
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4830dc66b292a50800000000000000
+      internalID: 6496771657984869579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_10
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 454
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d263c43be9a87b1e0800000000000000
+      internalID: -2182123080220133843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_11
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 455
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa0b89480826e750800000000000000
+      internalID: 6333793942001879802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 388
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cbb2b373f3721450800000000000000
+      internalID: 6058031938222078921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 388
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b6fb1955d54fc40800000000000000
+      internalID: 5545159663298767697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_14
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 388
+        width: 52
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd8fe6962de58af0800000000000000
+      internalID: -394648642328228429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 388
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370243505f0dd4bb0800000000000000
+      internalID: -4950070664637439885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_16
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 388
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12ceeef56d3b7eb90800000000000000
+      internalID: -7212598544896693215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_17
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 388
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83e4916144c02e20800000000000000
+      internalID: 3323872310088491917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_18
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 388
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2982db1af4c9536a0800000000000000
+      internalID: -6470093423817971566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_19
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 388
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e4cf8725e0ea580800000000000000
+      internalID: -8814091673337573765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_20
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 388
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411d675a166d35140800000000000000
+      internalID: 4707341750408499476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_21
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 388
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add0584b638fc4210800000000000000
+      internalID: 1318701704753253850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 331
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac53bc5c74a957270800000000000000
+      internalID: 8247667925650716106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_23
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 332
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c69cff2750613c0800000000000000
+      internalID: -4389314795350168482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 332
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd69f73a47e483a0800000000000000
+      internalID: -6663947242648801803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_25
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 331
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 575fc7edbd180fd00800000000000000
+      internalID: 1004445498234172789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_26
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 332
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e74f42befe5cfe80800000000000000
+      internalID: -8143529578186455067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_27
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 332
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561d7415b2817ec60800000000000000
+      internalID: 7847267450042700133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_28
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 331
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a1c38fd576aac50800000000000000
+      internalID: 6677263050824489559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_29
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 332
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787bfe8ec04d43960800000000000000
+      internalID: 7580917224684107655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_30
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 332
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0883529a47c0a90800000000000000
+      internalID: -7346368622325366576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_31
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 332
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab734c3c44522d10800000000000000
+      internalID: 2099333062713375652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 304
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237efa258a338f240800000000000000
+      internalID: 4825663798762268466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_33
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 277
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae11c6ea328e3330800000000000000
+      internalID: 3692531933981515427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_34
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 276
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c00a954eacc65460800000000000000
+      internalID: 7230191300654006471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_35
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 276
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24dc0cb46e7f1fc70800000000000000
+      internalID: 9003249698575797570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_36
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 277
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524dfcc46cfa6ee40800000000000000
+      internalID: 5685424845828903973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_37
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 277
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a101e39be054c770800000000000000
+      internalID: 8630111758677246375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_38
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 276
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e06c4ba239bc15df0800000000000000
+      internalID: -193149476063099378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_39
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 277
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f17fb427e266d910800000000000000
+      internalID: 1861784240857772530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_40
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 277
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ac90666ee40a900800000000000000
+      internalID: 693641094076418708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 275
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fec7206a458081b0800000000000000
+      internalID: -5656374577490047242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_42
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 221
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985f1b91cd3714040800000000000000
+      internalID: 4630109281074673033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_43
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 221
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b66700253deaad0800000000000000
+      internalID: -2688979578345067657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_44
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 222
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4ae64552ba801a0800000000000000
+      internalID: -6843031456970791705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_45
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 221
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3a1c870dbc6f950800000000000000
+      internalID: 6482592809886000058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_46
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 221
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1413cd52397ce7070800000000000000
+      internalID: 8106135814122778945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_47
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 221
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 926350315b29b1ab0800000000000000
+      internalID: -5036270451877923287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_48
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 221
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f96ee0a817c85380800000000000000
+      internalID: -8982210548197332489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_49
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 221
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920dcaa8da9f1afd0800000000000000
+      internalID: -2332308608249966551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_50
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 221
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bcc2057c8085570800000000000000
+      internalID: 8455517952524733295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_51
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 221
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d62827c853563260800000000000000
+      internalID: 7076935505222837975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_52
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 168
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c409027928b8ca60800000000000000
+      internalID: 7694602451508856003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_53
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 169
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13617a217dad8610800000000000000
+      internalID: 1625145742105600794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_54
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 171
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6f46861a639f290800000000000000
+      internalID: -7856188008102037765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_55
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 172
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399ec5b5d8e3d25f0800000000000000
+      internalID: -779898383621101165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_56
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 172
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975af5470de88e6d0800000000000000
+      internalID: -2960959729039334023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_57
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 172
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc775f587eb12670800000000000000
+      internalID: 8512294194911870173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_58
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 196
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26999cd01052060d0800000000000000
+      internalID: -3431702229599807134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_59
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 172
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ee12d256ca85a20800000000000000
+      internalID: 3051378298092383893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_60
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 173
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff556774857ef0980800000000000000
+      internalID: -8570377199520688641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_61
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 172
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 030b20fa5877979e0800000000000000
+      internalID: -1623134774639808464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_62
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 172
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44f084fba5423eb0800000000000000
+      internalID: -4741650852823894965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_63
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 118
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc36e3a5b0342930800000000000000
+      internalID: 4117469516020464839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_64
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 119
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3916582494fcbb8f0800000000000000
+      internalID: -523597018102931053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_65
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 119
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d15b5dd691974440800000000000000
+      internalID: 4920061195070427607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_66
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 118
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48294da4e5d473a0800000000000000
+      internalID: -6668469970092349363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_67
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 119
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85cf2c67440c30b0800000000000000
+      internalID: -5747714319627336305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_68
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 118
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8e5ca7c201f4b40800000000000000
+      internalID: 5426573859229132987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_69
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 119
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864a6563ac5aec750800000000000000
+      internalID: 6327176814415750248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_70
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 119
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 176cb8b661a838160800000000000000
+      internalID: 7026611672526341745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_71
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 118
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5dc306a548eb8c0800000000000000
+      internalID: -3981599496852417074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_72
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 118
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c74d2ebd51009fc0800000000000000
+      internalID: -3490288209077909561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_73
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 69
+        width: 45
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7aab9fa72824a10800000000000000
+      internalID: 1892218258136410089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_74
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 69
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e77b2b718a21ef0800000000000000
+      internalID: -138863818758980030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_75
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 69
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5506f9816b3758260800000000000000
+      internalID: 7099207613553795157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_76
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 69
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a2dd5c163cd6300800000000000000
+      internalID: 247068379274095112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_77
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 69
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 559f7f71c96d93050800000000000000
+      internalID: 5780887562612111701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_78
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 69
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba632bdfc5b832bb0800000000000000
+      internalID: -4961969132922587477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_79
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 70
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4263ac209914e2b0800000000000000
+      internalID: -5556287933253459379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_80
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 69
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d41cff2b0129880800000000000000
+      internalID: -8605797576970515128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_81
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 77
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4caa681b82090750800000000000000
+      internalID: 6271546752523480141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_82
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 79
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cec8a4a5fbfb8a0800000000000000
+      internalID: -6287096160267211745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_83
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 79
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0760d6c0f0e4e390800000000000000
+      internalID: -7789854130711795957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_84
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 36
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb1c032955db4bd0800000000000000
+      internalID: -2644785777333232677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_85
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 39
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74fb5bea3dc22ac00800000000000000
+      internalID: 910339362363129671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_86
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 40
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc64581a851537d0800000000000000
+      internalID: -2939419498931524427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_87
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 39
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7c289bdbf5917a0800000000000000
+      internalID: -6405983726492006403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_88
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 41
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880440a229c4c9ad0800000000000000
+      internalID: -2694194286420541304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_89
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 42
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00a22ec04e473040800000000000000
+      internalID: 4627253182389723150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_90
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 42
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ab5a7c98f373a00800000000000000
+      internalID: 736126925090962003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_91
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 42
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38c1eb2b692bab80800000000000000
+      internalID: -8382560741145589701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_92
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 46
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c316e248d1c6890800000000000000
+      internalID: -7463558028908741529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_93
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 47
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499b61005cf74f7b0800000000000000
+      internalID: -5191383986364565100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_94
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 47
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c8dba72966725b0800000000000000
+      internalID: -5393229249442378669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigFont-hd_95
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 48
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5538d0ec005d5f2f0800000000000000
+      internalID: -939610747803172011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
