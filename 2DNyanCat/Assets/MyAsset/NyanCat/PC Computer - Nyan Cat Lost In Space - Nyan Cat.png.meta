@@ -1,0 +1,1076 @@
+fileFormatVersion: 2
+guid: 6ef36415c0614814d9e52c5656194311
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7759174356883465197
+    second: PC Computer - Nyan Cat Lost In Space - Nyan Cat_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NyanCat-Title1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3eb5cb7ff1eab60800000000000000
+      internalID: 7759174356883465197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Title2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8601476a8d09c71428a1cdc8ac155150
+      internalID: 2040427104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Title3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9a2c0c42576ad4c92ad70c4a758542
+      internalID: -619608534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Title4
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1345a5c0579015143bf9dab2703cb77d
+      internalID: 2027258648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Title5
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c471a4605057f41ad5494d85b1a5bf
+      internalID: 433145905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Title6
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 361
+        width: 148
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d07a2c4301fda2448a1639a585932bb
+      internalID: -642551771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Tail1
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 361
+        width: 226
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175c5d30b370b774a89a4a4d3c2a6ec6
+      internalID: -10999241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Tail2
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 361
+        width: 226
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58410827bd7f3f14ba8f7f2121b0646a
+      internalID: -441479753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e049f3cd71de9a948b139a4ae4d396d6
+      internalID: 1624187359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1d60072a6230f438e2ddd4de341647
+      internalID: 1631715714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6bcb33d5c7e0b4ca4966bd61ecbeb8
+      internalID: 1484308613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal4
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1f4c73bfd2597449b627fd7603bc22
+      internalID: -1850454134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal5
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f1dbc64f8e21f4895b30e228961b58
+      internalID: -1436064777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Normal6
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 275
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c21da799d235014fb9e4e1c2f61d369
+      internalID: 1416058856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch1
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b1ca1a7957d3ce478b0004011a5328f
+      internalID: 657520274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch2
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ac4052053dd1748a93e1584fd7d990
+      internalID: -1064134700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch3
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512e469dcae9c06468e01691b39a6c49
+      internalID: 1155380520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584b460937813aa4f9b9ac1c8c09b410
+      internalID: 337106009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch5
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956c290a5e834ef4d862115c7254a613
+      internalID: 641658286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch6
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 272
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7554f44a55ea3ee4e8396781013b28ab
+      internalID: -153881320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch7
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 273
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96aedbdc437531049b45d83ca1b39471
+      internalID: -1018026402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Ouch8
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 275
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e7d1fb282ceaec44b7e3424b2a7c0c7
+      internalID: 2003719962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Fly1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 200
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f992a6823f5cf4fb526f998b2374ef
+      internalID: -1261276672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Fly2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 200
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48067114d45c49479cfa38dbbd2cb65
+      internalID: -1511774317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Fly3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 200
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71caa0c81cef42242a9eecfc8956f123
+      internalID: -1261018024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Fly4
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 200
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8312bd4e0e03c04386a5c1b2e5ba41e
+      internalID: 497354807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Rocket1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145
+        width: 114
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6ec6ced9ad814408f1ff2c0ecbb129
+      internalID: -1800197463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Rocket2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 145
+        width: 120
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b0a29ea956508429f4a5b32ec864ea
+      internalID: 898391875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Rocket3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 145
+        width: 111
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6261404d1192d42a9d41d2d2452664
+      internalID: 2095633942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Rocket4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 145
+        width: 120
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be127afbd6d0b2840b32a2f3ee14df18
+      internalID: -68478388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 87
+        width: 70
+        height: 50
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.5000008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a43dafa8d00ef4a9894cf1320eccf2
+      internalID: 656290779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 87
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2690faa73f0d68d4887ceffe876db682
+      internalID: 739570081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 87
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963e21d1107cc0b47a3272814fdfa147
+      internalID: -1575743629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 87
+        width: 69
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d42dfbd490c1584b854c0df14e06e7c
+      internalID: 1729068916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig5
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 87
+        width: 66
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc49c36b9fb83034f8cc6cb5eeee5f72
+      internalID: -2145132169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig6
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 87
+        width: 67
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c84d60aabc40694e8decbb6b2e9278d
+      internalID: -1518282046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 87
+        width: 69
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aeee546b646aa041b57027bc41008f3
+      internalID: 1577390719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Dig8
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 87
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c567469027de0544289e721123c508c9
+      internalID: -1176356922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Red1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 20
+        width: 68
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce743cc5a9e54fc46a5fc1bad01e042c
+      internalID: -563632411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Red2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 20
+        width: 68
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef3b417f7f13c5419d1dcfb3f2d5354
+      internalID: -913623272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NyanCat-Red3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 20
+        width: 68
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7a3a90aa0dfdb428549d3afd41afeb
+      internalID: 440139538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: da1f8000c14ff564a9cb7cf235dd8ee4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NyanCat-Dig1: 656290779
+      NyanCat-Dig2: 739570081
+      NyanCat-Dig3: -1575743629
+      NyanCat-Dig4: 1729068916
+      NyanCat-Dig5: -2145132169
+      NyanCat-Dig6: -1518282046
+      NyanCat-Dig7: 1577390719
+      NyanCat-Dig8: -1176356922
+      NyanCat-Fly1: -1261276672
+      NyanCat-Fly2: -1511774317
+      NyanCat-Fly3: -1261018024
+      NyanCat-Fly4: 497354807
+      NyanCat-Normal1: 1624187359
+      NyanCat-Normal2: 1631715714
+      NyanCat-Normal3: 1484308613
+      NyanCat-Normal4: -1850454134
+      NyanCat-Normal5: -1436064777
+      NyanCat-Normal6: 1416058856
+      NyanCat-Ouch1: 657520274
+      NyanCat-Ouch2: -1064134700
+      NyanCat-Ouch3: 1155380520
+      NyanCat-Ouch4: 337106009
+      NyanCat-Ouch5: 641658286
+      NyanCat-Ouch6: -153881320
+      NyanCat-Ouch7: -1018026402
+      NyanCat-Ouch8: 2003719962
+      NyanCat-Red1: -563632411
+      NyanCat-Red2: -913623272
+      NyanCat-Red3: 440139538
+      NyanCat-Rocket1: -1800197463
+      NyanCat-Rocket2: 898391875
+      NyanCat-Rocket3: 2095633942
+      NyanCat-Rocket4: -68478388
+      NyanCat-Tail1: -10999241
+      NyanCat-Tail2: -441479753
+      NyanCat-Title1: 7759174356883465197
+      NyanCat-Title2: 2040427104
+      NyanCat-Title3: -619608534
+      NyanCat-Title4: 2027258648
+      NyanCat-Title5: 433145905
+      NyanCat-Title6: -642551771
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
