@@ -63,6 +63,9 @@ sysinfo.txt
 *.unitypackage.meta
 *.app
 
+#custom
+*.mp4
+/Assets/StreamingAssets/*.mp4
 # Crashlytics generated file
 crashlytics-build.properties
 
