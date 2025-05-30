@@ -9,7 +9,7 @@ public class TitleButton : MonoBehaviour
     
     public void OpenMusicScene()
     {
-        SceneManager.LoadScene("MusicScene"); 
+        SceneManager.LoadScene("SongSelectScene"); 
         //추후 노래 선곡씬으로 수정★
     }
 

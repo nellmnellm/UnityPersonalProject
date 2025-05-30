@@ -7,7 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Title.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    guid: 6d8d5f3a291e80544a1bc62bbda87717
+  - enabled: 1
+    path: Assets/Scenes/SongSelectScene.unity
+    guid: 7e122152445d82e42aeba64f1c5dd6f8
   - enabled: 1
     path: Assets/Scenes/MusicScene.unity
     guid: 79c5b2e8292456644827fbf36c953e4f

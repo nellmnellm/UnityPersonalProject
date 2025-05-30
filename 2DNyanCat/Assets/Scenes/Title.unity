@@ -1867,7 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219162941}
   m_Layer: 0
-  m_Name: NyanCat - Sprites
+  m_Name: Sprite - GameName (NyanCat)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2454,7 +2454,7 @@ GameObject:
   - component: {fileID: 1755539259}
   - component: {fileID: 1755539258}
   m_Layer: 0
-  m_Name: PC Computer - Nyan Cat Lost In Space - Enemies_1
+  m_Name: UFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

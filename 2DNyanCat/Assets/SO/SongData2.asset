@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3d4aa093fc5914eb4458f9f5da38db, type: 3}
+  m_Name: SongData2
+  m_EditorClassIdentifier: 
+  songName: FreedomDive
+  titleImage: {fileID: 21300000, guid: 54f4d1fa96754974dbc0b365ece7ad1a, type: 3}
+  videoFileName: FREEDOM DIVE.mp4
+  duration: 300
+  composer: xi
+  difficulty: HARD
