@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum Judgement
@@ -16,6 +17,10 @@ public class ScoreManager : MonoBehaviour
     public int CurrentScore { get; private set; }
     public int CurrentCombo { get; private set; }
     public int MaxCombo { get; private set; }
+    public int PerfectCount { get; private set; }
+    public int GreatCount { get; private set; }
+    public int GoodCount { get; private set; }
+    public int MissCount { get; private set; }
 
     void Awake()
     {
@@ -29,8 +34,10 @@ public class ScoreManager : MonoBehaviour
 
     public Action OnScoreChanged;
     public Action OnComboChanged;
-
-
+    public Action OnPerfectChanged;
+    public Action OnGreatChanged;
+    public Action OnGoodChanged;
+    public Action OnMissChanged;
     /*public void ResetScore()
     {
         CurrentScore = 0;
@@ -46,17 +53,47 @@ public class ScoreManager : MonoBehaviour
     }
     public void RegisterJudgement(Judgement result)
     {
-        int baseScore = result switch
+        int baseScore = 0;
+
+
+        switch (result)
         {
-            Judgement.Perfect => 1000,
-            Judgement.Great => 700,
-            Judgement.Good => 400,
-            Judgement.Miss => 0,
-            _ => 0
-        };
+            case Judgement.Perfect:
+                {
+                    PerfectCount++;
+                    baseScore = 1000;
+                    OnPerfectChanged?.Invoke();
+                    break;
+                }
+            case Judgement.Great:
+                {
+                    GreatCount++;
+                    baseScore = 700;
+                    OnGreatChanged?.Invoke();
+                    break;
+                }
+            case Judgement.Good:
+                {
+                    GoodCount++;
+                    baseScore = 400;
+                    OnGoodChanged?.Invoke();
+                    break;
+                }
+            case Judgement.Miss:
+                {
+                    MissCount++;
+                    baseScore = 0;
+                    OnMissChanged?.Invoke();
+                    break;
+                }
+        
+        }
+
+        
 
         if (result != Judgement.Miss)
         {
+            
             CurrentCombo++;
             float comboMultiplier = 1f + Mathf.Log(Mathf.Max(1, CurrentCombo), 16);
             int totalScore = Mathf.RoundToInt(baseScore * comboMultiplier);

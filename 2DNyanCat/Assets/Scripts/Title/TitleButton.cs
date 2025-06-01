@@ -3,26 +3,32 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class TitleButton : MonoBehaviour
 {
-
     [SerializeField] private GameObject settingImage;
-    [SerializeField] private GameObject exitingImage;
-    
+    [SerializeField] private GameObject exitingImage;   
+    /// <summary>
+    /// 첫번째 버튼과 맵핑됨
+    /// </summary>
     public void OpenMusicScene()
     {
         SceneManager.LoadScene("SongSelectScene"); 
-        //추후 노래 선곡씬으로 수정★
     }
-
+    /// <summary>
+    /// 두번째 버튼과 맵핑됨.
+    /// </summary>
     public void OpenSetting()
     {
         settingImage.SetActive(true);
     }
-
+    /// <summary>
+    /// 종료 창을 띄움
+    /// </summary>
     public void OpenQuitAlert()
     {
         exitingImage.SetActive(true);
     }
-
+    /// <summary>
+    /// 종료 버튼과 맵핑됨
+    /// </summary>
     public void QuitGame()
     {
 #if UNITY_EDITOR
@@ -33,6 +39,4 @@ public class TitleButton : MonoBehaviour
        Application.Quit();
 #endif
     }
-
-
 }

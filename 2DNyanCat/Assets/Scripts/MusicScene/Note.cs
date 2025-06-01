@@ -1,16 +1,19 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    private float noteSpeed = 5f;
+    private float noteSpeed = 10f;
     private float judgeX = -2f;
     private float hitTime;
 
+    public float HitTime => hitTime;
     void Update()
     {
         float songTime = GameManager.Instance.SongTime;
         float distance = (hitTime - songTime) * noteSpeed;
 
+        
         transform.position = new Vector3(judgeX + distance, transform.position.y, 0f);
 
         if (transform.position.x < -10f)
@@ -26,7 +29,7 @@ public class Note : MonoBehaviour
 
     public void OnHit()
     {
-        Destroy(gameObject); // 또는 ObjectPool 반환
+        Destroy(gameObject);
     }
 
 

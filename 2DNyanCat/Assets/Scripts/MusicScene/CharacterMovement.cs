@@ -1,13 +1,16 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
+
+    private InputSystem_Actions inputActions;
     private Animator animator;
 
     public JudgeZone[] judgeZones;
-    private Vector2 targetPosition;
 
     private float minY = -4.2f;
     private float maxY = 4.2f;
@@ -17,10 +20,25 @@ public class CharacterMovement : MonoBehaviour
 
     private Coroutine jumpCoroutine;
 
+    private void Awake()
+    {
+        inputActions = new InputSystem_Actions(); 
+        animator = GetComponent<Animator>();
+    }
+    private void OnEnable()
+    {
+        inputActions.GamePlay.Enable(); // Action Map 이름이 Gameplay일 경우
+        inputActions.GamePlay.Attack.performed += OnAttack;
+    }
+
+    private void OnDisable()
+    {
+        inputActions.GamePlay.Attack.performed -= OnAttack;
+        inputActions.GamePlay.Disable();
+    }
+
     void Start()
     {
-        animator = GetComponent<Animator>();
-
         // 처음 시작 위치
         transform.position = new Vector2(-2f, transform.position.y);
     }
@@ -30,10 +48,41 @@ public class CharacterMovement : MonoBehaviour
         UpdateAnimator();
     }
 
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        animator.SetTrigger("isAttack");
+
+        //context.time = 받는 순간
+        double performedTime = context.time;
+
+        for (int i = 0; i < judgeZones.Length; i++)
+        {
+            var note = judgeZones[i].GetFirstNote();
+            if (note != null)
+            {
+                /*Debug.Log($"context.time = {context.time:F6}");
+                Debug.Log($"context.startTime = {context.startTime:F6}");
+                Debug.Log($"Frame time = {Time.unscaledTime:F6}");*/
+                float offset = (float)(context.time - GameManager.Instance.RealtimeStartTime) - note.HitTime;
+                GameManager.Instance.ShowJudgementOffset(offset);
+                Judgement result = (Judgement)i;
+                ScoreManager.Instance.RegisterJudgement(result);
+                note.OnHit();
+                return;
+            }
+        }
+
+        ScoreManager.Instance.RegisterJudgement(Judgement.Miss);
+    }
+
     private void HandleInput()
     {
-        // ↑↓ 이동 (좌우 고정)
-        float y = Input.GetAxisRaw("Vertical");
+        float y = 0f;
+
+        if (Input.GetKey(KeyCode.UpArrow))
+            y = 1f;
+        else if (Input.GetKey(KeyCode.DownArrow))
+            y = -1f;
         Vector3 newPos = transform.position + Vector3.up * y * Time.deltaTime * moveSpeed;
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
         transform.position = new Vector3(-2f, newPos.y, 0f);
@@ -56,7 +105,7 @@ public class CharacterMovement : MonoBehaviour
         
 
         //공격키 (<, >) . 공격할때의 애니메이터 설정. 
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)))
+        /*if (Input.GetKeyDown(KeyCode.D)) //추후 변경예정 // 에디터에서는 S 불가!
         {
             animator.SetTrigger("isAttack");
             for (int i = 0; i < judgeZones.Length; i++)
@@ -75,7 +124,7 @@ public class CharacterMovement : MonoBehaviour
 
             // 아무 노트도 없으면 Miss
             ScoreManager.Instance.RegisterJudgement(Judgement.Miss);
-        }
+        }*/
     }
 
 
@@ -106,4 +155,7 @@ public class CharacterMovement : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isJumping", isJumping);
     }
+
+   
+   
 }

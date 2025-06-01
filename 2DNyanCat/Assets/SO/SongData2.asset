@@ -15,6 +15,7 @@ MonoBehaviour:
   songName: FreedomDive
   titleImage: {fileID: 21300000, guid: 54f4d1fa96754974dbc0b365ece7ad1a, type: 3}
   videoFileName: FREEDOM DIVE.mp4
+  audioFileName: FREEDOM DiVE
   duration: 300
   composer: xi
   difficulty: HARD

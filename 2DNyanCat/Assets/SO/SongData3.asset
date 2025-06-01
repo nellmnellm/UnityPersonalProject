@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: OIIA
   titleImage: {fileID: 21300000, guid: 84990e867fe68d940884cb98a18939bc, type: 3}
-  videoFileName: OIIA_OIIA.mp4
+  videoFileName: OIIA OIIA.mp4
+  audioFileName: OIIA OIIA
   duration: 300
   composer: W&W
   difficulty: REALLY

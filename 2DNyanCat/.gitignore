@@ -66,6 +66,7 @@ sysinfo.txt
 #custom
 *.mp4
 /Assets/StreamingAssets/*.mp4
+Assets/Resources/Audio/*.wav
 # Crashlytics generated file
 crashlytics-build.properties
 

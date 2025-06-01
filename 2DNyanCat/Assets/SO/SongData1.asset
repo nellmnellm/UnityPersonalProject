@@ -15,6 +15,7 @@ MonoBehaviour:
   songName: NyanCat
   titleImage: {fileID: 656290779, guid: 6ef36415c0614814d9e52c5656194311, type: 3}
   videoFileName: NyanCatShort.mp4
+  audioFileName: NyanCatShort
   duration: 100
   composer: daniwellP
   difficulty: NORMAL

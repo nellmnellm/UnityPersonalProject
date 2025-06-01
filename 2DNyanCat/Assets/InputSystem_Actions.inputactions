@@ -990,6 +990,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GamePlay",
+            "id": "2bb004fd-4180-47dd-9ddf-9f3186a5b60a",
+            "actions": [
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "85cc5947-3231-4c83-9781-6d4df4dfe551",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1c8e9e6b-a510-4bf9-80a9-e70e3b5675a1",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e0b8ccd-fc1f-4727-877c-432a1f70c165",
+                    "path": "<Keyboard>/#(S)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
