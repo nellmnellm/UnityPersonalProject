@@ -88,26 +88,21 @@ public class ScoreManager : MonoBehaviour
                 }
         
         }
-
-        
-
         if (result != Judgement.Miss)
         {
             
             CurrentCombo++;
             float comboMultiplier = 1f + Mathf.Log(Mathf.Max(1, CurrentCombo), 16);
-            int totalScore = Mathf.RoundToInt(baseScore * comboMultiplier);
+            int totalScore = Mathf.RoundToInt(baseScore * SettingManager.Instance.playerSettings.ScoreMultiplier * comboMultiplier);
             CurrentScore += totalScore;
 
             MaxCombo = Mathf.Max(MaxCombo, CurrentCombo);
-            OnComboChanged?.Invoke();
         }
         else
         {
             CurrentCombo = 0;
-            OnComboChanged?.Invoke();
         }
-
+        OnComboChanged?.Invoke();
         OnScoreChanged?.Invoke();
     }
 }

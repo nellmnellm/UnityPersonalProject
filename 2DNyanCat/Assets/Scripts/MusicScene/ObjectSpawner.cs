@@ -16,7 +16,7 @@ public struct NoteData
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject notePrefab;
+    private GameObject notePrefab;
     // public List<NoteData> notes = new List<NoteData>();   //tester¿ë
     public Transform noteParent;
 
@@ -25,6 +25,9 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
+        var skin = SettingManager.Instance.playerSettings.selectedNoteSkin;
+        notePrefab = skin.notePrefab;
+
         List<NoteData> notes = LoadNotesFromJson();
         foreach (var note in notes)
         {

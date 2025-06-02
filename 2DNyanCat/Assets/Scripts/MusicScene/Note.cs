@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    private float noteSpeed = 10f;
     private float judgeX = -2f;
     private float hitTime;
 
     public float HitTime => hitTime;
     void Update()
     {
+        
         float songTime = GameManager.Instance.SongTime;
+        float noteSpeed = SettingManager.Instance.playerSettings.noteSpeed * 2.5f;
         float distance = (hitTime - songTime) * noteSpeed;
 
         

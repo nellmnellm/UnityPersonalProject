@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,10 +37,9 @@ public class GameManager : MonoBehaviour
     private bool songEnded = false;
     //RawImage의 RayCaster를 꺼주기위해 필드 선언
     private RawImage videoRawImage;
+   // Result UI 관련 (오브젝트 연결)
 
-    // Result UI 관련 (오브젝트 연결)
-
-    [Header ("Result UI")]
+   [Header ("Result UI")]
     public GameObject ResultUI;
     public Image titleImageUI;
     public TMP_Text songNameText;
@@ -90,7 +90,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         CurrentSong = SongLoader.SelectedSong;
-        SetupVideoPlayer();
+        float MVAlphaValue = SettingManager.Instance.playerSettings.MVBright;
+        SetupVideoPlayer(MVAlphaValue);
         videoPlayer.loopPointReached += OnSongEnded;
         StartCoroutine(PrepareAndPlayVideo());
     }
@@ -162,7 +163,7 @@ public class GameManager : MonoBehaviour
         while (!videoPlayer.isPrepared)
             yield return null;
 
-        string audioKey = $"Audio/{System.IO.Path.GetFileNameWithoutExtension(CurrentSong.audioFileName)}";
+        string audioKey = $"Audio/{Path.GetFileNameWithoutExtension(CurrentSong.audioFileName)}";
         AudioClip clip = Resources.Load<AudioClip>(audioKey);
         if (clip == null)
         {
@@ -194,39 +195,46 @@ public class GameManager : MonoBehaviour
     }
     
 
-    private void SetupVideoPlayer()
+    private void SetupVideoPlayer(float mvalpha)
     {
         Camera.main.backgroundColor = new Color(0.7f, 0.7f, 0.9f);
         // 1. Canvas 생성
         GameObject canvasGO = new GameObject("VideoCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
         Canvas canvas = canvasGO.GetComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.renderMode = RenderMode.WorldSpace;
+        //캔버스 사이즈 조절
+        float height = Camera.main.orthographicSize * 2f;
+        float width = height * Screen.width / Screen.height;
+        canvas.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+        canvas.sortingOrder = -10;
 
         // 2. RawImage 생성
         GameObject rawImageGO = new GameObject("VideoDisplay", typeof(RawImage), typeof(RectTransform));
         rawImageGO.transform.SetParent(canvasGO.transform, false);
         RawImage rawImage = rawImageGO.GetComponent<RawImage>();
-        rawImage.color = new Color(1f, 1f, 1f, 0.3f);
+        rawImage.color = new Color(1f, 1f, 1f, mvalpha);
         videoRawImage = rawImage;
         RectTransform rt = rawImageGO.GetComponent<RectTransform>();
-        rt.sizeDelta = videoSize;
+        rt.sizeDelta = new Vector2(width, height); 
         rt.anchoredPosition = Vector2.zero;
 
         // 3. RenderTexture 생성
         RenderTexture renderTexture = new RenderTexture((int)videoSize.x, (int)videoSize.y, 0);
         rawImage.texture = renderTexture;
 
+        rawImage.enabled = SettingManager.Instance.playerSettings.showMV;
         // 4. VideoPlayer GameObject 생성
         GameObject videoGO = new GameObject("VideoPlayer", typeof(VideoPlayer), typeof(AudioSource));
         videoPlayer = videoGO.GetComponent<VideoPlayer>();
         audioSource = videoGO.GetComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = AudioManager.Instance.inGameMusicGroup;
 
         // 5. VideoPlayer 설정
         videoPlayer.renderMode = VideoRenderMode.RenderTexture;
         videoPlayer.targetTexture = renderTexture;
         videoPlayer.skipOnDrop = false;
         videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, CurrentSong.videoFileName);
+        videoPlayer.url = Path.Combine(Application.streamingAssetsPath, CurrentSong.videoFileName);
 
         videoPlayer.controlledAudioTrackCount = 0;
         videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
@@ -246,9 +254,21 @@ public class GameManager : MonoBehaviour
                 GoToSongSelectScene();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            ToggleMV();
+        }
+
+
     }
 
+    public void ToggleMV()
+    {
+        var settings = SettingManager.Instance.playerSettings;
 
+        settings.showMV = !settings.showMV;
+        videoRawImage.enabled = settings.showMV;
+    }
 
     public void ShowJudgementOffset(float offset)
     {
