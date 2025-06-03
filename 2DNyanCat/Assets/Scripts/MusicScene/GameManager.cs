@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text goodText;
     public TMP_Text missText;
     public Image fadePanel;
+    public GameObject informObject; //10초후 꺼지게.
 
     //판정 오프셋 관련 필드
     [SerializeField] private TMP_Text judgementOffsetText;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Invoke(nameof(HideInformText), 5f);
         if (ResultUI != null)
             ResultUI.SetActive(false);
 
@@ -94,6 +96,10 @@ public class GameManager : MonoBehaviour
         SetupVideoPlayer(MVAlphaValue);
         videoPlayer.loopPointReached += OnSongEnded;
         StartCoroutine(PrepareAndPlayVideo());
+    }
+    void HideInformText()
+    {
+        informObject.SetActive(false); // 또는 Destroy(informTextGO);
     }
     //Start에서 UI 설정 (나중에 리절트창에 띄우는 용도)
     private void SetupResultUI()
@@ -157,6 +163,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    
     private IEnumerator PrepareAndPlayVideo()
     {
         videoPlayer.Prepare();
@@ -259,7 +266,10 @@ public class GameManager : MonoBehaviour
             ToggleMV();
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(FadeAndLoadScene("SongSelectScene"));
+        }
     }
 
     public void ToggleMV()

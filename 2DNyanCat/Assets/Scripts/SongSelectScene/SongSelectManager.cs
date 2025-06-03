@@ -1,6 +1,8 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SongSelectManager : MonoBehaviour
 {
@@ -15,8 +17,9 @@ public class SongSelectManager : MonoBehaviour
     public TMP_Text songNameText;
     public TMP_Text songComposerText;
     public TMP_Text songDifficultyText;
-
-
+    
+    public Image fadePanel; // 검정 이미지
+    private bool isExiting = false;
     private float holdTime = 0f;
     private const float requiredHoldDuration = 3f;
 
@@ -41,6 +44,11 @@ public class SongSelectManager : MonoBehaviour
         else
         {
             holdTime = 0f; // 누르고 있지 않으면 초기화
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !isExiting)
+        {
+            StartCoroutine(FadeAndExit());
         }
     }
 
@@ -73,5 +81,32 @@ public class SongSelectManager : MonoBehaviour
             songButtons[i].SetActive(i != index); // 자기 자신은 비활성화, 나머지는 활성화
         }
 
+    }
+
+    private IEnumerator FadeAndExit()
+    {
+        isExiting = true;
+
+        float duration = 0.5f;
+        float elapsed = 0f;
+
+        Color startColor = new Color(0, 0, 0, 0);
+        Color endColor = new Color(0, 0, 0, 1);
+
+        if (fadePanel != null)
+        {
+            fadePanel.gameObject.SetActive(true);
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                fadePanel.color = Color.Lerp(startColor, endColor, elapsed / duration);
+                yield return null;
+            }
+
+            fadePanel.color = endColor;
+        }
+
+        SceneManager.LoadScene("Title");
     }
 }

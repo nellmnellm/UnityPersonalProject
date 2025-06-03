@@ -11,11 +11,10 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup bgmGroup;         //아직 오디오 파일이 없음
     public AudioMixerGroup sfxGroup;         //추가 예정.
     [Range(0f, 1f)] public float masterVolume = 0.3f;
-    [Range(0f, 1f)] public float bgmVolume = 0.5f;
-    [Range(0f, 1f)] public float sfxVolume = 0.5f;
-    [Range(0f, 1f)] public float inGameVolume = 0.5f;
-    //토글용 변수와 마지막 볼륨 저장용 Dictionary;
-    private bool isMuted = false;
+    [Range(0f, 1f)] public float bgmVolume = 0.3f;
+    [Range(0f, 1f)] public float sfxVolume = 0.3f;
+    [Range(0f, 1f)] public float inGameVolume = 0.3f;
+    //마지막 볼륨 저장용 Dictionary;
     private Dictionary<string, float> lastVolumes = new();
     private void Awake()
     {
@@ -51,29 +50,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void ToggleMute()
+    public void ToggleMuteSingle(string paramName)
     {
-        isMuted = !isMuted;
+        bool currentlyMuted = audioMixer.GetFloat(paramName, out float currentDb) && currentDb <= -79f;
 
-        string[] parameters = { "Master", "BGM", "SFX", "InGame" };
-
-        foreach (string param in parameters)
+        if (currentlyMuted)
         {
-            if (isMuted)
-            {
-                // 현재 볼륨 저장 후 음소거
-                audioMixer.GetFloat(param, out float currentDb);
-                lastVolumes[param] = currentDb;
-                audioMixer.SetFloat(param, -80f); // 최소값 (거의 무음)
-            }
-            else
-            {
-                // 복원
-                if (lastVolumes.TryGetValue(param, out float prevDb))
-                    audioMixer.SetFloat(param, prevDb);
-                else
-                    audioMixer.SetFloat(param, 0f); // fallback
-            }
+            float restoredDb = lastVolumes.TryGetValue(paramName, out float prevDb) ? prevDb : 0f;
+            audioMixer.SetFloat(paramName, restoredDb);
+        }
+        else
+        {
+            audioMixer.GetFloat(paramName, out currentDb);
+            lastVolumes[paramName] = currentDb;
+            audioMixer.SetFloat(paramName, -80f);
         }
     }
 }

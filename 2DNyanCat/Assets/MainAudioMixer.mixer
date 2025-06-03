@@ -71,7 +71,7 @@ AudioMixerController:
   - guid: 0e14d26913cc9584e8a13697cee18527
     name: BGM
   - guid: 8161b9cd703b9784badb734d45502de9
-    name: InGameMusic
+    name: InGame
   - guid: 0a94a890a85ba5c4f8719b58f9ff29f8
     name: Master
   - guid: 16bced51b37e7ea48805b0225fb7a1f0

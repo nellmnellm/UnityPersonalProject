@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43b744b2caaa2b47a112027614cead0, type: 3}
   m_Name: NoteSkinData2
   m_EditorClassIdentifier: 
-  notePrefab: {fileID: 6250123477129895331, guid: 82fc9d8e5ea0583449ee68832919eb74, type: 3}
-  previewImage: {fileID: 954697120, guid: 0aa49d8be0cf13a4c83502594bbf6341, type: 3}
+  notePrefab: {fileID: 1109999419311378637, guid: f2866c9a6fe67f54ba92047a480b24f0, type: 3}
+  previewImage: {fileID: 21300000, guid: 3a1a88f2e6f7bed4ead005fcee520dd0, type: 3}

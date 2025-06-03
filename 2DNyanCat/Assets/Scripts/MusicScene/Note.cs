@@ -17,9 +17,10 @@ public class Note : MonoBehaviour
         
         transform.position = new Vector3(judgeX + distance, transform.position.y, 0f);
 
-        if (transform.position.x < -10f)
+        if (transform.position.x < -5f)
         {
             Destroy(gameObject); // 또는 Miss 처리
+            ScoreManager.Instance.RegisterJudgement(Judgement.Miss);
         }
     }
 

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -9,12 +11,13 @@ public class NoteEditor : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
     private AudioSource audioSource;
-    private double dspStartTime = 0;
-    private Vector2 videoSize = new Vector2(1920, 1080);
     private Camera mainCamera;
-    private RawImage videoRawImage;
 
+    private double realStartTime = 0;
+    private Vector2 videoSize = new Vector2(1920, 1080);
     private List<NoteData> notes = new List<NoteData>();
+
+    public InputBindingsData bindingsData;
 
     void Start()
     {
@@ -31,36 +34,58 @@ public class NoteEditor : MonoBehaviour
             return;
         }
 
-        SetupVideoPlayer(); // GameManager와 동일하게 구성
+        SetupVideoPlayer(0.3f); // GameManager와 동일하게 구성
         StartCoroutine(PrepareAndPlayVideo());
     }
 
-    private void SetupVideoPlayer()
+    private void OnEnable()
+    {
+        bindingsData.save.action.Enable(); // Action Map 이름이 Gameplay일 경우
+        bindingsData.save1.action.Enable();
+        bindingsData.save.action.performed += OnSave;
+        bindingsData.save1.action.performed += OnSave;
+
+    }
+
+    private void OnDisable()
+    {
+        bindingsData.save.action.performed -= OnSave;
+        bindingsData.save1.action.performed -= OnSave;
+        bindingsData.save.action.Disable(); 
+        bindingsData.save1.action.Disable();
+    }
+    private void SetupVideoPlayer(float mvalpha)
     {
         Camera.main.backgroundColor = new Color(0.7f, 0.7f, 0.9f);
         // 1. Canvas 생성
         GameObject canvasGO = new GameObject("VideoCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
         Canvas canvas = canvasGO.GetComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.renderMode = RenderMode.WorldSpace;
+        //캔버스 사이즈 조절
+        float height = Camera.main.orthographicSize * 2f;
+        float width = height * Screen.width / Screen.height;
+        canvas.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+        canvas.sortingOrder = -10;
 
         // 2. RawImage 생성
         GameObject rawImageGO = new GameObject("VideoDisplay", typeof(RawImage), typeof(RectTransform));
         rawImageGO.transform.SetParent(canvasGO.transform, false);
         RawImage rawImage = rawImageGO.GetComponent<RawImage>();
-        rawImage.color = new Color(1f, 1f, 1f, 0.3f);
-        videoRawImage = rawImage;
+        rawImage.color = new Color(1f, 1f, 1f, mvalpha);
         RectTransform rt = rawImageGO.GetComponent<RectTransform>();
-        rt.sizeDelta = videoSize;
+        rt.sizeDelta = new Vector2(width, height);
         rt.anchoredPosition = Vector2.zero;
 
         // 3. RenderTexture 생성
         RenderTexture renderTexture = new RenderTexture((int)videoSize.x, (int)videoSize.y, 0);
         rawImage.texture = renderTexture;
 
+        rawImage.enabled = SettingManager.Instance.playerSettings.showMV;
         // 4. VideoPlayer GameObject 생성
         GameObject videoGO = new GameObject("VideoPlayer", typeof(VideoPlayer), typeof(AudioSource));
         videoPlayer = videoGO.GetComponent<VideoPlayer>();
         audioSource = videoGO.GetComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = AudioManager.Instance.inGameMusicGroup;
 
         // 5. VideoPlayer 설정
         videoPlayer.renderMode = VideoRenderMode.RenderTexture;
@@ -86,51 +111,53 @@ public class NoteEditor : MonoBehaviour
         AudioClip clip = Resources.Load<AudioClip>(audioKey);
         if (clip == null)
         {
-            Debug.LogError($"에디터 : 오디오 클립 로드 실패: {audioKey}");
+            Debug.LogError($"오디오 클립 로드 실패: {audioKey}");
             yield break;
         }
 
         audioSource.clip = clip;
-        dspStartTime = AudioSettings.dspTime + 0.1;
 
-        audioSource.PlayScheduled(dspStartTime);
+        realStartTime = Time.realtimeSinceStartupAsDouble + 0.1;
+        audioSource.PlayScheduled(AudioSettings.dspTime + 0.1);
+        /*dspStartTime = AudioSettings.dspTime + 0.1; 
+        audioSource.PlayScheduled(dspStartTime);*/
         videoPlayer.Play();
         yield return new WaitForSecondsRealtime(0.1f);
-        Debug.Log($"에디터 DSP 타이밍 시작: {dspStartTime}");
+        Debug.Log($"에디터 타이밍 시작 (RealTime): {realStartTime}");
+
     }
 
+    private void OnSave(InputAction.CallbackContext context)
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 10f;
+        Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
+
+        float currentTime = (float)(Time.realtimeSinceStartupAsDouble - realStartTime);
+        float clampedHeight = Mathf.Clamp(worldPos.y, -4.2f, 4.2f);
+
+        NoteData note = new NoteData
+        {
+            time = currentTime,
+            height = clampedHeight
+        };
+        notes.Add(note);
+        Debug.Log($"노트 추가됨: time={note.time}, height={note.height}");
+    }
     void Update()
     {
         if (videoPlayer == null || !videoPlayer.isPrepared)
             return;
 
-        // 마우스 클릭 -> 노트 생성
-        if (Input.GetMouseButtonDown(0) || 
-            Input.GetKeyDown(KeyCode.Space) || 
-            Input.GetKeyDown(KeyCode.F)) 
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10f;
-            Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
-
-            float currentTime = (float)(AudioSettings.dspTime - dspStartTime);
-
-            float clampedHeight = Mathf.Clamp(worldPos.y, -4.2f, 4.2f);
-
-            NoteData note = new NoteData
-            {
-                time = currentTime,
-                height = clampedHeight
-            };
-
-            notes.Add(note);
-            Debug.Log($"노트 추가됨: time={note.time}, height={note.height}");
-        }
-
         // S 키 -> 저장
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveNotesToJson();
+        }
+
+        if (Input.GetKeyDown (KeyCode.Escape))
+        {
+            SceneManager.LoadScene("SongSelectScene");
         }
     }
 

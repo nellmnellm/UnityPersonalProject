@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float moveSpeed = 20f;
+    public float moveSpeed = 10f;
 
-    private InputSystem_Actions inputActions;
+    public InputBindingsData bindingsData; // 인스펙터에서 연결
     private Animator animator;
 
     public JudgeZone[] judgeZones;
@@ -22,19 +22,34 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake()
     {
-        inputActions = new InputSystem_Actions(); 
         animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
-        inputActions.GamePlay.Enable(); // Action Map 이름이 Gameplay일 경우
-        inputActions.GamePlay.Attack.performed += OnAttack;
+        bindingsData.attack1.action.Enable(); // Action Map 이름이 Gameplay일 경우
+        bindingsData.attack2.action.Enable();
+        bindingsData.jump.action.Enable();
+        bindingsData.ground.action.Enable();
+        bindingsData.move.action.Enable();
+
+        bindingsData.attack1.action.performed += OnAttack;
+        bindingsData.attack2.action.performed += OnAttack;
+        bindingsData.jump.action.performed += OnJump;
+        bindingsData.ground.action.performed += OnFall;
     }
 
     private void OnDisable()
     {
-        inputActions.GamePlay.Attack.performed -= OnAttack;
-        inputActions.GamePlay.Disable();
+        bindingsData.attack1.action.performed -= OnAttack;
+        bindingsData.attack2.action.performed -= OnAttack;
+        bindingsData.jump.action.performed -= OnJump;
+        bindingsData.ground.action.performed -= OnFall;
+
+        bindingsData.attack1.action.Disable();
+        bindingsData.attack2.action.Disable();
+        bindingsData.jump.action.Disable();
+        bindingsData.ground.action.Disable();
+        bindingsData.move.action.Disable();
     }
 
     void Start()
@@ -44,15 +59,37 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Update()
     {
-        HandleInput();
+        HandleMovement();
         UpdateAnimator();
+    }
+
+    private void HandleMovement()
+    {
+        float yInput = bindingsData.move.action.ReadValue<float>(); // Axis (Up/Down)
+        Vector3 newPos = transform.position + Vector3.up * yInput * Time.deltaTime * moveSpeed;
+
+        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+        transform.position = new Vector3(-2f, newPos.y, 0f);
+
+        isGrounded = Mathf.Abs(transform.position.y - minY) < 0.2f;
+    }
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (isGrounded && jumpCoroutine == null)
+        {
+            isJumping = true;
+            jumpCoroutine = StartCoroutine(JumpUp());
+        }
+    }
+
+    private void OnFall(InputAction.CallbackContext context)
+    {
+        transform.position = new Vector3(-2f, minY, 0f);
     }
 
     private void OnAttack(InputAction.CallbackContext context)
     {
         animator.SetTrigger("isAttack");
-
-        //context.time = 받는 순간
         double performedTime = context.time;
 
         for (int i = 0; i < judgeZones.Length; i++)
@@ -60,77 +97,20 @@ public class CharacterMovement : MonoBehaviour
             var note = judgeZones[i].GetFirstNote();
             if (note != null)
             {
-                /*Debug.Log($"context.time = {context.time:F6}");
-                Debug.Log($"context.startTime = {context.startTime:F6}");
-                Debug.Log($"Frame time = {Time.unscaledTime:F6}");*/
                 float offset = (float)(context.time - GameManager.Instance.RealtimeStartTime) - note.HitTime;
                 GameManager.Instance.ShowJudgementOffset(offset);
-                Judgement result = (Judgement)i;
-                ScoreManager.Instance.RegisterJudgement(result);
+
+                ScoreManager.Instance.RegisterJudgement((Judgement)i);
                 note.OnHit();
                 return;
             }
         }
 
-        ScoreManager.Instance.RegisterJudgement(Judgement.Miss);
+        //ScoreManager.Instance.RegisterJudgement(Judgement.Miss); //넣을지 말지 고민중
     }
-
-    private void HandleInput()
-    {
-        float y = 0f;
-
-        if (Input.GetKey(KeyCode.UpArrow))
-            y = 1f;
-        else if (Input.GetKey(KeyCode.DownArrow))
-            y = -1f;
-        Vector3 newPos = transform.position + Vector3.up * y * Time.deltaTime * moveSpeed;
-        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        transform.position = new Vector3(-2f, newPos.y, 0f);
-        // 땅에 닿았는지 체크
-        isGrounded = Mathf.Abs(transform.position.y - minY) < 0.2f;
-        // 점프 조건: F 키, 아래쪽에 있을 때만
-        if (Input.GetKeyDown(KeyCode.F) && isGrounded && jumpCoroutine == null)
-        {
-            isJumping = true;
-            jumpCoroutine = StartCoroutine(JumpUp());
-        }
-
-        // Space를 누르면 바로 바닥으로
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            transform.position = new Vector3(-2f, minY, 0f);
-        }
-
-        
-        
-
-        //공격키 (<, >) . 공격할때의 애니메이터 설정. 
-        /*if (Input.GetKeyDown(KeyCode.D)) //추후 변경예정 // 에디터에서는 S 불가!
-        {
-            animator.SetTrigger("isAttack");
-            for (int i = 0; i < judgeZones.Length; i++)
-            {
-                var note = judgeZones[i].GetFirstNote();
-                if (note != null)
-                {
-                    // 판정!
-                    Judgement result = (Judgement)i; // 0=Perfect, 1=Great, 2=Good
-                    ScoreManager.Instance.RegisterJudgement(result);
-
-                    note.OnHit(); // 제거 또는 이펙트
-                    return; // 여기서 바로 return: 한 번만 처리하고 끝냄
-                }
-            }
-
-            // 아무 노트도 없으면 Miss
-            ScoreManager.Instance.RegisterJudgement(Judgement.Miss);
-        }*/
-    }
-
 
     private IEnumerator JumpUp()
     {
-        
         float duration = 0.1f;
         float elapsed = 0f;
 
@@ -143,19 +123,15 @@ public class CharacterMovement : MonoBehaviour
             transform.position = Vector3.Lerp(start, end, elapsed / duration);
             yield return null;
         }
+
         isJumping = false;
         transform.position = end;
         jumpCoroutine = null;
     }
 
-
     private void UpdateAnimator()
     {
-
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isJumping", isJumping);
     }
-
-   
-   
 }
