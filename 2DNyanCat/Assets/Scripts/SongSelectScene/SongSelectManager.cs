@@ -23,6 +23,10 @@ public class SongSelectManager : MonoBehaviour
     private float holdTime = 0f;
     private const float requiredHoldDuration = 3f;
 
+    public SceneEscSound escSound;//씬에서 esc 눌렀을때 사운드
+
+    public SongPreviewPlayer previewPlayer;
+
     void Start()
     {
         if (editorButtons != null)
@@ -65,6 +69,8 @@ public class SongSelectManager : MonoBehaviour
     }
     public void OnSongButtonClicked(int index)
     {
+        previewPlayer.StopPreview();
+
         // 곡 정보 UI 업데이트
         SongData selected = allSongs[index];
         songNameText.text = selected.songName;
@@ -75,16 +81,20 @@ public class SongSelectManager : MonoBehaviour
         SongLoader.SelectedSong = selected;
         currentSelectedIndex = index;
 
+        
+
         // 버튼 상태 갱신
         for (int i = 0; i < songButtons.Length; i++)
         {
             songButtons[i].SetActive(i != index); // 자기 자신은 비활성화, 나머지는 활성화
         }
 
+        previewPlayer.PlayPreview(selected.previewClip);
     }
 
     private IEnumerator FadeAndExit()
     {
+        escSound.PlayEscSound();
         isExiting = true;
 
         float duration = 0.5f;

@@ -51,14 +51,19 @@ public class GameManager : MonoBehaviour
     public TMP_Text goodText;
     public TMP_Text missText;
     public Image fadePanel;
-    public GameObject informObject; //10초후 꺼지게.
-
+    public TMP_Text informTMP;  //정보 글자 흐리게 해서 10초후 꺼지게.
+    public GameObject castlePrefab;  // 뒤의 캐릭터나 성 오브젝트 온오프
+    public GameObject deadLinePrefab; // 노트 데드라인 온오프
     //판정 오프셋 관련 필드
     [SerializeField] private TMP_Text judgementOffsetText;
     [SerializeField] private Transform playerTransform;
 
     private Coroutine offsetCoroutine;
+    
+    [SerializeField] private AudioClip resultBGMClip; //result창 열렸을때 싸운드
+    private AudioSource resultAudioSource;
 
+    public SceneEscSound escSound;// 나가는 사운드
     //스포너를 위한 프로퍼티 전달 
 
 
@@ -81,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(HideInformText), 5f);
+        StartCoroutine(FadeOutAfterDelay(5f, 2f));
         if (ResultUI != null)
             ResultUI.SetActive(false);
 
@@ -96,10 +101,27 @@ public class GameManager : MonoBehaviour
         SetupVideoPlayer(MVAlphaValue);
         videoPlayer.loopPointReached += OnSongEnded;
         StartCoroutine(PrepareAndPlayVideo());
+        //result창 사운드.
+        resultAudioSource = gameObject.AddComponent<AudioSource>();
+        resultAudioSource.outputAudioMixerGroup = AudioManager.Instance.bgmGroup;
+        resultAudioSource.loop = true;
+        resultAudioSource.playOnAwake = false;
     }
-    void HideInformText()
+    private IEnumerator FadeOutAfterDelay(float delay, float fadeDuration)
     {
-        informObject.SetActive(false); // 또는 Destroy(informTextGO);
+        yield return new WaitForSeconds(delay);
+
+        Color originalColor = informTMP.color;
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, t / fadeDuration);
+            informTMP.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+
+        informTMP.gameObject.SetActive(false); // 완전히 숨기기
     }
     //Start에서 UI 설정 (나중에 리절트창에 띄우는 용도)
     private void SetupResultUI()
@@ -146,6 +168,8 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
+        escSound.PlayEscSound();
+
         float duration = 0.5f;
         float elapsed = 0f;
 
@@ -186,7 +210,7 @@ public class GameManager : MonoBehaviour
         audioSource.PlayScheduled(dspStartTime);*/
         videoPlayer.Play();
         yield return new WaitForSecondsRealtime(0.1f);
-        Debug.Log($"[SYNC] dspStartTime: {dspStartTime}, current dsp: {AudioSettings.dspTime}");
+        //Debug.Log($"[SYNC] dspStartTime: {dspStartTime}, current dsp: {AudioSettings.dspTime}");
 
     }
 
@@ -199,8 +223,19 @@ public class GameManager : MonoBehaviour
         if (videoRawImage != null)
             videoRawImage.raycastTarget = false;
         SetupResultUI();
+        PlayResultBGM(); // 
     }
-    
+    private void PlayResultBGM()
+    {
+        if (resultBGMClip == null)
+        {
+            Debug.LogWarning("Result BGM Clip not assigned.");
+            return;
+        }
+
+        resultAudioSource.clip = resultBGMClip;
+        resultAudioSource.Play();
+    }
 
     private void SetupVideoPlayer(float mvalpha)
     {
@@ -258,21 +293,43 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                escSound.PlayEscSound();
                 GoToSongSelectScene();
             }
         }
+       
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(FadeAndLoadScene("SongSelectScene"));
+        }
+        
         if (Input.GetKeyDown(KeyCode.Delete))
         {
             ToggleMV();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.End))
         {
-            StartCoroutine(FadeAndLoadScene("SongSelectScene"));
+            ToggleCastle();
+        }
+
+        if (Input.GetKeyDown(KeyCode.PageDown))
+        {
+            ToggleNoteDeadLine();
         }
     }
 
-    public void ToggleMV()
+    private void ToggleCastle()
+    {
+
+        castlePrefab.SetActive(!castlePrefab.activeSelf);
+    }
+
+    private void ToggleNoteDeadLine()
+    {
+        deadLinePrefab.SetActive(!deadLinePrefab.activeSelf);
+    }
+    private void ToggleMV()
     {
         var settings = SettingManager.Instance.playerSettings;
 

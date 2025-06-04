@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum Judgement
@@ -9,7 +8,12 @@ public enum Judgement
     Good,
     Miss
 }
-
+public enum ResultBadge
+{
+    None,
+    FullCombo,
+    AllPerfect
+}
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
@@ -21,6 +25,8 @@ public class ScoreManager : MonoBehaviour
     public int GreatCount { get; private set; }
     public int GoodCount { get; private set; }
     public int MissCount { get; private set; }
+
+    public int TotalNotes { get; private set; } 
 
     void Awake()
     {
@@ -104,6 +110,44 @@ public class ScoreManager : MonoBehaviour
         }
         OnComboChanged?.Invoke();
         OnScoreChanged?.Invoke();
+    }
+
+    public void SetTotalNotes(int total)
+    {
+        TotalNotes = total;
+    }
+
+    public ResultBadge GetResultBadge()
+    {
+        if (MissCount == 0 && GoodCount == 0 && GreatCount == 0)
+            return ResultBadge.AllPerfect;
+
+        if (MissCount == 0)
+            return ResultBadge.FullCombo;
+
+        return ResultBadge.None;
+    }
+
+    public float GetAccuracyScore()
+    {
+        if (TotalNotes == 0) return 0f;
+
+        float weightedHits =
+            PerfectCount * 1f +
+            GreatCount * 0.7f +
+            GoodCount * 0.4f;
+
+        return weightedHits / TotalNotes;
+    }
+    public string GetRank()
+    {
+        float acc = GetAccuracyScore();
+
+        if (acc >= 0.90f) return "S";
+        if (acc >= 0.80f) return "A";
+        if (acc >= 0.70f) return "B";
+        if (acc >= 0.60f) return "C";
+        return "D";
     }
 }
 

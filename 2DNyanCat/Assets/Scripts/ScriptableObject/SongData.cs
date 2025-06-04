@@ -11,4 +11,5 @@ public class SongData : ScriptableObject
     public float duration;        //노래 시간
     public string composer;       //작곡가명
     public string difficulty;     //난이도명 표시 (같은곡이어도 난이도 다르게 ㄱㄱ)
+    public AudioClip previewClip; //미리듣기 노래 저장 (그냥 노래저장으로 해버림)
 }

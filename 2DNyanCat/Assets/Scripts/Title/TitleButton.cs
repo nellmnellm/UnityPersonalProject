@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 public class TitleButton : MonoBehaviour
 {
     [SerializeField] private GameObject settingImage;

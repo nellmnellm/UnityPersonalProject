@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -62,6 +61,9 @@ public class ObjectSpawner : MonoBehaviour
 
         string json = File.ReadAllText(path);
         NoteDataList data = JsonUtility.FromJson<NoteDataList>(json);
+
+        ScoreManager.Instance.SetTotalNotes(data.notes.Count);
+
         return data.notes;
     }
 

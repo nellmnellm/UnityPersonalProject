@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float masterVolume = 0.3f;
     [Range(0f, 1f)] public float bgmVolume = 0.3f;
     [Range(0f, 1f)] public float sfxVolume = 0.3f;
-    [Range(0f, 1f)] public float inGameVolume = 0.3f;
+    [Range(0f, 1f)] public float inGameVolume = 0.03f;
     //마지막 볼륨 저장용 Dictionary;
     private Dictionary<string, float> lastVolumes = new();
     private void Awake()
@@ -25,7 +25,22 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        
+    }
 
+    private void Start()
+    {
+        //초기 볼륨 적용
+        ApplyInitialVolumes();
+    }
+    private void ApplyInitialVolumes()
+    {
+        SetVolume("Master", masterVolume);
+        SetVolume("BGM", bgmVolume);
+        SetVolume("SFX", sfxVolume);
+        SetVolume("InGame", inGameVolume);
+        audioMixer.GetFloat("InGame", out float testMaster);
+        Debug.Log("Actual InGame dB: " + testMaster);
     }
 
     public void SetVolume(string parameter, float normalizedValue)
