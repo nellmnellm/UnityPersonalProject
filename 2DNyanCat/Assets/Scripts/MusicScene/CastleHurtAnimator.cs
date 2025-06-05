@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CastleHurtAnimator : MonoBehaviour
@@ -9,10 +10,18 @@ public class CastleHurtAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if (ScoreManager.Instance != null)
             ScoreManager.Instance.OnMissChanged += PlayHurtAnimation;
+        else
+            StartCoroutine(WaitAndRegister());
+    }
+
+    private IEnumerator WaitAndRegister()
+    {
+        yield return new WaitUntil(() => ScoreManager.Instance != null);
+        ScoreManager.Instance.OnMissChanged += PlayHurtAnimation;
     }
 
     private void OnDisable()

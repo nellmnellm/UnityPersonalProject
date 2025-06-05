@@ -4447,7 +4447,7 @@ MonoBehaviour:
   deadLinePrefab: {fileID: 6789913615759411095}
   judgementOffsetText: {fileID: 638110107}
   playerTransform: {fileID: 638110106}
-  resultBGMClip: {fileID: 8300000, guid: 0c9d240ebdc773740b77596f1da70dbe, type: 3}
+  resultBGMClip: {fileID: 8300000, guid: 045c008f054fa224081cc88d7c4ec0cf, type: 3}
   escSound: {fileID: 1621181335}
 --- !u!4 &1724806358
 Transform:

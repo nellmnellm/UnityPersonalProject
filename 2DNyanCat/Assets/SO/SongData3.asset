@@ -19,4 +19,4 @@ MonoBehaviour:
   duration: 300
   composer: W&W
   difficulty: REALLY
-  previewClip: {fileID: 8300000, guid: 098fd465b5ced6c4a9696ee0452df112, type: 3}
+  previewClip: {fileID: 8300000, guid: f50cf43d0bd671448907882c010798cd, type: 3}

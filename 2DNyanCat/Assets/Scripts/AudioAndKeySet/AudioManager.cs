@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         Instance = this;
+        Application.runInBackground = true; //윈도우 포커스 문제
         DontDestroyOnLoad(gameObject);
         
     }

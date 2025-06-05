@@ -137,12 +137,12 @@ public class ScoreManager : MonoBehaviour
             GreatCount * 0.7f +
             GoodCount * 0.4f;
 
-        return weightedHits / TotalNotes;
+        return weightedHits * SettingManager.Instance.playerSettings.ScoreMultiplier / TotalNotes ;
     }
     public string GetRank()
     {
         float acc = GetAccuracyScore();
-
+        if (acc >= 1.00f) return "S+";
         if (acc >= 0.90f) return "S";
         if (acc >= 0.80f) return "A";
         if (acc >= 0.70f) return "B";

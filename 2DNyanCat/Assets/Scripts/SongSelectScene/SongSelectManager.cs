@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +11,9 @@ public class SongSelectManager : MonoBehaviour
     //선곡버튼은 inspector에서 OnSongSelected 연결
     
     public GameObject editorButtons;  //에디터 버튼을 담는 그릇. 버튼 각자는 OnSongSelectedEdit 연결
+
+    public GameObject chartButtonPrefab;          // Chart 목록용 버튼 프리팹
+    public Transform chartListContent;            // 스크롤뷰 - 컨텐츠 오브젝트에 넣기.
 
     public GameObject[] songButtons;  // 3개 버튼 넣기. 3개중에 하나만 비활성화하기 위해
     public SongData[] allSongs;      // 3개 곡 정보 SO 파일 연결
@@ -27,10 +32,12 @@ public class SongSelectManager : MonoBehaviour
 
     public SongPreviewPlayer previewPlayer;
 
-    void Start()
+    IEnumerator Start()
     {
         if (editorButtons != null)
             editorButtons.SetActive(false); // 기본 비활성화
+        yield return null;  
+        OnSongButtonClicked(0);//기본으로 0번 누름
     }
 
     void Update()
@@ -43,6 +50,7 @@ public class SongSelectManager : MonoBehaviour
             {
                 editorButtons.SetActive(true);
                 Debug.Log("에디터 버튼 활성화됨!");
+                PopulateChartListForEditorBySelectedSong();
             }
         }
         else
@@ -54,8 +62,70 @@ public class SongSelectManager : MonoBehaviour
         {
             StartCoroutine(FadeAndExit());
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) && currentSelectedIndex >= 0 && !isExiting)
+        {
+            OnSongSelected(allSongs[currentSelectedIndex]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ChangeSongByOffset(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            ChangeSongByOffset(1);
+        }
+
+        
     }
 
+    private void PopulateChartListForEditorBySelectedSong()
+    {
+        if (currentSelectedIndex < 0 || currentSelectedIndex >= allSongs.Length)
+        {
+            Debug.LogWarning("선택된 곡 인덱스가 유효하지 않습니다.");
+            return;
+        }
+
+        SongData song = allSongs[currentSelectedIndex];
+        string baseName = Path.GetFileNameWithoutExtension(song.videoFileName); // 예: CatRave
+
+        // 기존 버튼 제거
+        foreach (Transform child in chartListContent)
+            Destroy(child.gameObject);
+
+        string chartDir = Path.Combine(Application.streamingAssetsPath, "Charts");
+        Directory.CreateDirectory(chartDir);
+
+        string[] allJsonFiles = Directory.GetFiles(chartDir, "*.json");
+
+        foreach (string path in allJsonFiles)
+        {
+            string fileName = Path.GetFileName(path);
+
+            // baseName 으로 시작하는 json만 표시
+            if (!fileName.StartsWith(baseName)) continue;
+
+            GameObject btn = Instantiate(chartButtonPrefab, chartListContent);
+            btn.GetComponentInChildren<TMP_Text>().text = fileName;
+
+            btn.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                SongLoader.SelectedSong = song; 
+                SongLoader.SelectedChartFileName = fileName;
+                SceneManager.LoadScene("MusicScene");
+            });
+        }
+    }
+
+    private void ChangeSongByOffset(int offset)
+    {
+        currentSelectedIndex = (currentSelectedIndex + offset) % songButtons.Length;
+
+        OnSongButtonClicked(currentSelectedIndex);
+
+    }
     public void OnSongSelected(SongData selectedSong)
     {
         SongLoader.SelectedSong = selectedSong;  //songLoader는 GameManager쪽에 있음

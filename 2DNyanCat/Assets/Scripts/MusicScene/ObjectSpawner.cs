@@ -50,8 +50,20 @@ public class ObjectSpawner : MonoBehaviour
             return new List<NoteData>();
         }
 
-        string baseName = Path.GetFileNameWithoutExtension(SongLoader.SelectedSong.videoFileName);
-        string path = Path.Combine(Application.streamingAssetsPath, "Charts", baseName + ".json");
+        string chartFileName;
+
+        // 커스텀 선택된 파일이 있다면 우선 사용
+        if (!string.IsNullOrEmpty(SongLoader.SelectedChartFileName))
+        {
+            chartFileName = SongLoader.SelectedChartFileName;
+        }
+        else
+        {
+            // 기본 곡 이름으로 fallback
+            chartFileName = Path.GetFileNameWithoutExtension(SongLoader.SelectedSong.videoFileName) + ".json";
+        }
+
+        string path = Path.Combine(Application.streamingAssetsPath, "Charts", chartFileName);
 
         if (!File.Exists(path))
         {

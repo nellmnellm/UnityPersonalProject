@@ -9,6 +9,7 @@ using UnityEngine.Video;
 public static class SongLoader
 {
     public static SongData SelectedSong;
+    public static string SelectedChartFileName;
 }
 
 public class GameManager : MonoBehaviour
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     //비디오 재생 관련
     private VideoPlayer videoPlayer;
     private AudioSource audioSource;
-    private double dspStartTime = 0;
+    //private double dspStartTime = 0; // 추후 개선 예정. (시작 타이밍 동기화를 위해)
     private double realStartTime = 0;
     //private double videoStartTime = 0;
     private Vector2 videoSize = new(1920, 1080);
@@ -320,9 +321,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void ToggleCastle()
-    {
-
+    { 
         castlePrefab.SetActive(!castlePrefab.activeSelf);
+
     }
 
     private void ToggleNoteDeadLine()

@@ -19,4 +19,4 @@ MonoBehaviour:
   duration: 100
   composer: daniwellP
   difficulty: NORMAL
-  previewClip: {fileID: 8300000, guid: b149ebe211e433e499acf933e42f89d6, type: 3}
+  previewClip: {fileID: 8300000, guid: 5fbcfd156597b104c933e92575c2a7c7, type: 3}

@@ -164,18 +164,19 @@ public class NoteEditor : MonoBehaviour
     private void SaveNotesToJson()
     {
         string baseName = Path.GetFileNameWithoutExtension(SongLoader.SelectedSong.videoFileName);
-        string fileName = baseName + ".json";
-        //Charts 폴더에 채보 저장
         string chartDir = Path.Combine(Application.streamingAssetsPath, "Charts");
-        Directory.CreateDirectory(chartDir); // 없으면 자동 생성
-        string path = Path.Combine(chartDir, fileName);
-        if (File.Exists(path))
+        Directory.CreateDirectory(chartDir); // 디렉토리없으면 자동 생성
+
+        int index = 1;
+        string fileName;
+        string path;
+        do
         {
-            string timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string backupPath = path.Replace(".json", $"_backup_{timestamp}.json");
-            File.Copy(path, backupPath, overwrite: true);
-            Debug.Log("기존 파일 백업됨: " + backupPath);
+            fileName = $"{baseName}_{index}.json";
+            path = Path.Combine(chartDir, fileName);
+            index++;
         }
+        while (File.Exists(path));
 
         NoteDataList wrapper = new NoteDataList { notes = notes };
         string json = JsonUtility.ToJson(wrapper, true);

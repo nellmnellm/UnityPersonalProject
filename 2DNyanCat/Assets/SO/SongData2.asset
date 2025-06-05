@@ -19,4 +19,4 @@ MonoBehaviour:
   duration: 300
   composer: xi
   difficulty: HARD
-  previewClip: {fileID: 8300000, guid: 1713292b7910f4547b78319143cba8eb, type: 3}
+  previewClip: {fileID: 8300000, guid: 57ddd3288de5c1049ada602418ee76cd, type: 3}

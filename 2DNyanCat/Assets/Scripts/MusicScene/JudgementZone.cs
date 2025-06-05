@@ -27,11 +27,19 @@ public class JudgeZone : MonoBehaviour
 
     public Note GetFirstNote()
     {
+        Note earliest = null;
+        float minTime = float.MaxValue;
+
         foreach (var note in overlappingNotes)
         {
-            return note; // 가장 먼저 들어온 노트 1개만 반환
+            if (note.HitTime < minTime)
+            {
+                minTime = note.HitTime;
+                earliest = note;
+            }
         }
-        return null;
+
+        return earliest;
     }
 
 }
