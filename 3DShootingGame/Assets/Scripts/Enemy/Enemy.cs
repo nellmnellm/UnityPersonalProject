@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     protected float speed;          //적 속도
     protected Vector3 dir;          //적의 방향 ( 스포너에서 소환되는 경우가 많으므로 감안하고 설정할것)
     protected int HP;               //적의 HP
-    protected int enemyScore;       //적이 주는 점수
+    protected int enemyScore;       //적이 주는 점수'
+    
 
 
     /*   protected void Start()

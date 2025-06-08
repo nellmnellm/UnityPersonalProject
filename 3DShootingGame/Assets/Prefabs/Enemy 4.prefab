@@ -333,4 +333,5 @@ MonoBehaviour:
   firePoint: {fileID: 1079756938039733684}
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   initialPoolSize: 400
+  myBulletMaterial: {fileID: 2100000, guid: ff5e4724323f01545934e2afddac02a9, type: 2}
   rushSpeed: 30

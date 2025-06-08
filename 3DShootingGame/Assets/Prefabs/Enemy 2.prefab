@@ -216,6 +216,7 @@ MonoBehaviour:
   firePoint: {fileID: 7549033204654751048}
   effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   initialPoolSize: 24
+  myBulletMaterial: {fileID: 2100000, guid: ff5e4724323f01545934e2afddac02a9, type: 2}
 --- !u!1 &4051492915122844158
 GameObject:
   m_ObjectHideFlags: 0
